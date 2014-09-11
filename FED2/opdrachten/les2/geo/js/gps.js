@@ -7,6 +7,7 @@
 		},
 
 		startInterval: function(){
+			
 		},
 
 		updatePosition: function(){
