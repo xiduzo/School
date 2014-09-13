@@ -2,19 +2,20 @@
 
 	app.debug = {
 		init: function() {
-			console.log("debug is gestart [5]");
+			app.controller.debugMessage("debug is gestart [5]");
 		},
 
-		geoErrorHandler: function(){
-
+		geoErrorHandler: function(code, message){
+			app.controller.debugMessage('geo.js error '+code+': '+message)
 		},
 
-		debugMessage: function(){
-
+		debugMessage: function(message){
+			(customDebugging && debugId)?document.getElementById(debugId).innerHTML:console.log(message);
 		},
 
-		setCustomDebugging: function(){
-
+		setCustomDebugging: function(debugId){
+			debugId = this.debugId;
+    		customDebugging = true;
 		}
 	}
 

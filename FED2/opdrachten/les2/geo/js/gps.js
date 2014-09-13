@@ -2,12 +2,12 @@
 
 	app.gps = {
 		init: function() {
-			debug_message("Controleer of GPS beschikbaar is...");
+			app.controller.debugMessage("Controleer of GPS beschikbaar is...");
 			app.gps.startInterval();
 		},
 
 		startInterval: function(){
-			debug_message("GPS is beschikbaar, vraag positie.");
+			app.controller.debugMessage("GPS is beschikbaar, vraag positie.");
 			app.gps.updatePosition();
 			interval = self.setInterval(
 				app.gps.startInterval, 
@@ -31,7 +31,7 @@
 		setPosition: function(position){
 			currentPosition = position;
 			ET.fire(POSITION_UPDATED);
-			debug_message(intervalCounter+" positie lat:"+position.coords.latitude+" long:"+position.coords.longitude);
+			app.controller.debugMessage(intervalCounter+" positie lat:"+position.coords.latitude+" long:"+position.coords.longitude);
 		},
 
 		checkLocations: function(event){
@@ -46,13 +46,13 @@
 		                try {
 		                    (localStorage[locaties[i][0]]=="false")?localStorage[locaties[i][0]]=1:localStorage[locaties[i][0]]++;
 		                } catch(error) {
-		                    debug_message("Localstorage kan niet aangesproken worden: "+error);
+		                    app.controller.debugMessage("Localstorage kan niet aangesproken worden: "+error);
 		                }
 
 		// TODO: Animeer de betreffende marker
 
 		                window.location = locaties[i][1];
-		                debug_message("Speler is binnen een straal van "+ locaties[i][2] +" meter van "+locaties[i][0]);
+		                app.controller.debugMessage("Speler is binnen een straal van "+ locaties[i][2] +" meter van "+locaties[i][0]);
 		            }
 		        }
 		    }

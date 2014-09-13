@@ -2,12 +2,16 @@
 
 	app.controller = {
 		init: function() {
-			console.log("controller is gestart [1]");
+			app.controller.debugMessage("controller is gestart...");
 			app.gps.init();
 		},
 
-		isNumber: function(){
+		isNumber: function(n){
+			return !isNaN(parseFloat(n)) && isFinite(n);
+		},
 
+		debugMessage: function(message){
+			console.log(message);
 		}
 	}
 	
