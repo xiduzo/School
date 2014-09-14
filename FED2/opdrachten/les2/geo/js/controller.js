@@ -3,7 +3,7 @@
 	app.controller = {
 		init: function() {
 			app.controller.debugMessage("controller is gestart...");
-			app.gps.init();
+			app.tour.init();
 		},
 
 		isNumber: function(n){

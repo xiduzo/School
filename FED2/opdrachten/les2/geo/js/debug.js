@@ -2,7 +2,7 @@
 
 	app.debug = {
 		init: function() {
-			app.controller.debugMessage("debug is gestart [5]");
+			app.controller.debugMessage("debuggin'......");
 		},
 
 		geoErrorHandler: function(code, message){

@@ -63,13 +63,7 @@
 		    });
 
 		    // Zorg dat de kaart geupdated wordt als het POSITION_UPDATED event afgevuurd wordt
-		    ET.addListener(POSITION_UPDATED, app.map.updatePositie());
-		},
-
-		updatePositie: function(){
-			var newPos = new google.maps.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
-		    map.setCenter(newPos);
-		    currentPositionMarker.setPosition(newPos);
+		    ET.addListener(POSITION_UPDATED, app.tour.updatePositie());
 		}
 	}
 
