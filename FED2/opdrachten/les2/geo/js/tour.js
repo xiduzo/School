@@ -2,7 +2,7 @@
 
 	app.tour = {
 		init: function(){
-			console.log("tour is gestart");
+			app.controller.debugMessage("tour is gestart");
 		},
 
 		updatePositie: function(){

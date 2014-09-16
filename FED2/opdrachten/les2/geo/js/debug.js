@@ -10,7 +10,7 @@
 		},
 
 		debugMessage: function(message){
-			(customDebugging && debugId)?document.getElementById(debugId).innerHTML:console.log(message);
+			(customDebugging && debugId)?document.getElementById(debugId).innerHTML:app.controller.debugMessage(message);
 		},
 
 		setCustomDebugging: function(debugId){

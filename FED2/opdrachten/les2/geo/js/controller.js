@@ -3,7 +3,6 @@
 	app.controller = {
 		init: function() {
 			app.controller.debugMessage("controller is gestart...");
-			app.tour.init();
 		},
 
 		isNumber: function(n){
