@@ -3,7 +3,7 @@
 	app.gps = {
 		init: function() {
 			app.controller.debugMessage("Controleer of GPS beschikbaar is...");
-			app.gps.startInterval();
+			app.gps.startInterval(); // test -> eerst moet gechecked worden of er gps is.
 		},
 
 		startInterval: function(){
