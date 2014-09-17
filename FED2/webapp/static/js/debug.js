@@ -2,9 +2,9 @@
 
 	app.debug = {
 		init: function() {
-			app.debug.debugMessageToConsole("debug is gestart...");
 		},
 
+		// Mooiere manier van een console log (?)
 		debugMessageToConsole: function(message){
 			console.log(message);
 		}
