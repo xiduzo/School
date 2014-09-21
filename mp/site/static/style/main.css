@@ -1,0 +1,435 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+}
+
+a{
+	font-size: 40px;
+}
+
+/* basic */
+body{
+	background-color: #F0F0F0;
+}
+
+nav {
+	display: block;
+	background-color: red;
+	float: left;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	width: 400px;
+	margin-left: -320px;
+}
+
+nav ul {
+	margin-top: 100px;
+}
+
+nav ul li {
+	list-style: none;
+	margin-right: 90px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+nav ul li:nth-child(odd){
+	background-color: orange;
+}
+
+nav ul li em{
+	border-bottom: 1px solid black;
+
+	font-size: 40px;
+}
+
+nav ul li em:after{
+	float: right;
+	margin: 0px 10px;
+	content: "\\/";
+}
+
+nav ul li ul{
+	margin-top: 0px;
+	display: none;
+}
+
+nav ul li ul li{
+	font-size: 20px;
+	padding: 10px;
+}
+
+body > nav > ul > li.geklikt > ul > li > span{
+	width: 50px;
+	background-image: url('../images/kruisje.png');
+	height: 50px;
+	display: block;
+	margin-left: 135px;
+	margin-top: -30px;
+}
+
+#hamburgerMenu{
+	background-image: url('../images/menu.png');
+	width: 50px;
+	height: 50px;
+	margin: 18px;
+	float: right;
+}
+
+header {
+	text-align: center;
+	margin-top: 50px;
+}
+
+/* home */
+header h1 {
+	font-size: 30px;
+}
+
+#homeMovies {
+	width: 90%;
+	float: right;
+	margin-top: 50px;
+}
+
+.movie {
+	width: 500px;
+	height: 300px;
+	border: 2px solid black;
+	margin: 10px;
+	display: inline-block;
+}
+
+.grootMovie {
+	border: 2px solid black;
+	margin: 10px;
+	display: inline-block;
+}
+
+.shortInfo{
+	background-color: rgba(140,140,140,0.2);
+	width: 480px;
+	height: 80px;
+	margin-top: 35px;
+	padding: 10px;
+	font-size: 15px;
+	border-top: 1px solid black;
+}
+
+.knopje{
+	width: 50px;
+	height: 50px;
+	background-image: url('../images/playButton.png');
+	margin: auto;
+	margin-top: 115px;
+	border-radius: 50%;
+}
+
+.kruisje{
+	background-image: url('../images/kruisje.png');
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: auto;
+	margin-top: 115px;
+	float: right;
+}
+
+/* loader */
+.loader {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #282828;
+  border: 7px solid #27b3ea;
+  margin: 5em auto;
+  -webkit-animation: spin 2.5s linear infinite ; 
+    animation: spin 2.5s linear infinite ;
+
+  position: relative;
+  margin: auto;
+  margin-top: 70px;
+
+  display: none;
+
+  /*display: none;*/
+}
+.loader:before {
+  content:"";
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #282828;
+  border: 5px solid #EC0B8D;
+  box-shadow: 0px 0px 0px 7px #282828;
+  position: absolute;
+  top:3px;
+  left: 5px;
+}
+
+@-webkit-keyframes spin {
+    0%   {
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+          }
+    100% {
+          -webkit-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+          }
+}
+
+/* article */
+section > article > p{
+	font-size: 25px;
+	padding: 10px 0;
+}
+
+section article{
+	width: 90%;
+	margin: auto;
+	line-height: 2.3em;
+}
+
+
+/* counter */
+#stemmenMensen{
+	text-align: center;
+	margin-top: 15px;
+	font-size: 17px;
+}
+
+#pieChart{
+	margin-top: 50px;
+}
+
+.arrow
+{
+    position: relative;
+    height: 0px;
+    width: 0px;
+    border-top: 18px solid green;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    position:absolute;
+    bottom:38px;
+    left:129px;
+    z-index:-1;
+    animation: load-arrow 1.6s linear;
+    animation-fill-mode:forwards;
+    -webkit-animation: load-arrow 1.6s linear;
+    -webkit-animation-fill-mode:forwards;
+}
+
+@keyframes load-arrow
+{
+    from {transform: translate(0,0);}
+    to {transform: translate(0,55px);}
+}
+
+@-webkit-keyframes load-arrow
+{
+    from {transform: translate(0,0);}
+    to {transform: translate(0,55px);}
+}
+
+.pie
+{
+	margin-top: 50px;
+    width: 280px;
+    height: 280px;
+    position: relative;
+    border-radius: 280px; 
+    background-color: red;
+    margin:auto;  
+}
+
+.mask
+{
+    position: absolute; 
+    width: 100%; 
+    height: 100%;  
+}
+
+.outer-right
+{
+    clip: rect(0px 280px 280px 140px);
+}
+
+.inner-right
+{
+    background-color: green;
+    position: absolute; 
+    width: 100%; 
+    height: 100%;  
+    border-radius: 100%;
+    clip: rect(0px 140px 280px 0px);
+    -webkit-transform: rotate(170deg);
+    transform: rotate(180deg);
+    animation: load-right 1s linear;
+    -webkit-animation: load-right 1s linear;
+}
+
+@keyframes load-right
+{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(180deg);}
+}
+
+@-webkit-keyframes load-right
+{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(180deg);}
+}
+
+.outer-left
+{
+    clip: rect(0px 140px 280px 0px);
+}
+
+.inner-left
+{
+    background-color: green;
+    position: absolute; 
+    width: 100%; 
+    height: 100%;  
+    border-radius: 100%; 
+    clip: rect(0px 140px 280px 0px);
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    animation: load-left 0.6s linear;
+    animation-delay: 1s;
+    animation-fill-mode:forwards;
+    -webkit-animation: load-left 0.6s linear;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-fill-mode:forwards;
+}
+
+@keyframes load-left
+{
+    from {transform: rotate(-180deg);}
+    to {transform: rotate(-120deg);}
+}
+
+
+@-webkit-keyframes load-left
+{
+    from {transform: rotate(-180deg);}
+    to {transform: rotate(-120deg);}
+}
+
+.content
+{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background-color:#eee;
+    position:absolute;
+    top:88px;
+    left:88px;
+    line-height: 92px;
+    font-family:arial, sans-serif;
+    font-size:35px;
+    text-align: center;
+}
+
+.content span
+{
+    opacity: 0;
+    animation: load-content 3s;
+    animation-fill-mode:forwards;
+    animation-delay: 0.6s;
+    -webkit-animation: load-content 3s;
+    -webkit-animation-fill-mode:forwards;
+    -webkit-animation-delay: 0.6s;
+}
+
+@keyframes load-content
+{
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+@-webkit-keyframes load-content
+{
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+.c {
+  width: 200px;
+  height: 200px;
+  margin: 100px;
+  border: 1px solid gray;
+  position: relative;
+}
+
+.chart {
+  height: 150px;
+  width: 200px;
+  background: green;
+  position: absolute;
+  bottom: 0;
+  animation: mymove 5s;
+  -webkit-animation:mymove 5s; /*Safari and Chrome*/
+}
+
+@keyframes mymove
+{
+from {height:0px;}
+to {height:150px;}
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+from {height:0px;}
+  to {height:150px;}
+}
+
+.donut-chart svg {
+	pointer-events: none;
+}
+.donut-chart svg path {
+	fill: none;
+	stroke-width: 35px;
+	stroke: #19a8ff;
+}
+			
+.donut-chart {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	display: inline-block;
+}
+.donut-chart p {
+	margin: 0;
+	position: absolute;
+	top: 35%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 2em;
+}
+.donut-chart span {
+	display: block;
+	font-size: 0.5em;
+}
+
+
+/* Just for the purpose of this pen */
+body {
+	text-align: center;
+}
+.red svg path {
+  stroke: #ff3333;
+}
+.green svg path {
+  stroke: #6ad44d;
+}

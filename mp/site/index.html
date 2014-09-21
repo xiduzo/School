@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motion Design - Bios App</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sander Boer" />
+    <link href="static/style/main.css" media="screen" rel="stylesheet" type="text/css" />
+   	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+</head>
+<body>
+
+	<header>
+		<h1>Bios app</h1>
+	</header>
+
+    <section>
+    	<div id="homeMovies">
+    		<div class="movie">
+    			<div class="knopje"></div>
+    			<div class="shortInfo">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</div>
+    		</div>
+    		<div class="movie">
+    			<div class="knopje"></div>
+    			<div class="shortInfo">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</div>
+    			<div class="aantalPlekken"></div>
+    		</div>
+    		<div class="movie">
+    			<div class="knopje"></div>
+    			<div class="shortInfo">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</div>
+    			<div class="aantalPlekken"></div>
+    		</div>
+    		<div class="movie">
+    			<div class="knopje"></div>
+    			<div class="shortInfo">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</div>
+    			<div class="aantalPlekken"></div>
+    		</div>
+    		<div class="movie">
+    			<div class="knopje"></div>
+    			<div class="shortInfo">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</div>
+    		</div>
+    		<div class="movie">
+    			<div class="knopje"></div>
+    			<div class="shortInfo">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</div>
+    		</div>
+    		<div class="movie">
+    			<div class="knopje"></div>
+    			<div class="shortInfo">Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</div>
+    		</div>
+    	</div>
+    </section>
+
+    <script type="text/javascript">
+		$(function(){
+			$(".shortInfo").click(function() {
+				$(this).parent().children('.knopje').toggle();
+				if ( $(this).hasClass('longInfo') ){
+					$(this).animate({
+						height: "80px"
+					}, 900);
+					$(this).removeClass('longInfo');
+				} else {
+					$(this).animate({
+						height: "245px"
+					}, 900);
+					$(this).addClass('longInfo');
+				}
+			});
+		});
+	</script>
+
+    <script type="text/javascript">
+		$(function(){
+			$(".knopje").click(function() {
+				$(this).parent().animate({
+					height: "800px",
+					width: "91%",
+				}, 900);
+				$(this).parent().children('.shortInfo').hide();
+				$(this).addClass('kruisje');
+				$(this).removeClass('knopje');
+				$(this).parent().removeClass('movie');
+				$(this).parent().addClass('grootMovie');
+				$(this).parent().parent().children('.movie').toggle(400);
+				$('.kruisje').animate({
+					marginTop: '0px',
+					margin: '0px',
+				}, 1000);
+			});
+		});
+	</script>
+
+    <section>
+    	
+    </section>
+
+    <nav>
+    	<div id="hamburgerMenu"></div>
+    	<ul>
+    		<li class="firstLevel"><em><a href="home.html">Home</a></em></li>
+    		<li class="firstLevel"><em>Films</em>
+    			<ul>
+    				<li>Meest gekeken</li>
+    				<li>Lorum</li>
+    				<li>Ipsem</li>
+    			</ul>
+    		</li>
+    		<li class="firstLevel"><em>Beste films</em>
+    			<ul>
+    				<li>Meest gekeken</li>
+    				<li>Lorum</li>
+    				<li>Ipsem</li>
+    			</ul>
+    		</li>
+    		<li class="firstLevel"><em>Bewaard</em>
+    			<ul>
+    				<li class="secondLevel"><a href="film.html">Film #1 </a><span class="delete"></span></li>
+    				<li class="secondLevel">Film #2 <span class="delete"></span></li>
+    				<li class="secondLevel">Film #3 <span class="delete"></span></li>
+    				<li class="secondLevel">Film #4 <span class="delete"></span></li>
+    				<li class="secondLevel">Film #5 <span class="delete"></span></li>
+    				<li class="secondLevel">Film #6 <span class="delete"></span></li>
+    				<li class="secondLevel">Film #7 <span class="delete"></span></li>
+    			</ul>
+    		</li>
+    	</ul>
+    </nav>
+
+    <script type="text/javascript">
+		$(function(){
+			$("#hamburgerMenu").click(function() {
+				if( $('nav').hasClass('uitGeschoven') ){
+					$('nav').animate({
+						marginLeft: "-320px"
+					}, 900);
+					$('nav').removeClass('uitGeschoven');
+				} else {					
+					$('nav').addClass('uitGeschoven');
+					$('nav').animate(
+	                { marginLeft: "0px" }, 900);
+				}
+			});
+		});
+	</script>
+
+    <script type="text/javascript">
+		$(function(){
+			$("nav ul li.firstLevel em").click(function() {
+				$(this).parent().addClass('geklikt');
+				$(this).parent().children('ul').toggle('300');
+			});
+		});
+	</script>
+
+	 <script type="text/javascript">
+		$(function(){
+			$("li.secondLevel").click(function() {
+				$(this).hide(500);
+			});
+		});
+	</script>
+
+    <footer>
+    	
+    </footer>
+
+    <script type="text/javascript" src="static/js/main.js"></script>
+    <script type="text/javascript" src="static/js/easing.js"></script>
+</body>
+</html>
