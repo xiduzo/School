@@ -1,8 +1,8 @@
 (function(){
-
+	// Make a controller object
 	app.controller = {
 		init: function() {
-			// Start the router
+			// Start the router method init
 			app.router.init();
 		},
 

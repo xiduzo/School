@@ -1,7 +1,20 @@
-section {
+section.inActive {
 	display: none;
 }
 
 section.active {
 	display: block;
+}
+
+nav { 
+	position: fixed;
+	top: .1em;
+}
+
+header nav ul li{
+	display: inline;
+}
+
+main {
+	text-align: center;
 }
