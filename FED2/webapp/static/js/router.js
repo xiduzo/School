@@ -21,7 +21,7 @@
 
 		/*
 		 * This function will render your data object to the DOM via transparency
-		 * @param template string
+		 * @param template String
 		 */
 		render: function(template) {
 			// Make a switch between different templates you want show
@@ -34,8 +34,8 @@
 					}
 					// Render the data to the DOM using Transparency
 					Transparency.render(document.getElementById('about'), aboutTemplate);
-					document.getElementById("movies").className = "inActive";
-					app.router.switchContent('about');
+					// Switch between the two sections
+					app.router.switchContent('about', 'movies');
 				break;
 				case 'movies':
 					var moviesTemplate = {
@@ -65,21 +65,26 @@
 						]	
 					};
 
-					nameDecorator = function() {
+					// Make a new decorator object
+					movieSrc = function() {
+						// return the HTML code
 						return "<img src='" + this.coverDirective + "' />";
 					};
 
+					// Make new directive for the image
 					var directives = {
+						// in the movies array
 						movies: {
-							coverDirective: { 
-								html: nameDecorator 
+							// take the cover directive
+							coverDirective: {
+								// and add it to the DOM (the return of movieSrc)
+								html: movieSrc 
 							}
 						}
 					};
 
 					Transparency.render(document.getElementById('movies'), moviesTemplate, directives);
-					document.getElementById("about").className = "inActive";
-					app.router.switchContent('movies');
+					app.router.switchContent('movies', 'about');
 				break;
 			}
 
@@ -92,8 +97,14 @@
 			//}
 		},
 
-		switchContent: function(section){
-			document.getElementById(section).className = "active";
+		/*
+		 * This function wil switch between the two section by adding classes
+		 * @param activeSection String
+		 * @param inactiveSeciotn String
+		 */
+		switchContent: function(activeSection, inactiveSection){
+			document.getElementById(activeSection).className 	= "active";
+			document.getElementById(inactiveSection).className 	= "inActive";
 		}
 	}
 
