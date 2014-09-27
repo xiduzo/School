@@ -63,8 +63,21 @@
 							coverDirective: 'static/images/the-dark-knight.jpg'
 						}
 						]	
-					}
-					Transparency.render(document.getElementById('movies'), moviesTemplate);
+					};
+
+					nameDecorator = function() {
+						return "<img src='" + this.coverDirective + "' />";
+					};
+
+					var directives = {
+						movies: {
+							coverDirective: { 
+								html: nameDecorator 
+							}
+						}
+					};
+
+					Transparency.render(document.getElementById('movies'), moviesTemplate, directives);
 					document.getElementById("about").className = "inActive";
 					app.router.switchContent('movies');
 				break;
@@ -81,7 +94,6 @@
 
 		switchContent: function(section){
 			document.getElementById(section).className = "active";
-
 		}
 	}
 
