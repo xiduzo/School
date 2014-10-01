@@ -63,14 +63,8 @@
 						cover: {
 							// set the src to
 							src: function(params) {
-								// this.cover -> and add it to the DOM (the return of movieSrc)
+								// this.cover -> and add it to the DOM src of the image
 								return this.cover;
-							}
-						},
-
-						plot: {
-							text: function(params) {
-								return this.plot;
 							}
 						},
 
@@ -80,9 +74,9 @@
 							}
 						},
 
-						revieuws: {
+						simple_plot: {
 							text: function(params) {
-								return this.revieuws;
+								return this.simple_plot;
 							}
 						}
 					};
