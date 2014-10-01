@@ -78,6 +78,12 @@
 							text: function(params) {
 								return this.simple_plot;
 							}
+						},
+
+						reviews: {
+							text: function(params) {
+								return this.reviews[0].score[0];
+							}
 						}
 					};
 					app.router.switchContent('movies', 'about');
