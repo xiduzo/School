@@ -44,7 +44,7 @@
 						Transparency.render(document.getElementById('movies'), JSON.parse(localStorage.getItem('movieData')), directives);
 						// update the local storage (if possible)
 						app.jsonHandling.getJson('GET', 'http://dennistel.nl/movies', function(respons) {
-							// overwrite the local storage
+							// over write the local storage
 							localStorage.setItem('movieData', respons);
 						});
 					} else {
