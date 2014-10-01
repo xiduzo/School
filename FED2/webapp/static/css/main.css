@@ -1,20 +1,77 @@
-section.inActive {
-	display: none;
-}
+.box_shadow_bot, body main#content section#movies article .movie, body nav {
+  box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.6); }
 
-section.active {
-	display: block;
-}
+.box_shadow_top {
+  box-shadow: 0px -2px 10px 0px rgba(50, 50, 50, 0.6); }
 
-nav { 
-	position: fixed;
-	top: .1em;
-}
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  color: #373737;
+  line-height: 1.25em;
+  letter-spacing: .1em; }
 
-header nav ul li{
-	display: inline;
-}
+body {
+  background-color: #fafafa; }
+  body main#content {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 5em; }
+    body main#content section.inActive {
+      display: none; }
+    body main#content section.active {
+      display: block; }
+    body main#content section#about h1 {
+      font-size: 2em; }
+    body main#content section#about p {
+      margin: 1em 0 .4em 0; }
+    body main#content section#movies h1 {
+      text-align: center;
+      font-size: 2em;
+      padding: 0 0 1em 0; }
+    body main#content section#movies article .movie {
+      width: 30%;
+      display: inline-block;
+      border: 1px solid black;
+      margin: 0 .5em 1em .5em;
+      vertical-align: top; }
+      body main#content section#movies article .movie header h1 {
+        margin: 1em 0 .5em 0;
+        font-size: 1.2em;
+        font-weight: bolder; }
+      body main#content section#movies article .movie header em {
+        color: black; }
+        body main#content section#movies article .movie header em time {
+          color: orange;
+          text-decoration: underline; }
+      body main#content section#movies article .movie figure img {
+        width: 250px;
+        height: 370px; }
+      body main#content section#movies article .movie p {
+        padding: .4em .5em;
+        min-height: 5.5em; }
+      body main#content section#movies article .movie:hover {
+        background-color: rgba(120, 120, 120, 0.5); }
+  body nav {
+    border-bottom: 1px solid black;
+    background-color: grey;
+    width: 100%;
+    position: fixed;
+    top: 0; }
+    body nav ul {
+      width: 40%;
+      margin: auto;
+      padding: 1em 0; }
+      body nav ul li {
+        display: inline; }
+        body nav ul li a {
+          padding: 0 1em;
+          font-size: 1.2em;
+          text-decoration: none;
+          color: white; }
+          body nav ul li a:hover {
+            text-decoration: underline; }
 
-main {
-	text-align: center;
-}
+/*# sourceMappingURL=main.css.map */

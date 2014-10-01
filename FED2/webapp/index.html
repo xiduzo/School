@@ -6,7 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>My Favorite Movies</title>
         <link rel="stylesheet" href="static/css/main.css">
-        <link rel="author" href="humans.txt">
+        <link rel="author" href="Sander Boer">
+         <!-- font awesome -->
+	    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<!--[if IE 7]>
+		 	<link rel="stylesheet" href="static/font-awesome/css/font-awesome-ie7.min.css">
+		<![endif]-->
     </head>
     <body>
 		<main id="content">
@@ -23,16 +28,21 @@
 				<h1 data-bind="titleMovies"></h1>
 				
 					<article data-bind="movies">
-						<header>
-							<h1 data-bind="title"></h1>
-							<em>Release date: <time data-bind="releaseDate"></time></em>
-						</header>
+						<div class="movie">
+							<header>
+								<h1 data-bind="title"></h1>
+								<em>Release date: 
+									<time data-bind="release_date"></time>
+								</em>
+								<p data-bind="revieuws"></p>
+							</header>
 
-						<figure>
-							<div data-bind="coverDirective"></div>
-						</figure>
+							<figure>
+								<img data-bind="cover" src="" alt=""/>
+							</figure>
 
-						<p data-bind="descriptionMovie"></p>
+							<p data-bind="plot"></p>
+						</div>
 					</article>
 
 			</section>
@@ -48,9 +58,11 @@
 
 		<script src="static/js/jquery-1.7.1.min.js"></script>
 		<script src="static/js/transparency.min.js"></script>
+		<script src="static/js/underscore.min.js"></script>
 
 		<script src="static/js/routie.js"></script>
         <script src="static/js/main.js"></script>
+        <script src="static/js/jsonHandling.js"></script>
         <script src="static/js/debug.js"></script>
         <script src="static/js/router.js"></script>
         <script src="static/js/controller.js"></script>

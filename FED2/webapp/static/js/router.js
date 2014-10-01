@@ -30,7 +30,7 @@
 					// Make a data object
 					var aboutTemplate = {
 						header: 'Over deze app',
-						description: 'Deze app laat je switchen tussen de \'about\' en \'movies\' door middel van javascript met routie en transparency'
+						description: 'Deze app laat je switchen tussen de \'about\' en \'movies\' door middel van javascript met routie en transparency. -isn\'t that awesome!-'
 					}
 					// Render the data to the DOM using Transparency
 					Transparency.render(document.getElementById('about'), aboutTemplate);
@@ -38,63 +38,57 @@
 					app.router.switchContent('about', 'movies');
 				break;
 				case 'movies':
-					var moviesTemplate = {
-						titleMovies: 'Favorite movies',
-						// Make an array of movies (next step to get them with an API?)
-						movies: 	[ {
-							title: 'Shawshank Redemption',
-							releaseDate: '14 October 1994',
-							descriptionMovie: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-							coverDirective: 'static/images/shawshank-redemption.jpg'
-						}, {
-							title: 'The Godfather',
-							releaseDate: '24 March 1972',
-							descriptionMovie: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
-							coverDirective: 'static/images/the-godfather.jpg'
-						}, {
-							title: 'Pulp Fiction',
-							releaseDate: '14 October 1994',
-							descriptionMovie: 'The lives of two mob hit men, a boxer, a gangster\'s wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
-							coverDirective: 'static/images/pulp-fiction.jpg'
-						}, {
-							title: 'The Dark Knight',
-							releaseDate: '18 July 2008',
-							descriptionMovie: 'When Batman, Gordon and Harvey Dent launch an assault on the mob, they let the clown out of the box, the Joker, bent on turning Gotham on itself and bringing any heroes down to his level.',
-							coverDirective: 'static/images/the-dark-knight.jpg'
-						}
-						]	
-					};
-
-					// Make a new decorator object
-					movieSrc = function() {
-						// return the HTML code
-						return "<img src='" + this.coverDirective + "' />";
-					};
-
+					// check if there is a local storage of the movie data
+					if(localStorage.getItem('movieData')) {
+						// Show the items with local storage (parsed json data)
+						Transparency.render(document.getElementById('movies'), JSON.parse(localStorage.getItem('movieData')), directives);
+						// update the local storage (if possible)
+						app.jsonHandling.getJson('GET', 'http://dennistel.nl/movies', function(respons) {
+							// overwrite the local storage
+							localStorage.setItem('movieData', respons);
+						});
+					} else {
+						// get the (json) data from the server
+						app.jsonHandling.getJson('GET', 'http://dennistel.nl/movies', function(respons) {
+							// show the (parsed) json data
+							Transparency.render(document.getElementById('movies'), JSON.parse(respons), directives);
+							// write in localstorage
+							localStorage.setItem('movieData', respons);
+						});
+					}
+					
 					// Make new directive for the image
 					var directives = {
-						// in the movies array
-						movies: {
-							// take the cover directive
-							coverDirective: {
-								// and add it to the DOM (the return of movieSrc)
-								html: movieSrc 
+						// in the movies array get the cover
+						cover: {
+							// set the src to
+							src: function(params) {
+								// this.cover -> and add it to the DOM (the return of movieSrc)
+								return this.cover;
+							}
+						},
+
+						plot: {
+							text: function(params) {
+								return this.plot;
+							}
+						},
+
+						release_date: {
+							text: function(params) {
+								return this.release_date;
+							}
+						},
+
+						revieuws: {
+							text: function(params) {
+								return this.revieuws;
 							}
 						}
 					};
-
-					Transparency.render(document.getElementById('movies'), moviesTemplate, directives);
 					app.router.switchContent('movies', 'about');
 				break;
 			}
-
-			// simple help code
-			// if(template == "testTemplate"){
-			// 	var foo = {
-			// 	  greeting: 'bar'
-			// 	};
-			// 	Transparency.render(document.getElementById('getID'), foo);
-			//}
 		},
 
 		/*

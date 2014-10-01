@@ -198,238 +198,140 @@ section article{
 	line-height: 2.3em;
 }
 
-
-/* counter */
-#stemmenMensen{
-	text-align: center;
-	margin-top: 15px;
-	font-size: 17px;
+.graph {
+  width: 80%;
+  margin: auto;
 }
 
-#pieChart{
-	margin-top: 50px;
+.graph div {
+  background-color: red;
 }
 
-.arrow
-{
-    position: relative;
-    height: 0px;
-    width: 0px;
-    border-top: 18px solid green;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    position:absolute;
-    bottom:38px;
-    left:129px;
-    z-index:-1;
-    animation: load-arrow 1.6s linear;
-    animation-fill-mode:forwards;
-    -webkit-animation: load-arrow 1.6s linear;
-    -webkit-animation-fill-mode:forwards;
+.cast.animate {
+  width: 10%;
+  animation: myfirst 5s linear;
 }
 
-@keyframes load-arrow
-{
-    from {transform: translate(0,0);}
-    to {transform: translate(0,55px);}
+.cast.animate:active, .cast.animate:hover{
+  width: 70%;
 }
 
-@-webkit-keyframes load-arrow
-{
-    from {transform: translate(0,0);}
-    to {transform: translate(0,55px);}
+.right {
+  float: right;
 }
 
-.pie
-{
-	margin-top: 50px;
-    width: 280px;
-    height: 280px;
-    position: relative;
-    border-radius: 280px; 
-    background-color: red;
-    margin:auto;  
+.circle {
+  width: 158px;
+  height: 158px;
+  margin: 50px auto;
+  text-align: center;
+  background: #51bbb5;
+  overflow: hidden;
+  
+  border-radius: 50%;
+  border: 5px solid #fff;
 }
 
-.mask
-{
-    position: absolute; 
-    width: 100%; 
-    height: 100%;  
+#graph {
+  position: relative;
+  z-index: 1;
+  width: 125px;
+  height: 90px;
+  margin: 30px auto 0;
 }
 
-.outer-right
-{
-    clip: rect(0px 280px 280px 140px);
+#graph div {
+  position: absolute;
+  bottom: 16px;
+  width: 9px;
+  height: 10px;
+  background: #fff;
 }
 
-.inner-right
-{
-    background-color: green;
-    position: absolute; 
-    width: 100%; 
-    height: 100%;  
-    border-radius: 100%;
-    clip: rect(0px 140px 280px 0px);
-    -webkit-transform: rotate(170deg);
-    transform: rotate(180deg);
-    animation: load-right 1s linear;
-    -webkit-animation: load-right 1s linear;
+#graph div:nth-child(n+1) {
+  height:16px;
+  left: 24px;
+  
+  animation: chartIt 2s 1 ease-in-out 0s;
+  -webkit-animation: chartIt 2s 1 ease-in-out 0s;
 }
 
-@keyframes load-right
-{
-    from {transform: rotate(0deg);}
-    to {transform: rotate(180deg);}
+#graph div:nth-child(n+2) {
+  height:26px;
+  left: 37px;
+  
+  animation: chartIt 2s 1 ease-in-out .25s;
+  -webkit-animation: chartIt 2s 1 ease-in-out .25s;
 }
 
-@-webkit-keyframes load-right
-{
-    from {transform: rotate(0deg);}
-    to {transform: rotate(180deg);}
+#graph div:nth-child(n+3) {
+  height:42px;
+  left: 50px;
+  
+  animation: chartIt 2s 1 ease-in-out .5s;
+  -webkit-animation: chartIt 2s 1 ease-in-out .5s;
 }
 
-.outer-left
-{
-    clip: rect(0px 140px 280px 0px);
+#graph div:nth-child(n+4) {
+  height:37px;
+  left: 63px;
+  
+  animation: chartIt 2s 1 ease-in-out .75s;
+  -webkit-animation: chartIt 2s 1 ease-in-out .75s;
 }
 
-.inner-left
-{
-    background-color: green;
-    position: absolute; 
-    width: 100%; 
-    height: 100%;  
-    border-radius: 100%; 
-    clip: rect(0px 140px 280px 0px);
-    -webkit-transform: rotate(-180deg);
-    transform: rotate(-180deg);
-    animation: load-left 0.6s linear;
-    animation-delay: 1s;
-    animation-fill-mode:forwards;
-    -webkit-animation: load-left 0.6s linear;
-    -webkit-animation-delay: 1s;
-    -webkit-animation-fill-mode:forwards;
+#graph div:nth-child(n+5) {
+  height:50px;
+  left: 76px;
+  
+  animation: chartIt 2s 1 ease-in-out 1s;
+  -webkit-animation: chartIt 2s 1 ease-in-out 1s;
 }
 
-@keyframes load-left
-{
-    from {transform: rotate(-180deg);}
-    to {transform: rotate(-120deg);}
+#graph div:nth-child(n+6) {
+  height:60px;
+  left: 89px;
+  
+  animation: chartIt 2s 1 ease-in-out 1.25s;
+  -webkit-animation: chartIt 2s 1 ease-in-out 1.25s;
 }
 
-
-@-webkit-keyframes load-left
-{
-    from {transform: rotate(-180deg);}
-    to {transform: rotate(-120deg);}
+@keyframes chartIt {
+  0% { max-height:60px; }
+  50% { max-height:0px; }
+  100% { max-height:60px; }
 }
 
-.content
-{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    background-color:#eee;
-    position:absolute;
-    top:88px;
-    left:88px;
-    line-height: 92px;
-    font-family:arial, sans-serif;
-    font-size:35px;
+@-webkit-keyframes chartIt {
+  0% { max-height:60px; }
+  50% { max-height:0px; }
+  100% { max-height:60px; }
+}
+
+#swipeme {
+    margin: 40px auto 0;
+    border: 3px solid #000;
+    width: 64%;
+    height: 200px;
+    line-height: 200px;
+    background: #888;
+    font-size: 40px;
+    font-weight: 700;
     text-align: center;
 }
 
-.content span
-{
-    opacity: 0;
-    animation: load-content 3s;
-    animation-fill-mode:forwards;
-    animation-delay: 0.6s;
-    -webkit-animation: load-content 3s;
-    -webkit-animation-fill-mode:forwards;
-    -webkit-animation-delay: 0.6s;
+footer {
+  margin-left: 40%;
 }
 
-@keyframes load-content
-{
-    from {opacity:0;}
-    to {opacity:1;}
+.banner { position: relative; overflow: auto; }
+    .banner li { list-style: none; }
+        .banner ul li { float: left; }
+
+.swipe.groot {
+  width: 400px;
 }
 
-@-webkit-keyframes load-content
-{
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
-.c {
+.swipe.klein {
   width: 200px;
-  height: 200px;
-  margin: 100px;
-  border: 1px solid gray;
-  position: relative;
-}
-
-.chart {
-  height: 150px;
-  width: 200px;
-  background: green;
-  position: absolute;
-  bottom: 0;
-  animation: mymove 5s;
-  -webkit-animation:mymove 5s; /*Safari and Chrome*/
-}
-
-@keyframes mymove
-{
-from {height:0px;}
-to {height:150px;}
-}
-
-@-webkit-keyframes mymove /*Safari and Chrome*/
-{
-from {height:0px;}
-  to {height:150px;}
-}
-
-.donut-chart svg {
-	pointer-events: none;
-}
-.donut-chart svg path {
-	fill: none;
-	stroke-width: 35px;
-	stroke: #19a8ff;
-}
-			
-.donut-chart {
-	width: 200px;
-	height: 200px;
-	position: relative;
-	display: inline-block;
-}
-.donut-chart p {
-	margin: 0;
-	position: absolute;
-	top: 35%;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	font-size: 2em;
-}
-.donut-chart span {
-	display: block;
-	font-size: 0.5em;
-}
-
-
-/* Just for the purpose of this pen */
-body {
-	text-align: center;
-}
-.red svg path {
-  stroke: #ff3333;
-}
-.green svg path {
-  stroke: #6ad44d;
 }
