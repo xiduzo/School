@@ -82,7 +82,7 @@
 
 						reviews: {
 							text: function(params) {
-								return this.reviews[0].score[0];
+								return this.reviews.score;
 							}
 						}
 					};
