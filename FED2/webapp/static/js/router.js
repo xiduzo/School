@@ -7,18 +7,22 @@
 				// Listens to #about
 			    'about': function() {
 			    	// Test so that you can see if it respond to #about in your url
-			    	app.debug.debugMessageToConsole('about is aangeklikt');
+			    	app.debug.debugMessageToConsole('> about');
 			    	// Render de content
 			    	app.router.render('about');
 			    },
 			    // Listens to #movies
 			    'movies': function() {
-			    	app.debug.debugMessageToConsole('movies is aangeklikt');
+			    	app.debug.debugMessageToConsole('> movies');
 			    	app.router.render('movies');
 			    },
 
 			    'movies/gerne/:gerne': function(gerne) {
-			    	app.debug.debugMessageToConsole('gerne: '+gerne);
+			    	app.debug.debugMessageToConsole('>> ' + gerne);
+			    },
+
+			    'movies/:id': function(id) {
+			    	app.debug.debugMessageToConsole('>> ' + id);
 			    }
 			});
 		},
@@ -69,6 +73,18 @@
 							}
 						},
 
+						// make the movei title clickable, routie can listen to this new hashes
+						movieUrl: {
+							// Set the link
+							href: function() {
+								return '#movies/'+this.id;
+							},
+							// set the title of the link
+							text: function() {
+								return this.title;
+							}
+						},
+
 						release_date: {
 							text: function() {
 								return this.release_date;
@@ -81,13 +97,25 @@
 							}
 						},
 
+						// Get the average score of a movie based on its' reviews
 						reviewScore: {
 							text: function(){
+								// First reduce all the review scores to one total score
 								var totalReviewScore = this.reviews.reduce(function(memo, reviews){
 									return memo + reviews.score;
 								}, 0);
-								
-								return totalReviewScore / this.reviews.length;
+
+								// Then devide this by the amount of reviews
+								var averageScore = totalReviewScore / this.reviews.length;
+
+								// Check if the averageScore value is a number
+								if (app.controller.isNumber(averageScore)){
+									// if so returns this number
+									return averageScore;
+								} else {
+									// else returns this text
+									return 'Geen review score beschikbaar';
+								}
 							}
 						}
 					};

@@ -29,7 +29,7 @@
 				<article data-bind="movies">
 					<div class="movie">
 						<header>
-							<h1 data-bind="title"></h1>
+							<h1><a data-bind="movieUrl"></a></h1>
 							<em>Release date: 
 								<time data-bind="release_date"></time>
 							</em>
@@ -50,7 +50,16 @@
 		<nav>
 			<ul>
 				<li><a href="#about">About</a></li>
-				<li><a href="#movies">Movies</a></li>
+				<li><a href="#movies">Movies</a>
+					<ul class="hover1">
+						<li>gerne sort
+							<ul>	
+								<li><a href="#movies/gerne/horror">Horror</a></li>
+								<li><a href="#movies/gerne/triller">Triller</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 
