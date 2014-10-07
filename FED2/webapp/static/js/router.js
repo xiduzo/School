@@ -15,6 +15,10 @@
 			    'movies': function() {
 			    	app.debug.debugMessageToConsole('movies is aangeklikt');
 			    	app.router.render('movies');
+			    },
+
+			    'movies/gerne/:gerne': function(gerne) {
+			    	app.debug.debugMessageToConsole('gerne: '+gerne);
 			    }
 			});
 		},
@@ -38,51 +42,51 @@
 					app.router.switchContent('about', 'movies');
 				break;
 				case 'movies':
-					// check if there is a local storage of the movie data
-					if(localStorage.getItem('movieData')) {
-						// Show the items with local storage (parsed json data)
-						Transparency.render(document.getElementById('movies'), JSON.parse(localStorage.getItem('movieData')), directives);
-						// update the local storage (if possible)
-						app.jsonHandling.getJson('GET', 'http://dennistel.nl/movies', function(respons) {
-							// over write the local storage
-							localStorage.setItem('movieData', respons);
-						});
-					} else {
+					// check if there is a local storage of the movie data					
+					// if(localStorage.getItem('movieData')) {
+					// 	// log to console that you got the info from local storage
+					// 	app.debug.debugMessageToConsole('rendered data from local storage');
+					// 	// Show the items with local storage (parsed json data)
+					// 	Transparency.render(document.getElementById('movies'), JSON.parse(localStorage.getItem('movieData')), directives);
+					// } else {
 						// get the (json) data from the server
-						app.jsonHandling.getJson('GET', 'http://dennistel.nl/movies', function(respons) {
+						app.jsonHandling.getJson('GET', 'http://dennistel.nl/movies', function(response) {
 							// show the (parsed) json data
-							Transparency.render(document.getElementById('movies'), JSON.parse(respons), directives);
+							Transparency.render(document.getElementById('movies'), JSON.parse(response), directives);
 							// write in localstorage
-							localStorage.setItem('movieData', respons);
+							localStorage.setItem('movieData', response);
 						});
-					}
+					//}
 					
-					// Make new directive for the image
+					// Make new directives
 					var directives = {
 						// in the movies array get the cover
 						cover: {
 							// set the src to
-							src: function(params) {
+							src: function() {
 								// this.cover -> and add it to the DOM src of the image
 								return this.cover;
 							}
 						},
 
 						release_date: {
-							text: function(params) {
+							text: function() {
 								return this.release_date;
 							}
 						},
 
 						simple_plot: {
-							text: function(params) {
+							text: function() {
 								return this.simple_plot;
 							}
 						},
 
 						reviews: {
-							text: function(params) {
-								return this.reviews.score;
+							text: function(){
+								var totalReviewScore = this.reviews.reduce(function(memo, reviews){
+									return memo + reviews.score;
+								}, 0);
+								return totalReviewScore / this.reviews.length;
 							}
 						}
 					};
