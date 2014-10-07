@@ -24,27 +24,25 @@
 				</section>
 			</section>
 
-			<section data-route="movies" id="movies">
+			<section id="movies">
 				<h1 data-bind="titleMovies"></h1>
-				
-					<article data-bind="movies">
-						<div class="movie">
-							<header>
-								<h1 data-bind="title"></h1>
-								<em>Release date: 
-									<time data-bind="release_date"></time>
-								</em>
-								<p data-bind="reviews"></p>
-							</header>
+				<article data-bind="movies">
+					<div class="movie">
+						<header>
+							<h1 data-bind="title"></h1>
+							<em>Release date: 
+								<time data-bind="release_date"></time>
+							</em>
+							<div data-bind="reviewScore"></div>
+						</header>
 
-							<figure>
-								<img data-bind="cover" src="" alt=""/>
-							</figure>
+						<figure>
+							<img data-bind="cover" src="" alt=""/>
+						</figure>
 
-							<p data-bind="simple_plot"></p>
-						</div>
-					</article>
-
+						<p data-bind="simple_plot"></p>
+				</article>
+				</div>
 			</section>
 									
 		</main>
@@ -53,8 +51,6 @@
 			<ul>
 				<li><a href="#about">About</a></li>
 				<li><a href="#movies">Movies</a></li>
-				<li><a href="#movies/gerne/horror">Horror</a></li>
-				<li><a href="#movies/gerne/comedy">Comedy</a></li>
 			</ul>
 		</nav>
 

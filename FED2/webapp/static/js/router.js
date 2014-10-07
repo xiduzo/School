@@ -42,7 +42,7 @@
 					app.router.switchContent('about', 'movies');
 				break;
 				case 'movies':
-					// check if there is a local storage of the movie data					
+					// //check if there is a local storage of the movie data					
 					// if(localStorage.getItem('movieData')) {
 					// 	// log to console that you got the info from local storage
 					// 	app.debug.debugMessageToConsole('rendered data from local storage');
@@ -81,11 +81,12 @@
 							}
 						},
 
-						reviews: {
+						reviewScore: {
 							text: function(){
 								var totalReviewScore = this.reviews.reduce(function(memo, reviews){
 									return memo + reviews.score;
 								}, 0);
+								
 								return totalReviewScore / this.reviews.length;
 							}
 						}
