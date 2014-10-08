@@ -24,6 +24,7 @@
 
 			    'movies/:id': function(id) {
 			    	app.debug.debugMessageToConsole('>> ' + id);
+			    	app.router.render('movies', id);
 			    }
 			});
 		},
@@ -71,21 +72,13 @@
 
 				// Get the average score of a movie based on its' reviews
 				reviewScore: {
-					text: function(){
-						// First reduce all the review scores to one total score
-						var totalReviewScore = this.reviews.reduce(function(memo, reviews){
-							return memo + reviews.score;
-						}, 0);
-
-						// Then devide this by the amount of reviews
-						var averageScore = totalReviewScore / this.reviews.length;
-
-						// Check if the averageScore value is a number
-						if (app.controller.isNumber(averageScore)){
+					text: function(){						
+						// Check if the score value is a number
+						if (app.controller.isNumber(this.reviews)){
 							// if so returns this number
-							return averageScore;
+							return this.reviews;
 						} else {
-							// else returns this text
+							// else returns this string
 							return 'Geen review score beschikbaar';
 						}
 					}
@@ -110,13 +103,35 @@
 					if(localStorage.getItem('movieData')) {
 						var jsonData = JSON.parse(localStorage.getItem('movieData'));
 
-						if(filter != '') {
-							if(filter == 'horror') {
-								jsonData.filter(function(jsonData){
-									return jsonData.gernes == 'horror';
-								})
+						// Reduce the review scores to one average score
+						_.map(jsonData, function(movie){
+							// Get all the scores
+							movie.reviews = _.reduce(movie.reviews, function(totalScore, review) { 
+								// Sum them into one number
+								return totalScore + review.score; 
+								// Set the base to 0 and devide the totalScore with the amount of reviews
+							}, 0) / _.size(movie.reviews);
+						});
+
+						// Check if you got a (not empty) parameter
+						if(filter) {
+							// If this is a number (movie ID)
+							if(app.controller.isNumber(filter)) {
+								jsonData = _.filter(jsonData, function(movie) {
+									return _.where(movie, {id: filter});
+								});
+							// If this is a string (type of movie)
+							} else {
+								// Filter the jsonData
+								jsonData = _.filter(jsonData, function(movie) {
+									// returns every movie which got the gerne of the filter parameter. 
+									return _.contains(movie.genres, filter); 
+								});
 							}
 						}
+
+						// log the data oject you're working with
+						app.debug.debugMessageToConsole(jsonData);
 						// log to console that you got the info from local storage
 						app.debug.debugMessageToConsole('[rendered data from >local storage<]');
 						// Show the items with local storage (parsed json data)
@@ -133,12 +148,12 @@
 
 								}
 							}
+							// Render the data to the DOM
 							Transparency.render(document.getElementById('movies'), jsonData, directives);
 							// write in localstorage
 							localStorage.setItem('movieData', response);
 						});
 					}
-					
 					app.router.switchContent('movies', 'about');
 				break;
 			}
