@@ -17,9 +17,9 @@
 			    	app.router.render('movies');
 			    },
 
-			    'movies/gerne/:gerne': function(gerne) {
-			    	app.debug.debugMessageToConsole('>> ' + gerne);
-			    	app.router.render('movies', gerne);
+			    'movies/gerne/:genre': function(genre) {
+			    	app.debug.debugMessageToConsole('>> ' + genre);
+			    	app.router.render('movies', genre);
 			    },
 
 			    'movies/:id': function(id) {
@@ -104,7 +104,7 @@
 						var jsonData = JSON.parse(localStorage.getItem('movieData'));
 
 						// Reduce the review scores to one average score
-						_.map(jsonData, function(movie){
+						_.map(jsonData, function(movie) {
 							// Get all the scores
 							movie.reviews = _.reduce(movie.reviews, function(totalScore, review) { 
 								// Sum them into one number
@@ -142,12 +142,6 @@
 							var jsonData = JSON.parse(response);
 							// log to console that you got the info from local storage
 							app.debug.debugMessageToConsole('[rendered data from >get request<]')
-							// show the (parsed) json data
-							if(filter != '') {
-								if(filter == 'horror') {
-
-								}
-							}
 							// Render the data to the DOM
 							Transparency.render(document.getElementById('movies'), jsonData, directives);
 							// write in localstorage
