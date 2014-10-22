@@ -25,7 +25,7 @@ function startRouter() {
 function renderContent(content, filter) {
 	debugMessageToConsole('je hebt gekozen voor:' +content+ ' met de filter ' + filter);
 	Transparency.render(document.getElementById(content), getContent(content, filter), getDirectives(content));
-	if (content = "movies") {
+	if (content === "movies") {
 		switchContent("movies", "about");
 	} else {
 		switchContent("about", "movies");
@@ -54,7 +54,7 @@ function getJson(filter) {
 	} catch(err) {
 		debugMessageToConsole(err);
 	} finally {
-		getJsonXHR("GET", "http://dennistel.nl/movies", function(response) {
+		XHR("GET", "http://dennistel.nl/movies", function(response) {
 			localStorage.setItem("movieData", response);
 		});
 	}
@@ -74,7 +74,7 @@ function getJson(filter) {
 	return jsonData;
 }
 
-function getJsonXHR(type, url, success, data) {
+function XHR(type, url, success, data) {
 	var req = new XMLHttpRequest;
 	req.open(type, url, true);
 	req.setRequestHeader("Content-type","application/json");
