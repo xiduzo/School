@@ -1,9 +1,6 @@
-// Make a namespace -so that multiple .js files can communicate with eachother
-var app = app || {};
-
-(function(){
+//(function(){
 	startRouter();
-})();
+//})();
 
 function startRouter() {
 	routie({
@@ -25,11 +22,7 @@ function startRouter() {
 function renderContent(content, filter) {
 	debugMessageToConsole('je hebt gekozen voor:' +content+ ' met de filter ' + filter);
 	Transparency.render(document.getElementById(content), getContent(content, filter), getDirectives(content));
-	if (content === "movies") {
-		switchContent("movies", "about");
-	} else {
-		switchContent("about", "movies");
-	}
+	content == "movies" ? switchContent("movies", "about") : switchContent("about", "movies");
 }
 
 function getContent(content, filter) {
@@ -44,24 +37,25 @@ function getContent(content, filter) {
 			template = getJson(filter);
 		break;
 	}
+
 	return template;
 }
 
 function getJson(filter) {
 	try {
 		jsonData = JSON.parse(localStorage.getItem("movieData"));
-		if (_.isEmpty(jsonData)) throw "Geen local storage beschikbaar";
+		throw _.isEmpty(jsonData) ? "Geen local storage beschikbaar" : "Items worden opgehaald uit de local storage";
 	} catch(err) {
 		debugMessageToConsole(err);
 	} finally {
-		XHR("GET", "http://dennistel.nl/movies", function(response) {
+		getJsonData("GET", "http://dennistel.nl/movies", function(response) {
 			localStorage.setItem("movieData", response);
 		});
 	}
 	
 	_.map(jsonData, function(movie) {
-		movie.reviews = _.reduce(movie.reviews, function(totalScore, review) {
-			return totalScore + review.score;
+		movie.reviews = _.reduce(movie.reviews, function(grade, review) {
+			return grade + review.score;
 		}, 0) / _.size(movie.reviews);
 	});
 
@@ -74,14 +68,14 @@ function getJson(filter) {
 	return jsonData;
 }
 
-function XHR(type, url, success, data) {
+function getJsonData(type, url, success, data) {
 	var req = new XMLHttpRequest;
 	req.open(type, url, true);
 	req.setRequestHeader("Content-type","application/json");
 
 	type === "POST" ? req.send(data) : req.send(null);
 
-	req.onreadystatechange = function() {
+	req.onreadystatechange = function() {	
 		if (req.readyState === 4) {
 			if (req.status === 200 || req.status === 201) {
 				success(req.responseText);
@@ -125,6 +119,7 @@ function getDirectives(directives) {
 			};
 		break;
 	}
+
 	return directives;
 }
 
