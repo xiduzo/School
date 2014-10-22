@@ -1,4 +1,5 @@
 (function(){
+	debugger;
 
 	app.router = {
 		init: function() {
