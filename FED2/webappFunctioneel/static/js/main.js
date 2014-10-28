@@ -20,8 +20,13 @@
 		});
 	}
 
+	function loader() {
+		$('#loader').toggleClass('active');
+		setTimeout(function () { $('#loader').toggleClass('active'); }, 2000);
+	}
+
 	function renderContent(content, filter) {
-		$('main').toggleClass('loading');
+		loader();
 		content == "movies" ? switchContent("movies", "about") : switchContent("about", "movies");
 		Transparency.render(document.getElementById(content), getContent(content, filter), getDirectives(content));
 	}
@@ -87,7 +92,6 @@
 		type === "POST" ? req.send(data) : req.send(null);
 
 		req.onreadystatechange = function() {
-			//$('#content').toggleClass('loading');	
 			if (req.readyState === 4) {
 				if (req.status === 200 || req.status === 201) {
 					success(req.responseText);

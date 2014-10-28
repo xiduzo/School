@@ -19,14 +19,26 @@ body {
     margin: auto;
     text-align: center;
     margin-top: 2em; }
+    body #content #loader {
+      display: none;
+      background: url("../images/loader.gif");
+      background-repeat: no-repeat; }
+      body #content #loader.active {
+        width: 40%;
+        margin: auto;
+        height: 100px;
+        display: block; }
     body #content section.inActive {
       display: none; }
     body #content section.active {
       display: block; }
-    body #content section#about h1 {
-      font-size: 2em; }
-    body #content section#about p {
-      margin: 1em 0 .4em 0; }
+    body #content section#about {
+      width: 80%;
+      margin: 0 0 1em 2.5em; }
+      body #content section#about h1 {
+        font-size: 2em; }
+      body #content section#about p {
+        margin: 1em 0 .4em 0; }
     body #content section#movies {
       right: 0; }
       body #content section#movies h1 {
