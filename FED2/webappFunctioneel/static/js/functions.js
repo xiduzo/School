@@ -1,5 +1,5 @@
 (function(){
 	$("#navHandleBar").click(function () {
-        $('nav').toggleClass('activeNav');
+        $('#navHandleBar').parent().toggleClass('activeNav');
     });
 })();

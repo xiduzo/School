@@ -64,6 +64,8 @@ body {
     body nav #navHandleBar {
       float: right;
       margin: 1em; }
+      body nav #navHandleBar i {
+        font-size: 2.5em; }
     body nav.activeNav {
       left: 0em; }
     body nav ul {

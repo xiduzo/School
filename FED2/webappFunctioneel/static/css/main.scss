@@ -95,6 +95,9 @@ body {
 		left: -11em;
 		width: 15em;
 		#navHandleBar {
+			i {
+				font-size: $fontSize * 2.5;
+			}
 			float: right;
 			margin: 1em;
 		}
