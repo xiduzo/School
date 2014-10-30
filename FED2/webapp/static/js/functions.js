@@ -11,16 +11,16 @@
 	// swipe event to the right
 	navigation.on("panright", function(ev) {
 	    nav.classList.add('activeNav');
-	    navButton.childNodes[0].classList.remove('icon-reorder');
-	    navButton.childNodes[0].classList.add('icon-remove');
+	    //navButton.childNodes[0].classList.remove('icon-reorder');
+	    //navButton.childNodes[0].classList.add('icon-remove');
 	    header.classList.add('activeNav');
 	});
 
 	// swipe event to the left
 	navigation.on("panleft", function(ev) {
 	    nav.classList.remove('activeNav');
-	    navButton.childNodes[0].classList.add('icon-reorder');
-	    navButton.childNodes[0].classList.remove('icon-remove');
+	    //navButton.childNodes[0].classList.add('icon-reorder');
+	    //navButton.childNodes[0].classList.remove('icon-remove');
 	    header.classList.remove('activeNav');
 	});
 
@@ -28,7 +28,7 @@
 	navigation.on("tap press", function(ev) {
 	    nav.classList.toggle('activeNav');
 	    //navButton.childNodes[0].classList.toggle('icon-reorder');
-	    //navButton.childNodes[0].classList.togle('icon-remove');
+	    //navButton.childNodes[0].classList.toggle('icon-remove');
 	    header.classList.toggle('activeNav');
 	});
 

@@ -73,6 +73,10 @@ body {
         margin: 1em; }
         body #content header#mainHeader #navHandleBar i {
           font-size: 2.5em; }
+      body #content header#mainHeader h1 {
+        font-size: 1.2em;
+        text-align: center;
+        margin: 1em 0 0 0; }
     body #content #loader {
       display: none;
       background: url("../images/loader.gif");

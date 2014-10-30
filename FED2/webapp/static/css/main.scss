@@ -85,6 +85,11 @@ body {
 				float: left;
 				margin: 1em;
 			}
+			h1 {
+				font-size: $fontSize *1.2;
+				text-align: center;
+				margin: 1em 0 0 0;
+			}
 		}
 		#loader {
 			display: none;
