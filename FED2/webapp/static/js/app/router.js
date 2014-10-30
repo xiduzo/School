@@ -6,7 +6,7 @@
 		 *	In this init the routie lister will listen to the URL
 		 */
 		init: function() {
-			// Make a new routie
+			// Make a new routie {hash listner} : function()
 			routie({
 				// if empty show this
 			    '': function() {
@@ -84,35 +84,17 @@
 			} catch(err) {
 				app.debug.debugMessageToConsole(err);
 			} finally {
-				app.router.getJsonData("GET", "http://dennistel.nl/movies", function(response) {
+				app.jsonHandling.getJsonData("GET", "http://dennistel.nl/movies", function(response) {
 					localStorage.setItem("movieData", response);
 				});
 			}
 			
+			// if there is a filter given
 			if(filter) {
 				app.router.filterData(jsonData, filter);
 			}
 
 			return jsonData;
-		},
-
-		/*
-		 *	This function will get you your JSON data from an API
-		 */
-		getJsonData: function(type, url, success, data) {
-			var req = new XMLHttpRequest;
-			req.open(type, url, true);
-			req.setRequestHeader("Content-type","application/json");
-
-			type === "POST" ? req.send(data) : req.send(null);
-
-			req.onreadystatechange = function() {
-				if (req.readyState === 4) {
-					if (req.status === 200 || req.status === 201) {
-						success(req.responseText);
-					}
-				}
-			}
 		},
 
 		/*

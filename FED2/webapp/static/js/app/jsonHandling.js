@@ -4,7 +4,7 @@
 		init: function() {
 
 		},
-
+		// Get the json from an XHR call
 		getJson: function (type, url, success, data) {
 			var req = new XMLHttpRequest;
 			req.open(type, url, true);
