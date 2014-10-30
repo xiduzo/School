@@ -124,7 +124,7 @@
 		filterData: function(json, filter) {
 			if(app.controller.isNumber(filter)) {
 				jsonData = _.find(json, function(movie){ 
-					return movie.id  == filter; 
+					return movie.id == filter; 
 				});
 			} else {
 				jsonData = _.filter(json, function(movie) {
@@ -192,7 +192,6 @@
 			});
 			return json;
 		},
-
 
 		/*
 		 * This function wil switch between the two section by adding classes

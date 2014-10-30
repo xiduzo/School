@@ -50,9 +50,19 @@ $grey: rgb(149, 165, 166);
   100% { left: 0em; }
 }
 
+@include keyframes(hideNav) {
+  0%   { left: 0em; }
+  100% { left: -15em; }
+}
+
 @include keyframes(moveHeader) {
   0%   { margin-left: 0em; }
   100% { margin-left: 15em; }
+}
+
+@include keyframes(moveHeaderBack) {
+  0%   { margin-left: 15em; }
+  100% { margin-left: 0em; }
 }
 
 * {
@@ -75,6 +85,11 @@ body {
 			background-color: $yellow;
 			&.activeNav {
 				@include animation('moveHeader .7s 1');
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			&.inActiveNav {
+				@include animation('moveHeaderBack .7s 1');
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
@@ -174,6 +189,11 @@ body {
 		width: 15em;
 		&.activeNav {
 			@include animation('showNav .7s 1');
+			-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+		}
+		&.inActiveNav {
+			@include animation('hideNav .7s 1');
 			-webkit-animation-fill-mode: forwards;
 			animation-fill-mode: forwards;
 		}

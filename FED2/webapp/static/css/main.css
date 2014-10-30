@@ -24,6 +24,26 @@
     left: -15em; }
   100% {
     left: 0em; } }
+@-webkit-keyframes hideNav {
+  0% {
+    left: 0em; }
+  100% {
+    left: -15em; } }
+@-moz-keyframes hideNav {
+  0% {
+    left: 0em; }
+  100% {
+    left: -15em; } }
+@-o-keyframes hideNav {
+  0% {
+    left: 0em; }
+  100% {
+    left: -15em; } }
+@keyframes hideNav {
+  0% {
+    left: 0em; }
+  100% {
+    left: -15em; } }
 @-webkit-keyframes moveHeader {
   0% {
     margin-left: 0em; }
@@ -44,6 +64,26 @@
     margin-left: 0em; }
   100% {
     margin-left: 15em; } }
+@-webkit-keyframes moveHeaderBack {
+  0% {
+    margin-left: 15em; }
+  100% {
+    margin-left: 0em; } }
+@-moz-keyframes moveHeaderBack {
+  0% {
+    margin-left: 15em; }
+  100% {
+    margin-left: 0em; } }
+@-o-keyframes moveHeaderBack {
+  0% {
+    margin-left: 15em; }
+  100% {
+    margin-left: 0em; } }
+@keyframes moveHeaderBack {
+  0% {
+    margin-left: 15em; }
+  100% {
+    margin-left: 0em; } }
 * {
   margin: 0;
   padding: 0;
@@ -66,6 +106,13 @@ body {
         -moz-animation: moveHeader .7s 1;
         -o-animation: moveHeader .7s 1;
         animation: moveHeader .7s 1;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards; }
+      body #content header#mainHeader.inActiveNav {
+        -webkit-animation: moveHeaderBack .7s 1;
+        -moz-animation: moveHeaderBack .7s 1;
+        -o-animation: moveHeaderBack .7s 1;
+        animation: moveHeaderBack .7s 1;
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards; }
       body #content header#mainHeader #navHandleBar {
@@ -139,6 +186,13 @@ body {
       -moz-animation: showNav .7s 1;
       -o-animation: showNav .7s 1;
       animation: showNav .7s 1;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards; }
+    body nav.inActiveNav {
+      -webkit-animation: hideNav .7s 1;
+      -moz-animation: hideNav .7s 1;
+      -o-animation: hideNav .7s 1;
+      animation: hideNav .7s 1;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards; }
     body nav ul {

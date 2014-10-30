@@ -9,27 +9,23 @@
 	// by default, it only adds horizontal recognizers
 	var navigation 	= new Hammer(navButton);
 	// swipe event to the right
-	navigation.on("panright", function(ev) {
-	    nav.classList.add('activeNav');
-	    //navButton.childNodes[0].classList.remove('icon-reorder');
-	    //navButton.childNodes[0].classList.add('icon-remove');
-	    header.classList.add('activeNav');
+	navigation.on("panright left", function() {
+		nav.classList.contains('activeNav') ? nav.classList.remove('inActiveNav') : nav.classList.add('activeNav');
+	    header.classList.contains('activeNav') ? header.classList.remove('inActiveNav') : header.classList.add('activeNav');
 	});
 
 	// swipe event to the left
-	navigation.on("panleft", function(ev) {
-	    nav.classList.remove('activeNav');
-	    //navButton.childNodes[0].classList.add('icon-reorder');
-	    //navButton.childNodes[0].classList.remove('icon-remove');
-	    header.classList.remove('activeNav');
+	navigation.on("panleft", function() {
+	    nav.classList.contains('activeNav') ? nav.classList.add('inActiveNav') : nav.classList.remove('activeNav');
+	    header.classList.contains('activeNav') ? header.classList.add('inActiveNav') : header.classList.remove('activeNav');
 	});
 
 	// for the tap / press gesture on a link
 	navigation.on("tap press", function(ev) {
 	    nav.classList.toggle('activeNav');
-	    //navButton.childNodes[0].classList.toggle('icon-reorder');
-	    //navButton.childNodes[0].classList.toggle('icon-remove');
+	    nav.classList.toggle('inActiveNav');
 	    header.classList.toggle('activeNav');
+	    header.classList.toggle('inActiveNav');
 	});
 
 })();
