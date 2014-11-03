@@ -1,7 +1,9 @@
 $fontSize: 1em;
-$supportColor: orange;
-$yellow: rgb(244, 208, 63);
-$grey: rgb(149, 165, 166);
+$supportColor: #E25D33;
+$header: $supportColor;
+$grey: #6C7A89;
+$normalColor: #DCD8CF;
+$background: #282827;
 
 // Extends
 .box_shadow_bot {
@@ -69,12 +71,12 @@ $grey: rgb(149, 165, 166);
 	margin: 0;
 	padding: 0;
 	font-size: $fontSize;
-	color: rgb(55, 55, 55);
+	color: $normalColor;
 	line-height: 1.25em;
 	letter-spacing: .1em;
 }
 body {
-	background-color: rgb(250,250,250);
+	background-color: $background;
 	#content {
 		text-align: center;
 		header#mainHeader {
@@ -82,7 +84,7 @@ body {
 			width: 100%;
 			height: 4em;
 			position: fixed;
-			background-color: $yellow;
+			background-color: $header;
 			&.activeNav {
 				@include animation('moveHeader .7s 1');
 				-webkit-animation-fill-mode: forwards;
@@ -115,6 +117,9 @@ body {
 				margin: auto;
 				height: 100px;
 				display: block;
+				position: fixed;
+				top: 10em;
+				left: 45%;
 			}
 		}
 		section {
@@ -145,9 +150,12 @@ body {
 					padding: 0 0 1em 0;
 				}
 				article {
+					&:last-child {
+						padding-bottom: 2em;
+					}
 					.movie {
 						width: 100%;
-						border: 1px solid black;
+						border: 1px solid $normalColor;
 						vertical-align: top;
 						header {
 							h1 {
@@ -180,13 +188,14 @@ body {
 	}
 
 	nav {
-		border-bottom: 1px solid black;
 		background-color: $grey;
 		min-height: 100%;
 		position: fixed;
 		top: 0;
 		left: -15em;
 		width: 15em;
+		// overflow:scroll;
+  //   	overflow-x:none;
 		&.activeNav {
 			@include animation('showNav .7s 1');
 			-webkit-animation-fill-mode: forwards;
@@ -198,7 +207,7 @@ body {
 			animation-fill-mode: forwards;
 		}
 		ul {
-			padding: 6em 0 0 1em;
+			padding: 3em 0 0 1em;
 			li {
 				list-style: none;
 				padding: 0 0 1em 0;

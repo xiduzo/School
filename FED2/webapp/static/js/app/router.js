@@ -33,6 +33,11 @@
 			});
 		},
 
+		loader: function() {
+			document.getElementById('loader').classList.toggle('active');
+			setTimeout(function () { document.getElementById('loader').classList.toggle('active'); }, 2000);
+		},
+
 		/*
 		 *	This function will render the content into the DOM with transparency
 		 *	@param {string}			content
@@ -41,6 +46,8 @@
 		render: function(content, filter) {
 			// Switching between the content pages
 			content == "movies" ? app.router.switchContent("movies", "about") : app.router.switchContent("about", "movies");
+			// Set a fake loader
+			app.router.loader();
 			// Render the data into the HTML DOM
 			Transparency.render(document.getElementById(content), app.router.getContent(content, filter), app.router.getDirectives(content));
 		},
@@ -84,7 +91,7 @@
 			} catch(err) {
 				app.debug.debugMessageToConsole(err);
 			} finally {
-				app.jsonHandling.getJsonData("GET", "http://dennistel.nl/movies", function(response) {
+				app.jsonHandling.getJson("GET", "http://dennistel.nl/movies", function(response) {
 					localStorage.setItem("movieData", response);
 				});
 			}
