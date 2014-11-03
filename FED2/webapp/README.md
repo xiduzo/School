@@ -1,5 +1,7 @@
 # Web App
 
+Voor de Web App heb ik een paar style regels opgesteld waaraan ik mezelf graag aan zou willen houden.
+
 ## HTML
 
 > Probeer alles semantiek correct te houden
