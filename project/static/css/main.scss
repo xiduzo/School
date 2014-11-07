@@ -1,0 +1,103 @@
+$fontSize: 1em;
+$lineHeigt: 1.625em;
+$letterSpacing: 0.0625em;
+
+$menuBackgroundColor: rgb(108, 122, 137);
+
+// animations
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+//navigation
+@include keyframes(showNav) {
+  0%   { left: 5%; }
+  100% { left: 15%; }
+}
+
+@include keyframes(hideNav) {
+  0%   { left: 15%; }
+  100% { left: 5%; }
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	font-size: $fontSize;
+	line-height: $lineHeigt;
+	letter-spacing: $letterSpacing;
+}
+
+body {
+	main {
+		width: 95%;
+		left: 5%;
+		background-color: green;
+		height: 50px;
+		position: absolute;
+		z-index: 2;
+		min-height: 100%;
+		&.activeNav {
+			@include animation('showNav .7s 1');
+			-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+		}
+		&.inActiveNav {
+			@include animation('hideNav .7s 1');
+			-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+		}
+	}
+
+	nav {
+		background-color: $menuBackgroundColor;
+		height: 100%;
+		position: fixed;
+		width: 14.375em;
+		z-index: 1;
+		#navButton {
+			margin: 0 0 0 .35em;
+			font-size: $fontSize * 2;
+		}
+		ul {
+			li {
+				a {
+					font-size: $fontSize * 1.2;
+					margin: 0 0 0 .5em;
+					i {
+						font-size: $fontSize * 1.5;
+						margin: 0 .5em 0 0;
+					}
+				}
+			}
+		}
+	}
+}

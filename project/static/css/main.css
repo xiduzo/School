@@ -1,0 +1,86 @@
+@-webkit-keyframes showNav {
+  0% {
+    left: 5%; }
+  100% {
+    left: 15%; } }
+@-moz-keyframes showNav {
+  0% {
+    left: 5%; }
+  100% {
+    left: 15%; } }
+@-o-keyframes showNav {
+  0% {
+    left: 5%; }
+  100% {
+    left: 15%; } }
+@keyframes showNav {
+  0% {
+    left: 5%; }
+  100% {
+    left: 15%; } }
+@-webkit-keyframes hideNav {
+  0% {
+    left: 15%; }
+  100% {
+    left: 5%; } }
+@-moz-keyframes hideNav {
+  0% {
+    left: 15%; }
+  100% {
+    left: 5%; } }
+@-o-keyframes hideNav {
+  0% {
+    left: 15%; }
+  100% {
+    left: 5%; } }
+@keyframes hideNav {
+  0% {
+    left: 15%; }
+  100% {
+    left: 5%; } }
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.625em;
+  letter-spacing: 0.0625em; }
+
+body main {
+  width: 95%;
+  left: 5%;
+  background-color: green;
+  height: 50px;
+  position: absolute;
+  z-index: 2;
+  min-height: 100%; }
+  body main.activeNav {
+    -webkit-animation: showNav .7s 1;
+    -moz-animation: showNav .7s 1;
+    -o-animation: showNav .7s 1;
+    animation: showNav .7s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
+  body main.inActiveNav {
+    -webkit-animation: hideNav .7s 1;
+    -moz-animation: hideNav .7s 1;
+    -o-animation: hideNav .7s 1;
+    animation: hideNav .7s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
+body nav {
+  background-color: #6c7a89;
+  height: 100%;
+  position: fixed;
+  width: 14.375em;
+  z-index: 1; }
+  body nav #navButton {
+    margin: 0 0 0 .35em;
+    font-size: 2em; }
+  body nav ul li a {
+    font-size: 1.2em;
+    margin: 0 0 0 .5em; }
+    body nav ul li a i {
+      font-size: 1.5em;
+      margin: 0 .5em 0 0; }
+
+/*# sourceMappingURL=main.css.map */
