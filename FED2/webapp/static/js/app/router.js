@@ -144,7 +144,7 @@
 								return this.title;
 							}
 						},
-						release_date: {
+						releaseDate: {
 							text: function() {
 								return this.release_date;
 							}
