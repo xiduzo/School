@@ -170,11 +170,6 @@
 								return this.title;
 							}
 						},
-						release_date: {
-							text: function() {
-								return this.release_date;
-							}
-						},
 						reviewScore: {
 							text: function(){	
 								return app.controller.isNumber(this.reviews) ? this.reviews : "Geen review score beschikbaar";
