@@ -49,7 +49,7 @@
 			// Set a fake loader
 			app.router.loader();
 			// Render the data into the HTML DOM
-			Transparency.render(document.getElementById(content), app.router.getContent(content, filter), app.router.getDirectives(content));
+			Transparency.render(document.getElementById(content), app.router.getContent(content, filter), app.router.getDirectives(content, filter));
 		},
 
 		/*
@@ -129,9 +129,33 @@
 		 *	@param {string}		directives
 		 *	@return {object}	directives
 		 */
-		getDirectives: function(directives) {
+		getDirectives: function(directives, filter) {
 			switch(directives) {
 				case "movies":
+				if(app.controller.isNumber(filter)) {
+					directives = {
+						cover: {
+							src: function() {
+								return this.cover;
+							}
+						},
+						movieUrl: {
+							text: function() {
+								return this.title;
+							}
+						},
+						release_date: {
+							text: function() {
+								return this.release_date;
+							}
+						},
+						longPlot: {
+							text: function() {
+								return this.plot;
+							}
+						}
+					};
+				} else {
 					directives = {
 						cover: {
 							src: function() {
@@ -151,17 +175,19 @@
 								return this.release_date;
 							}
 						},
-						simple_plot: {
-							text: function() {
-								return this.simple_plot;
-							}
-						},
 						reviewScore: {
 							text: function(){	
 								return app.controller.isNumber(this.reviews) ? this.reviews : "Geen review score beschikbaar";
 							}
+						},
+						simplePlot: {
+							text: function() {
+								return this.simple_plot;
+							}
 						}
 					};
+				}
+					
 				break;
 			}
 
