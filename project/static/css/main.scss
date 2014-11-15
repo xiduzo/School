@@ -45,7 +45,7 @@ $gasMainColor: rgb(189, 228, 191);
     }
 }
 
-//navigation
+//Animations
 @include keyframes(showNav) {
     0% { left: 0%; }
     100% { left: 25%; }
@@ -55,7 +55,6 @@ $gasMainColor: rgb(189, 228, 191);
     0% { left: 25%; }
     100% { left: 0%; }
 }
-
 
 * {
     padding: 0;
@@ -155,6 +154,7 @@ body {
             position: absolute;
             margin: 8em 0 0 2em;
             height: 24em;
+            width: 32em;
             #maxUse, #minUse {
                 color: $lightGrey;
                 border-bottom: 1px solid $lightGrey;
@@ -163,17 +163,25 @@ body {
                 margin: 4em 0 7em 0;
             }
             #dates {
+                position: relative;
                 height: 100%;
                 ul {
+                    position: absolute;
+                    bottom: 0;
                     li {
                         display: inline-block;
                         text-decoration: none;
                         text-align: center;
                         vertical-align: bottom;
+                        width: 13.375%;
+                        span {
+                            margin: 1em 0 0 0;
+                        }
                     }
                 }
                 .usages {
-                    width: 68px;
+                    width: 100%;
+                    height: 100%;
                     .electricityUse {
                         background-color: $electricityMainColor;
                     }
@@ -278,7 +286,7 @@ body {
         background-color: $menuBackgroundColor;
         height: 100%;
         position: fixed;
-        width: 16em;
+        width: 25%;
         z-index: 1;
         #whoIs {
             width: 100%;

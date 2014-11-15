@@ -1,3 +1,7 @@
+<?
+include('includes/addFunctions.php');
+include('includes/templates.php');
+?>
 <!doctype html>
 <html>
     <head>
@@ -49,66 +53,66 @@
 				<?
 				$maxHeigt = 370;
 
-				$electricity 	= $maxHeigt * 0.25;
-				$water 			= $maxHeigt * 0.25;
-				$gas 			= $maxHeigt * 0.25;
+				$electricity 	= $maxHeigt * 0.33;
+				$water 			= $maxHeigt * 0.33;
+				$gas 			= $maxHeigt * 0.33;
 				?>
 
 				<div id="dates">
 					<ul id="weekView">
 						<li>
 							<div class="usages">
-								<div class="electricityUse" style="height:"<?=$electricity?>"px;"><span>3.45 KwH</span></div>
-								<div class="waterUse" style="height:"<?=$water?>"px;"><span>3.45 Liter</span></div>
-								<div class="gasUse" style="height:"<?=$gas?>"px;"><span>3.45 KwH</span></div>
+								<div class="electricityUse" style="height:<?=$electricity-rand(5,50)?>px;"><span>3.45 KwH</span></div>
+								<div class="waterUse" style="height:<?=$water-rand(5,50)?>px;"><span>3.45 Liter</span></div>
+								<div class="gasUse" style="height:<?=$gas-rand(5,50)?>px;"><span>3.45 KwH</span></div>
 							</div>
 							<span>Ma</span>
 						</li>
 						<li>
 							<div class="usages">
-								<div class="electricityUse" style="height:<?=$electricity?>px;"><span>3.45 KwH</span></div>
-								<div class="waterUse" style="height:<?=$water?>px;"><span>3.45 Liter</span></div>
-								<div class="gasUse" style="height:<?=$gas?>px;"><span>3.45 KwH</span></div>
+								<div class="electricityUse" style="height:<?=$electricity-rand(5,50)?>px;"><span>3.45 KwH</span></div>
+								<div class="waterUse" style="height:<?=$water-rand(5,50)?>px;"><span>3.45 Liter</span></div>
+								<div class="gasUse" style="height:<?=$gas-rand(5,50)?>px;"><span>3.45 KwH</span></div>
 							</div>
 							<span>Di</span>
 						</li>
 						<li>
 							<div class="usages">
-								<div class="electricityUse" style="height:<?=$electricity?>px;"><span>3.45 KwH</span></div>
-								<div class="waterUse" style="height:<?=$water?>px;"><span>3.45 Liter</span></div>
-								<div class="gasUse" style="height:<?=$gas?>px;"><span>3.45 KwH</span></div>
+								<div class="electricityUse" style="height:<?=$electricity-rand(5,50)?>px;"><span>3.45 KwH</span></div>
+								<div class="waterUse" style="height:<?=$water-rand(5,50)?>px;"><span>3.45 Liter</span></div>
+								<div class="gasUse" style="height:<?=$gas-rand(5,50)?>px;"><span>3.45 KwH</span></div>
 							</div>
 							<span>Wo</span>
 						</li>
 						<li>
 							<div class="usages">
-								<div class="electricityUse" style="height:<?=$electricity?>px;"><span>3.45 KwH</span></div>
-								<div class="waterUse" style="height:<?=$water?>px;"><span>3.45 Liter</span></div>
-								<div class="gasUse" style="height:<?=$gas?>px;"><span>3.45 KwH</span></div>
+								<div class="electricityUse" style="height:<?=$electricity-rand(5,50)?>px;"><span>3.45 KwH</span></div>
+								<div class="waterUse" style="height:<?=$water-rand(5,50)?>px;"><span>3.45 Liter</span></div>
+								<div class="gasUse" style="height:<?=$gas-rand(5,50)?>px;"><span>3.45 KwH</span></div>
 							</div>
 							<span>Do</span>
 						</li>
 						<li>
 							<div class="usages">
-								<div class="electricityUse" style="height:<?=$electricity?>px;"><span>3.45 KwH</span></div>
-								<div class="waterUse" style="height:<?=$water?>px;"><span>3.45 Liter</span></div>
-								<div class="gasUse" style="height:<?=$gas?>px;"><span>3.45 KwH</span></div>
+								<div class="electricityUse" style="height:<?=$electricity-rand(5,50)?>px;"><span>3.45 KwH</span></div>
+								<div class="waterUse" style="height:<?=$water-rand(5,50)?>px;"><span>3.45 Liter</span></div>
+								<div class="gasUse" style="height:<?=$gas-rand(5,50)?>px;"><span>3.45 KwH</span></div>
 							</div>
 							<span>Vr</span>
 						</li>
 						<li>
 							<div class="usages">
-								<div class="electricityUse" style="height:<?=$electricity?>px;"><span>3.45 KwH</span></div>
-								<div class="waterUse" style="height:<?=$water?>px;"><span>3.45 Liter</span></div>
-								<div class="gasUse" style="height:<?=$gas?>px;"><span>3.45 KwH</span></div>
+								<div class="electricityUse" style="height:<?=$electricity-rand(5,50)?>px;"><span>3.45 KwH</span></div>
+								<div class="waterUse" style="height:<?=$water-rand(5,50)?>px;"><span>3.45 Liter</span></div>
+								<div class="gasUse" style="height:<?=$gas-rand(5,50)?>px;"><span>3.45 KwH</span></div>
 							</div>
 							<span>Za</span>
 						</li>
 						<li>
 							<div class="usages">
-								<div class="electricityUse" style="height:<?=$electricity?>px;"><span>3.45 KwH</span></div>
-								<div class="waterUse" style="height:<?=$water?>px;"><span>3.45 Liter</span></div>
-								<div class="gasUse" style="height:<?=$gas?>px;"><span>3.45 KwH</span></div>
+								<div class="electricityUse" style="height:<?=$electricity-rand(5,50)?>px;"><span>3.45 KwH</span></div>
+								<div class="waterUse" style="height:<?=$water-rand(5,50)?>px;"><span>3.45 Liter</span></div>
+								<div class="gasUse" style="height:<?=$gas-rand(5,50)?>px;"><span>3.45 KwH</span></div>
 							</div>
 							<span>Zo</span>
 						</li>
