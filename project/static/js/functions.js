@@ -1,8 +1,11 @@
+// By Xiduzo
+
 (function(){
 
 	// create my listners
 	var navButton 	= document.getElementById('navButton');
 	var content		= document.getElementById('mainContent');
+	var header		= document.getElementById('mainHeader');
 
 	// create a simple instance
 	// by default, it only adds horizontal recognizers
@@ -29,6 +32,8 @@
 	function showNav() {
 		content.classList.remove('inActiveNav');
 		content.classList.add('activeNav');
+		header.classList.remove('inActiveNav');
+		header.classList.add('activeNav');
 	}
 
 	/*
@@ -37,6 +42,8 @@
 	function hideNav() {
 		content.classList.remove('activeNav');
 		content.classList.add('inActiveNav');
+		header.classList.remove('activeNav');
+		header.classList.add('inActiveNav');
 	}
 
 })();
