@@ -130,7 +130,7 @@ body {
                 padding: 0 0 0 1em;
                 border: .1em solid $lightGrey;
             }
-            button {
+            #loginButton {
                 width: 59%;
                 margin: auto;
                 display: inherit;
@@ -143,8 +143,9 @@ body {
                 margin-bottom: 3em;
             }
             a {
-                margin: 0 20% 0 0;
+                padding: 0 20% 2em 20%;
                 float: right;
+                font-weight: bold;
             }
         } // End login page
 

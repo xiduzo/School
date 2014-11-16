@@ -1,9 +1,9 @@
 <?
 session_start();
 
-include('includes/addFunctions.php');
-include('includes/templates.php');
-include('includes/checks.php');
+include 'includes/addFunctions.php';
+include 'includes/templates.php';
+include 'includes/checks.php';
 
 checkUser();
 ?>
@@ -22,10 +22,11 @@ checkUser();
 
 		<main id="mainContent">
 
-		<? if($_POST['login']): ?>
-
+		<? if($_POST['loginUser']): ?>
 		<?
-			checkLogin($_POST['klantNummer'], $_POST['wachtwoord']);
+			$klantNummer = $_POST['klantNummer'];
+			$wachtwoord = $_POST['wachtwoord'];
+			checkLogin($klantNummer, $wachtwoord);
 		?>
 
 		<? else: ?>
@@ -35,7 +36,7 @@ checkUser();
 				<input type="text" name="klantNummer" placeholder="Klantnummer">
 				<input type="password" name="wachtwoord" placeholder="Wachtwoord">
 
-				<button type="submit" name="login">Inloggen</button>
+				<input id="loginButton" type="submit" value="Inloggen" name="loginUser">
 
 				<a href="#vergeten">Inloggegevens vergeten?</a> <br/>
 				<a href="#aanvragen">Mijn WoonEnergie aanvragen?</a>
@@ -45,7 +46,7 @@ checkUser();
 		</main>
 
 
-		<!-- extern -->
+		<!-- JS scripts -->
 		<?
 			// Extern
 			addJS('static/js/extern/hammer.min.js');

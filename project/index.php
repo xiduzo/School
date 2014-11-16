@@ -1,10 +1,11 @@
 <?
 session_start();
 
-include('includes/addFunctions.php');
-include('includes/templates.php');
-include('includes/checks.php');
+include 'includes/addFunctions.php';
+include 'includes/templates.php';
+include 'includes/checks.php';
 
+//checkUser();
 ?>
 <!doctype html>
 <html>
@@ -36,19 +37,17 @@ include('includes/checks.php');
 				<ul id="dateToggle">
 				<?
 					$dateToggle = $_GET['dateToggle'];
-				?>
-					<li><a href="?dateToggle=day" <?=$dateToggle == 'day' ? 'class="active"' : ''?>>Dag</a></li>
-					<li><a href="?dateToggle=week" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
-					<li><a href="?dateToggle=month" <?=$dateToggle == 'month' ? 'class="active"' : ''?>>Maand</a></li>
-					<li><a href="?dateToggle=year" <?=$dateToggle == 'year' ? 'class="active"' : ''?>>Jaar</a></li>
-				</ul>
-
-				<?
 					$displayToggle = $_GET['displayToggle'];
 				?>
+					<li><a href="?dateToggle=day&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'day' ? 'class="active"' : ''?>>Dag</a></li>
+					<li><a href="?dateToggle=week&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
+					<li><a href="?dateToggle=month&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'month' ? 'class="active"' : ''?>>Maand</a></li>
+					<li><a href="?dateToggle=year&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'year' ? 'class="active"' : ''?>>Jaar</a></li>
+				</ul>
+
 				<ul id="displayToggle">
-					<li><a href="?displayToggle=area" <?=$displayToggle == 'area' ? 'class="active"' : ''?>><i class="fa fa-area-chart"></i></a></li>
-					<li><a href="?displayToggle=bar" <?=$displayToggle == 'bar' ? 'class="active"' : ''?>><i class="fa fa-bar-chart"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&displayToggle=area" <?=$displayToggle == 'area' ? 'class="active"' : ''?>><i class="fa fa-area-chart"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&displayToggle=bar" <?=$displayToggle == 'bar' ? 'class="active"' : ''?>><i class="fa fa-bar-chart"></i></a></li>
 				</ul>
 			</div>
 
@@ -138,7 +137,7 @@ include('includes/checks.php');
 			mainNavigation('Jan Groot', 'verbruik');
 		?>
 
-		<!-- extern -->
+		<!-- JS scripts -->
 		<?
 			// Extern
 			addJS('static/js/extern/hammer.min.js');

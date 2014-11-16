@@ -111,7 +111,7 @@ body main {
     margin: auto;
     padding: 0 0 0 1em;
     border: 0.1em solid #bfbfbf; }
-  body main #loginForm button {
+  body main #loginForm #loginButton {
     width: 59%;
     margin: auto;
     display: inherit;
@@ -123,8 +123,9 @@ body main {
     margin-top: 3em;
     margin-bottom: 3em; }
   body main #loginForm a {
-    margin: 0 20% 0 0;
-    float: right; }
+    padding: 0 20% 2em 20%;
+    float: right;
+    font-weight: bold; }
   body main #viewToggle {
     height: 4em;
     width: 100%;
