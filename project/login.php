@@ -1,0 +1,58 @@
+<?
+session_start();
+
+include('includes/addFunctions.php');
+include('includes/templates.php');
+include('includes/checks.php');
+
+checkUser();
+?>
+<!doctype html>
+<html>
+    <head>
+    	<?
+    		head('home');
+
+	        addCSS('static/css/main.css');
+	        //font awesome
+	        addCSS('static/font-awesome/css/font-awesome.min.css');
+        ?>
+    </head>
+    <body>
+
+		<main id="mainContent">
+
+		<? if($_POST['login']): ?>
+
+		<?
+			checkLogin($_POST['klantNummer'], $_POST['wachtwoord']);
+		?>
+
+		<? else: ?>
+			<form id="loginForm" method="post" action="<?=$_SERVER['PHP_SELF']?>">
+				<legend>Inloggen Mijn WoonEnergie</legend>
+
+				<input type="text" name="klantNummer" placeholder="Klantnummer">
+				<input type="password" name="wachtwoord" placeholder="Wachtwoord">
+
+				<button type="submit" name="login">Inloggen</button>
+
+				<a href="#vergeten">Inloggegevens vergeten?</a> <br/>
+				<a href="#aanvragen">Mijn WoonEnergie aanvragen?</a>
+			</form>
+		<? endif; ?>
+			
+		</main>
+
+
+		<!-- extern -->
+		<?
+			// Extern
+			addJS('static/js/extern/hammer.min.js');
+			addJS('static/js/extern/jquery-1.7.1.min.js');
+
+			// Self
+			addJS('static/js/functions.js');
+		?>
+    </body>
+</html>

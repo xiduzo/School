@@ -23,7 +23,7 @@
 
 	// for the tap / press gesture on a link
 	navigation.on("tap press", function(ev) {
-		content.classList.contains('inActiveNav') ? showNav() : hideNav();
+		content.classList.contains('activeNav') ? hideNav() : showNav();
 	});
 
 	/*
