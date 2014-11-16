@@ -134,7 +134,8 @@ include 'includes/checks.php';
 		</main>
 
 		<?
-			mainNavigation('Jan Groot', 'verbruik');
+			$userName = 'Jan Groot';
+			mainNavigation($userName, 'verbruik');
 		?>
 
 		<!-- JS scripts -->
