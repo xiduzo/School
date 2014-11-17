@@ -6,6 +6,7 @@ include 'includes/templates.php';
 include 'includes/checks.php';
 
 checkUser();
+
 ?>
 <!doctype html>
 <html>
@@ -23,12 +24,11 @@ checkUser();
 		<main id="mainContent">
 
 		<? if($_POST['loginUser']): ?>
-		<?
-			$klantNummer = $_POST['klantNummer'];
-			$wachtwoord = $_POST['wachtwoord'];
-			checkLogin($klantNummer, $wachtwoord);
-		?>
-
+			<?
+				$klantNummer = $_POST['klantNummer'];
+				$wachtwoord = $_POST['wachtwoord'];
+				checkLogin($klantNummer, $wachtwoord);
+			?>
 		<? else: ?>
 			<form id="loginForm" method="post" action="<?=$_SERVER['PHP_SELF']?>">
 				<legend>Inloggen Mijn WoonEnergie</legend>

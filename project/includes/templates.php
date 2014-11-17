@@ -67,7 +67,7 @@ function mainNavigation($whoIs, $activePage) {
 					</a>
 				</li>
 				<li class="'. (($activePage == "loguit") ? $active : $inActive ) .'">
-					<a href="#loguit">
+					<a href="/school/project/logout.php">
 						<i class="fa fa-book"></i>
 						Log uit
 					</a>
