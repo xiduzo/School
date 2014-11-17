@@ -21,11 +21,9 @@ function checkLogin($username, $password) {
 
 	$checkConnection = mysqli_connect($host,$user,$pass,$db) or die('Geen connectie mogenlijk met de database');
 
-	$q 	= "SELECT klantNummer FROM school_project_users WHERE klantNummer = $username AND wachtwoord = $password";
+	$q 	= "SELECT klantNummer FROM school_project_users WHERE klantNummer = ".$username." AND wachtwoord = ".$password."";
 
 	$result = mysqli_query($checkConnection, $q) or die("Error: ".mysqli_error($checkConnection));
-
-	die($result);
 
 	if($result) {
 		$_SESSION['user'] = $result;
