@@ -99,7 +99,7 @@ if($_SESSION['user']){
 							<div class="usage">
 								<div class="realUse">
 									<em id="realEnergy">3.45</em>/12 <br/>
-									<span>totaal verbruik (KwH)</span>
+									<span>totaal verbruik (kWh)</span>
 								</div>
 								<div class="toEuros">
 									&euro; 3.04 <br/>
@@ -114,7 +114,7 @@ if($_SESSION['user']){
 							<div class="usage">
 								<div class="realUse">
 									<em id="realWater">3.45</em>/12 <br/>
-									<span>totaal verbruik (KwH)</span>
+									<span>totaal verbruik (kWh)</span>
 								</div>
 								<div class="toEuros">
 									&euro; 3.04 <br/>
@@ -143,7 +143,7 @@ if($_SESSION['user']){
 				<!-- end all -->
 
 			<? elseif($viewToggle == 'energy'): ?>
-				<div id="deatailDataDisplay">
+				<div id="detailDataDisplay">
 					<h1>Electriciteitsverbruik
 						<span> vandaag, 
 							<?
@@ -151,9 +151,14 @@ if($_SESSION['user']){
 							?>
 						</span>
 					</h1>
+
+					<div id="detailDisplayInfo">
+						<div class="circleDetail" id="circelEnergy"><i class="fa fa-bolt"></i></div>
+						Verbruik <span>3.45 kWh</span>
+					</div>
 				</div>
 			<? elseif($viewToggle == 'water'): ?>
-				<div id="deatailDataDisplay">
+				<div id="detailDataDisplay">
 					<h1>Waterverbruik
 						<span> vandaag, 
 							<?
@@ -161,9 +166,14 @@ if($_SESSION['user']){
 							?>
 						</span>
 					</h1>
+				
+					<div id="detailDisplayInfo">
+						<div class="circleDetail" id="circelWater"><i class="fa fa-anchor"></i></div>
+						Verbruik <span>3.45 Liter</span>
+					</div>
 				</div>
 			<? elseif($viewToggle == 'gas'): ?>
-				<div id="deatailDataDisplay">
+				<div id="detailDataDisplay">
 					<h1>Gasverbruik
 						<span> vandaag, 
 							<?
@@ -171,6 +181,11 @@ if($_SESSION['user']){
 							?>
 						</span>
 					</h1>
+
+					<div id="detailDisplayInfo">
+						<div class="circleDetail" id="circelGas"><i class="fa fa-database"></i></div>
+						Verbruik <span>3.45 kWh</span>
+					</div>
 				</div>
 			<? endif; ?>
 		</main>

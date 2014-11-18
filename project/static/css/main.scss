@@ -3,7 +3,10 @@ $lineHeigt: 1.625em;
 $letterSpacing: 0.0625em;
 
 $menuBackgroundColor: rgb(0, 0, 0);
-$lightGrey: rgb(191, 191, 191);
+$submenuBackgroundColor: rgb(242, 242, 242);
+
+$grey: rgb(191, 191, 191);
+$lightGrey: lighten($submenuBackgroundColor, 2%);
 $whoIs: rgb(72, 72, 72);
 $activeNavItem: rgb(71, 188, 231);
 
@@ -76,7 +79,7 @@ body {
         #navButton {
             margin: 0;
             font-size: $fontSize * 2;
-            color: $lightGrey;
+            color: $grey;
         }
         &.activeNav {
             @include animation("showNav .7s 1");
@@ -128,7 +131,7 @@ body {
                 height: 3em;
                 margin: auto;
                 padding: 0 0 0 1em;
-                border: .1em solid $lightGrey;
+                border: .1em solid $grey;
             }
             #loginButton {
                 width: 46.5%;
@@ -153,7 +156,7 @@ body {
         #viewToggle {
             height: 4em;
             width: 100%;
-            background-color: rgb(242, 242, 242);
+            background-color: $submenuBackgroundColor;
             border-bottom: .2em solid rgb(223, 223, 223);
             ul{
                 width: 67%;
@@ -211,8 +214,8 @@ body {
             height: 24em;
             width: 32em;
             #maxUse, #minUse {
-                color: $lightGrey;
-                border-bottom: 1px solid $lightGrey;
+                color: $grey;
+                border-bottom: 1px solid $grey;
             }
             #maxUse {
                 margin: 4em 0 7em 0;
@@ -311,7 +314,7 @@ body {
                             }
                             span {
                                 font-size: $fontSize * 0.7;
-                                color: $lightGrey;
+                                color: $grey;
                                 font-weight: normal;
                             }
                         }
@@ -319,23 +322,71 @@ body {
                             font-weight: bold;
                             float: right;
                             width: 49%;
-                            border-left: 1px solid $lightGrey;
+                            border-left: 1px solid $grey;
                             span {
                                 font-size: $fontSize * 0.7;
-                                color: $lightGrey;
+                                color: $grey;
                                 font-weight: normal;
                             }
                         }
                         .percentage {
                             clear: both;
                             width: 100%;
-                            border-top: 1px solid $lightGrey;
+                            border-top: 1px solid $grey;
                             padding: 1em 0 0 0;
                         }
                     }
                 }
             }
-        } // End data display page
+        } // End all data display
+
+        // Detail data display
+        #detailDataDisplay {
+            width: 100%;
+            background-color: $lightGrey;
+            h1 {
+                padding: 2em 1em 1em 0;
+                width: 95%;
+                margin: auto;
+                border-bottom: .1em solid $grey;
+                span {
+                    font-weight: 100;
+                    padding: 0 0 0 1.5em;
+                }
+            }
+            #detailDisplayInfo {
+                width: 100%;
+                height: 2em;
+                .circleDetail {
+                        width: 6em;
+                        height: 6em;
+                        background-color: white;
+                        border-radius: 50%;
+                        margin: 1em 0 0 1em;
+                        &#circelEnergy {
+                            border: 5px solid $energyMainColor;
+                        }
+                        &#circelWater {
+                            border: 5px solid $waterMainColor;
+                        }
+                        &#circelGas {
+                            border: 5px solid $gasMainColor;
+                        }
+                        i {
+                            font-size: $fontSize * 2;
+                            &.fa-bolt {
+                                margin: 1em 0 0 1.3em;
+                            }
+                            &.fa-anchor {
+                                margin: 1em 0 0 1em;
+                            }
+                            &.fa-database {
+                                margin: 1em 0 0 1.05em;
+                            }
+                        }
+                    }
+            }
+        } // End detail data display
     }
 
     // Navigation
