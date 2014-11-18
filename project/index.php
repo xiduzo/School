@@ -152,11 +152,26 @@ if($_SESSION['user']){
 						</span>
 					</h1>
 				</div>
-				
 			<? elseif($viewToggle == 'water'): ?>
-				<h1>Water</h1>
+				<div id="deatailDataDisplay">
+					<h1>Waterverbruik
+						<span> vandaag, 
+							<?
+								echo date('d F Y')
+							?>
+						</span>
+					</h1>
+				</div>
 			<? elseif($viewToggle == 'gas'): ?>
-				<h1>gas</h1>
+				<div id="deatailDataDisplay">
+					<h1>Gasverbruik
+						<span> vandaag, 
+							<?
+								echo date('d F Y')
+							?>
+						</span>
+					</h1>
+				</div>
 			<? endif; ?>
 		</main>
 
