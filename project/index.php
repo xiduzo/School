@@ -153,7 +153,7 @@ if($_SESSION['user']){
 					</h1>
 
 					<?
-						detailDisplayInfo('Energy', 'bolt', 'kWh', 24, 'minder', 1.13);
+						detailDisplayInfo('Energy', 'bolt', 'kWh', rand(5,35), 'minder', rand(100,300)/100);
 					?>
 
 				</div>
@@ -168,7 +168,7 @@ if($_SESSION['user']){
 					</h1>
 				
 					<?
-						detailDisplayInfo('Water', 'anchor', 'Liter', 34, 'minder', 2.35);
+						detailDisplayInfo('Water', 'anchor', 'Liter', rand(5,35), 'minder', rand(100,300)/100);
 					?>
 					
 				</div>
@@ -183,7 +183,7 @@ if($_SESSION['user']){
 					</h1>
 
 					<?
-						detailDisplayInfo('Gas', 'fire', 'kWh', 28, 'minder', 3.18);
+						detailDisplayInfo('Gas', 'fire', 'kWh', rand(5,35), 'minder', rand(100,300)/100);
 					?>
 
 				</div>
