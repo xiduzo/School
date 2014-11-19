@@ -14,6 +14,9 @@ $energyMainColor: rgb(232, 175, 98);
 $waterMainColor: rgb(52, 165, 230);
 $gasMainColor: rgb(189, 228, 191);
 
+$piggyBankColor: gold;
+$usagePercentageCompareColor: grey;
+
 // animations
 @mixin animation($animate...) {
     $max: length($animate);
@@ -69,6 +72,7 @@ $gasMainColor: rgb(189, 228, 191);
 }
 
 body {
+    // Header
     header {
         left: 0%;
         width: 100%;
@@ -96,7 +100,8 @@ body {
             left: 46%;
             top: 1em;
         }
-    }
+    } // End of header
+    // Main
     main {
         top: 3.2em;
         width: 100%;
@@ -152,7 +157,7 @@ body {
             }
         } // End login page
 
-        // Data display page
+        // Data display
         #viewToggle {
             height: 4em;
             width: 100%;
@@ -359,14 +364,16 @@ body {
                 height: 8.5em;
                 margin: 0 0 0 .7em;
                 ul {
+                    margin: 0 0 0 1em;
                     li {
                         display: inline-block;
+                        vertical-align: top;
                         .circleDetail {
                             width: 6em;
                             height: 6em;
                             background-color: white;
                             border-radius: 50%;
-                            margin: 1em 0 0 1em;
+                            margin: 1em 0 0 0;
                             float: left;
                             &#circelEnergy {
                                 border: 5px solid $energyMainColor;
@@ -390,19 +397,39 @@ body {
                                 }
                             }
                         }
-                        #usage {
-                            font-size: $fontSize * 0.8;
-                            margin: 3em 0 0 1.5em;
-                            float: right;
+                        #usage, #usageCompare, .usageSaving{
+                            position: relative;
+                            font-size: $fontSize * 0.7;
+                            margin: 2.5em 0 0 1.5em;
+                            width: 10em;
+                            float: left;
+                            min-height: 6em;
                             span {
+                                position: absolute;
+                                bottom: 0;
                                 font-size: $fontSize * 1.3;
+                            }
+                        }
+                        #moneySaved, #usagePercentageCompare {
+                            margin: 1.5em 0 0 0;
+                            float: left;
+                            i {
+                                font-size: $fontSize * 5.5;
+                                &.fa-pie-chart {
+                                    color: $usagePercentageCompareColor;
+                                }
+                                &.fa-money {
+                                    color: $piggyBankColor;
+                                    margin: 0 0 0 .3em;
+                                }
+                                
                             }
                         }
                     }
                 }
             }
         } // End detail data display
-    }
+    } // End of main
 
     // Navigation
     nav {
@@ -440,5 +467,4 @@ body {
             }
         }
     } // End navigation
-}
-
+} // End of body
