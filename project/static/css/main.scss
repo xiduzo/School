@@ -286,8 +286,8 @@ body {
                             &.fa-anchor {
                                 margin: 1em 0 0 1em;
                             }
-                            &.fa-database {
-                                margin: 1em 0 0 1.05em;
+                            &.fa-fire {
+                                margin: 1em 0 0 1.1em;
                             }
                         }
                     }
@@ -356,35 +356,50 @@ body {
             }
             #detailDisplayInfo {
                 width: 100%;
-                height: 2em;
-                .circleDetail {
-                        width: 6em;
-                        height: 6em;
-                        background-color: white;
-                        border-radius: 50%;
-                        margin: 1em 0 0 1em;
-                        &#circelEnergy {
-                            border: 5px solid $energyMainColor;
-                        }
-                        &#circelWater {
-                            border: 5px solid $waterMainColor;
-                        }
-                        &#circelGas {
-                            border: 5px solid $gasMainColor;
-                        }
-                        i {
-                            font-size: $fontSize * 2;
-                            &.fa-bolt {
-                                margin: 1em 0 0 1.3em;
+                height: 8.5em;
+                margin: 0 0 0 .7em;
+                ul {
+                    li {
+                        display: inline-block;
+                        .circleDetail {
+                            width: 6em;
+                            height: 6em;
+                            background-color: white;
+                            border-radius: 50%;
+                            margin: 1em 0 0 1em;
+                            float: left;
+                            &#circelEnergy {
+                                border: 5px solid $energyMainColor;
                             }
-                            &.fa-anchor {
-                                margin: 1em 0 0 1em;
+                            &#circelWater {
+                                border: 5px solid $waterMainColor;
                             }
-                            &.fa-database {
-                                margin: 1em 0 0 1.05em;
+                            &#circelGas {
+                                border: 5px solid $gasMainColor;
+                            }
+                            i {
+                                font-size: $fontSize * 2;
+                                &.fa-bolt {
+                                    margin: 1em 0 0 1.3em;
+                                }
+                                &.fa-anchor {
+                                    margin: 1em 0 0 1em;
+                                }
+                                &.fa-fire {
+                                    margin: 1em 0 0 1.1em;
+                                }
+                            }
+                        }
+                        #usage {
+                            font-size: $fontSize * 0.8;
+                            margin: 3em 0 0 1.5em;
+                            float: right;
+                            span {
+                                font-size: $fontSize * 1.3;
                             }
                         }
                     }
+                }
             }
         } // End detail data display
     }

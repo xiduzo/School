@@ -12,7 +12,7 @@ checkUser();
 <html>
     <head>
     	<?
-    		head('home');
+    		head('login');
 
 	        addCSS('static/css/main.css');
 	        //font awesome

@@ -227,8 +227,8 @@ body main {
             margin: 1em 0 0 1.3em; }
           body main #detailDisplays ul li .circleDetail i.fa-anchor {
             margin: 1em 0 0 1em; }
-          body main #detailDisplays ul li .circleDetail i.fa-database {
-            margin: 1em 0 0 1.05em; }
+          body main #detailDisplays ul li .circleDetail i.fa-fire {
+            margin: 1em 0 0 1.1em; }
       body main #detailDisplays ul li .usage {
         text-align: center;
         float: right;
@@ -277,27 +277,37 @@ body main {
         padding: 0 0 0 1.5em; }
     body main #detailDataDisplay #detailDisplayInfo {
       width: 100%;
-      height: 2em; }
-      body main #detailDataDisplay #detailDisplayInfo .circleDetail {
-        width: 6em;
-        height: 6em;
-        background-color: white;
-        border-radius: 50%;
-        margin: 1em 0 0 1em; }
-        body main #detailDataDisplay #detailDisplayInfo .circleDetail#circelEnergy {
-          border: 5px solid #e8af62; }
-        body main #detailDataDisplay #detailDisplayInfo .circleDetail#circelWater {
-          border: 5px solid #34a5e6; }
-        body main #detailDataDisplay #detailDisplayInfo .circleDetail#circelGas {
-          border: 5px solid #bde4bf; }
-        body main #detailDataDisplay #detailDisplayInfo .circleDetail i {
-          font-size: 2em; }
-          body main #detailDataDisplay #detailDisplayInfo .circleDetail i.fa-bolt {
-            margin: 1em 0 0 1.3em; }
-          body main #detailDataDisplay #detailDisplayInfo .circleDetail i.fa-anchor {
-            margin: 1em 0 0 1em; }
-          body main #detailDataDisplay #detailDisplayInfo .circleDetail i.fa-database {
-            margin: 1em 0 0 1.05em; }
+      height: 8.5em;
+      margin: 0 0 0 .7em; }
+      body main #detailDataDisplay #detailDisplayInfo ul li {
+        display: inline-block; }
+        body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail {
+          width: 6em;
+          height: 6em;
+          background-color: white;
+          border-radius: 50%;
+          margin: 1em 0 0 1em;
+          float: left; }
+          body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelEnergy {
+            border: 5px solid #e8af62; }
+          body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelWater {
+            border: 5px solid #34a5e6; }
+          body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelGas {
+            border: 5px solid #bde4bf; }
+          body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i {
+            font-size: 2em; }
+            body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-bolt {
+              margin: 1em 0 0 1.3em; }
+            body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-anchor {
+              margin: 1em 0 0 1em; }
+            body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-fire {
+              margin: 1em 0 0 1.1em; }
+        body main #detailDataDisplay #detailDisplayInfo ul li #usage {
+          font-size: 0.8em;
+          margin: 3em 0 0 1.5em;
+          float: right; }
+          body main #detailDataDisplay #detailDisplayInfo ul li #usage span {
+            font-size: 1.3em; }
 body nav {
   background-color: black;
   height: 100%;

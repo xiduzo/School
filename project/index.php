@@ -37,10 +37,10 @@ if($_SESSION['user']){
 			?>
 			<div id="viewToggle">
 				<ul>
-					<li><a href="?dateToggle=<?=$dateToggle?>&viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>><i class="fa fa-list-ul"></i></a></li>
-					<li><a href="?dateToggle=<?=$dateToggle?>&viewToggle=energy" <?=$viewToggle == 'energy' ? 'class="active"' : ''?>><i class="fa fa-bolt"></i></a></li>
-					<li><a href="?dateToggle=<?=$dateToggle?>&viewToggle=water" <?=$viewToggle == 'water' ? 'class="active"' : ''?>><i class="fa fa-anchor"></i></a></li>
-					<li><a href="?dateToggle=<?=$dateToggle?>&viewToggle=gas" <?=$viewToggle == 'gas' ? 'class="active"' : ''?>><i class="fa fa-database"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>><i class="fa fa-list-alt"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=energy" <?=$viewToggle == 'energy' ? 'class="active"' : ''?>><i class="fa fa-bolt"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=water" <?=$viewToggle == 'water' ? 'class="active"' : ''?>><i class="fa fa-anchor"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=gas" <?=$viewToggle == 'gas' ? 'class="active"' : ''?>><i class="fa fa-fire"></i></a></li>
 				</ul>
 			</div>
 
@@ -48,15 +48,15 @@ if($_SESSION['user']){
 				<!-- all -->
 				<div id="optionsToggle">
 					<ul id="dateToggle">
-						<li><a href="?dateToggle=day&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'day' ? 'class="active"' : ''?>>Dag</a></li>
-						<li><a href="?dateToggle=week&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
-						<li><a href="?dateToggle=month&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'month' ? 'class="active"' : ''?>>Maand</a></li>
-						<li><a href="?dateToggle=year&displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'year' ? 'class="active"' : ''?>>Jaar</a></li>
+						<li><a href="?dateToggle=day&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'day' ? 'class="active"' : ''?>>Dag</a></li>
+						<li><a href="?dateToggle=week&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
+						<li><a href="?dateToggle=month&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'month' ? 'class="active"' : ''?>>Maand</a></li>
+						<li><a href="?dateToggle=year&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'year' ? 'class="active"' : ''?>>Jaar</a></li>
 					</ul>
 
 					<ul id="displayToggle">
-						<li><a href="?dateToggle=<?=$dateToggle?>&displayToggle=area" <?=$displayToggle == 'area' ? 'class="active"' : ''?>><i class="fa fa-area-chart"></i></a></li>
-						<li><a href="?dateToggle=<?=$dateToggle?>&displayToggle=bar" <?=$displayToggle == 'bar' ? 'class="active"' : ''?>><i class="fa fa-bar-chart"></i></a></li>
+						<li><a href="?dateToggle=<?=$dateToggle?>&amp;displayToggle=area" <?=$displayToggle == 'area' ? 'class="active"' : ''?>><i class="fa fa-area-chart"></i></a></li>
+						<li><a href="?dateToggle=<?=$dateToggle?>&amp;displayToggle=bar" <?=$displayToggle == 'bar' ? 'class="active"' : ''?>><i class="fa fa-bar-chart"></i></a></li>
 					</ul>
 				</div>
 
@@ -102,7 +102,7 @@ if($_SESSION['user']){
 									<span>totaal verbruik (kWh)</span>
 								</div>
 								<div class="toEuros">
-									&euro; 3.04 <br/>
+									&amp;euro; 3.04 <br/>
 									<span>Kosten per week</span>
 								</div>
 								<div class="percentage">U verbruikt 2% onder het gemiddelde <i class="fa fa-arrow-circle-o-down"></i></div>
@@ -117,7 +117,7 @@ if($_SESSION['user']){
 									<span>totaal verbruik (kWh)</span>
 								</div>
 								<div class="toEuros">
-									&euro; 3.04 <br/>
+									&amp;euro; 3.04 <br/>
 									<span>Kosten per week</span>
 								</div>
 								<div class="percentage">U verbruikt 2% onder het gemiddelde <i class="fa fa-arrow-circle-o-down"></i></div>
@@ -125,14 +125,14 @@ if($_SESSION['user']){
 						</li>
 
 						<li>
-							<div class="circleDetail" id="circelGas"><i class="fa fa-database"></i></div>
+							<div class="circleDetail" id="circelGas"><i class="fa fa-fire"></i></div>
 							<div class="usage">
 								<div class="realUse">
 									<em id="realGas">3.45</em>/12 <br/>
 									<span>totaal verbruik (Liter)</span>
 								</div>
 								<div class="toEuros">
-									&euro; 3.04 <br/>
+									&amp;euro; 3.04 <br/>
 									<span>Kosten per week</span>
 								</div>
 								<div class="percentage">U verbruikt 2% onder het gemiddelde <i class="fa fa-arrow-circle-o-down"></i></div>
@@ -153,8 +153,18 @@ if($_SESSION['user']){
 					</h1>
 
 					<div id="detailDisplayInfo">
-						<div class="circleDetail" id="circelEnergy"><i class="fa fa-bolt"></i></div>
-						Verbruik <span>3.45 kWh</span>
+						<ul>
+							<li>
+								<div class="circleDetail" id="circelEnergy"><i class="fa fa-bolt"></i></div>
+								<div id="usage">
+									Verbruik <br/>
+									<span>3.45 kWh</span>
+								</div>
+							</li>
+							<li>
+								
+							</li>
+						</ul>
 					</div>
 				</div>
 			<? elseif($viewToggle == 'water'): ?>
@@ -167,10 +177,7 @@ if($_SESSION['user']){
 						</span>
 					</h1>
 				
-					<div id="detailDisplayInfo">
-						<div class="circleDetail" id="circelWater"><i class="fa fa-anchor"></i></div>
-						Verbruik <span>3.45 Liter</span>
-					</div>
+					
 				</div>
 			<? elseif($viewToggle == 'gas'): ?>
 				<div id="detailDataDisplay">
@@ -182,10 +189,7 @@ if($_SESSION['user']){
 						</span>
 					</h1>
 
-					<div id="detailDisplayInfo">
-						<div class="circleDetail" id="circelGas"><i class="fa fa-database"></i></div>
-						Verbruik <span>3.45 kWh</span>
-					</div>
+					
 				</div>
 			<? endif; ?>
 		</main>
