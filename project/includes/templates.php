@@ -77,4 +77,42 @@ function mainNavigation($whoIs, $activePage) {
 	';
 }
 
+function detailDisplayInfo($what, $icon, $measure, $percentage, $moreOrLess, $amoundSaved) {
+	echo '
+		<div id="detailDisplayInfo">
+			<ul>
+				<li>
+					<div class="circleDetail" id="circel'.$what.'"><i class="fa fa-'.$icon.'"></i></div>
+					<div id="usage">
+						Verbruikt <br/>
+						<span>3.45 '.$measure.'</span>
+					</div>
+				</li>
+				<li>
+					<div id="usagePercentageCompare"><i class="fa fa-pie-chart"></i></div>
+					<div id="usageCompare">
+						Verbruik t.o.v. het gemiddelde <br/>
+						<span>'.$percentage.'% '.$moreOrLess.'</span>
+					</div>
+				</li>
+				<li>
+					<div id="moneySaved"><i class="fa fa-money"></i></div>
+					<div class="usageSaving">
+						Totale besparing <br/>
+						<span>&euro; '.number_format($amoundSaved, 2).'</span>
+					</div>
+					<div class="usageSaving">
+						Totale besparing op maandbasis &sup1;<br/>
+						<span>&euro; '.number_format($amoundSaved*31 ,2).'</span>
+					</div>
+					<div class="usageSaving">
+						Totale besparing op jaarbasis &sup1;<br/>
+						<span>&euro; '.number_format($amoundSaved*365, 2).'</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	';
+}
+
 ?>

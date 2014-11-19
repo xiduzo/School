@@ -152,39 +152,10 @@ if($_SESSION['user']){
 						</span>
 					</h1>
 
-					<div id="detailDisplayInfo">
-						<ul>
-							<li>
-								<div class="circleDetail" id="circelEnergy"><i class="fa fa-bolt"></i></div>
-								<div id="usage">
-									Verbruikt <br/>
-									<span>3.45 kWh</span>
-								</div>
-							</li>
-							<li>
-								<div id="usagePercentageCompare"><i class="fa fa-pie-chart"></i></div>
-								<div id="usageCompare">
-									Verbruik t.o.v. het gemiddelde <br/>
-									<span>34% minder</span>
-								</div>
-							</li>
-							<li>
-								<div id="moneySaved"><i class="fa fa-money"></i></div>
-								<div class="usageSaving">
-									Totale besparing <br/>
-									<span>&euro; 2,43</span>
-								</div>
-								<div class="usageSaving">
-									Totale besparing op maandbasis &sup1;<br/>
-									<span>&euro; 2,43</span>
-								</div>
-								<div class="usageSaving">
-									Totale besparing op jaarbasis &sup1;<br/>
-									<span>&euro; 2,43</span>
-								</div>
-							</li>
-						</ul>
-					</div>
+					<?
+						detailDisplayInfo('Energy', 'bolt', 'kWh', 24, 'minder', 1.13);
+					?>
+
 				</div>
 			<? elseif($viewToggle == 'water'): ?>
 				<div id="detailDataDisplay">
@@ -196,39 +167,9 @@ if($_SESSION['user']){
 						</span>
 					</h1>
 				
-					<div id="detailDisplayInfo">
-						<ul>
-							<li>
-								<div class="circleDetail" id="circelWater"><i class="fa fa-anchor"></i></div>
-								<div id="usage">
-									Verbruikt <br/>
-									<span>3.45 Liter</span>
-								</div>
-							</li>
-							<li>
-								<div id="usagePercentageCompare"><i class="fa fa-pie-chart"></i></div>
-								<div id="usageCompare">
-									Verbruik t.o.v. het gemiddelde <br/>
-									<span>34% minder</span>
-								</div>
-							</li>
-							<li>
-								<div id="moneySaved"><i class="fa fa-money"></i></div>
-								<div class="usageSaving">
-									Totale besparing <br/>
-									<span>&euro; 2,43</span>
-								</div>
-								<div class="usageSaving">
-									Totale besparing op maandbasis &sup1;<br/>
-									<span>&euro; 2,43</span>
-								</div>
-								<div class="usageSaving">
-									Totale besparing op jaarbasis &sup1;<br/>
-									<span>&euro; 2,43</span>
-								</div>
-							</li>
-						</ul>
-					</div>
+					<?
+						detailDisplayInfo('Water', 'anchor', 'Liter', 34, 'minder', 2.35);
+					?>
 					
 				</div>
 			<? elseif($viewToggle == 'gas'): ?>
@@ -241,40 +182,10 @@ if($_SESSION['user']){
 						</span>
 					</h1>
 
-					<div id="detailDisplayInfo">
-						<ul>
-							<li>
-								<div class="circleDetail" id="circelGas"><i class="fa fa-fire"></i></div>
-								<div id="usage">
-									Verbruikt <br/>
-									<span>3.45 kWh</span>
-								</div>
-							</li>
-							<li>
-								<div id="usagePercentageCompare"><i class="fa fa-pie-chart"></i></div>
-								<div id="usageCompare">
-									Verbruik t.o.v. het gemiddelde <br/>
-									<span>34% minder</span>
-								</div>
-							</li>
-							<li>
-								<div id="moneySaved"><i class="fa fa-money"></i></div>
-								<div class="usageSaving">
-									Totale besparing <br/>
-									<span>&euro; 2,43</span>
-								</div>
-								<div class="usageSaving">
-									Totale besparing op maandbasis &sup1;<br/>
-									<span>&euro; 2,43</span>
-								</div>
-								<div class="usageSaving">
-									Totale besparing op jaarbasis &sup1;<br/>
-									<span>&euro; 2,43</span>
-								</div>
-							</li>
-						</ul>
-					</div>
-					
+					<?
+						detailDisplayInfo('Gas', 'fire', 'kWh', 28, 'minder', 3.18);
+					?>
+
 				</div>
 			<? endif; ?>
 		</main>
