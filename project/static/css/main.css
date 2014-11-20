@@ -80,7 +80,7 @@ body main {
   width: 100%;
   left: 0%;
   background-color: white;
-  height: 50px;
+  min-height: 50px;
   position: absolute;
   z-index: 2;
   min-height: 93.4%; }
@@ -98,20 +98,26 @@ body main {
     animation: hideNav .7s 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
-  body main #loginForm legend {
+  body main #loginForm legend, body main #forgotForm legend {
     font-size: 2em;
     font-weight: bold;
     width: 100%;
     text-align: center;
-    margin: 2em 0 2em 0; }
-  body main #loginForm input[type="text"], body main #loginForm input[type="password"] {
+    margin: 2em 0 1em 0; }
+    body main #loginForm legend span, body main #forgotForm legend span {
+      padding: 1em 0 0 0;
+      font-size: 0.4em;
+      display: inline-block;
+      font-weight: 100;
+      width: 59%; }
+  body main #loginForm input[type="text"], body main #loginForm input[type="password"], body main #forgotForm input[type="text"], body main #forgotForm input[type="password"] {
     display: inherit;
     width: 45%;
     height: 3em;
     margin: auto;
     padding: 0 0 0 1em;
     border: 0.1em solid #bfbfbf; }
-  body main #loginForm #loginButton {
+  body main #loginForm #loginButton, body main #loginForm #forgotButton, body main #forgotForm #loginButton, body main #forgotForm #forgotButton {
     width: 46.5%;
     margin: auto;
     display: inherit;
@@ -122,8 +128,8 @@ body main {
     height: 3em;
     margin-top: 3em;
     margin-bottom: 3em; }
-  body main #loginForm a {
-    padding: 0 27% 2em 0;
+  body main #loginForm a, body main #forgotForm a {
+    padding: 0 27% 2em 27%;
     float: right;
     font-weight: bold; }
   body main #viewToggle {
@@ -131,20 +137,45 @@ body main {
     width: 100%;
     background-color: #f2f2f2;
     border-bottom: 0.2em solid #dfdfdf; }
+    body main #viewToggle #newTip {
+      float: right;
+      background-color: #40D8FF;
+      border: none;
+      font-weight: 600;
+      padding: 0.7em 1em;
+      margin: .6em .6em 0 0; }
+      body main #viewToggle #newTip a {
+        color: white;
+        text-decoration: none; }
     body main #viewToggle ul {
-      width: 67%;
-      margin: auto; }
-      body main #viewToggle ul li {
+      text-align: center; }
+      body main #viewToggle ul#mainToggle li {
         font-size: 1.5em;
-        display: inline-block;
-        list-style: none; }
-        body main #viewToggle ul li a {
-          padding: 0 3em .65em 3em;
+        display: inline-block; }
+        body main #viewToggle ul#mainToggle li a {
+          padding: 0 2.9em .65em 2.9em;
           color: black; }
-          body main #viewToggle ul li a.active {
+          body main #viewToggle ul#mainToggle li a.active {
             border-bottom: .2em solid black; }
-          body main #viewToggle ul li a i {
+          body main #viewToggle ul#mainToggle li a i {
             padding: .9em 0 0 0; }
+      body main #viewToggle ul#forumToggle {
+        width: 50%;
+        margin: auto; }
+        body main #viewToggle ul#forumToggle li {
+          font-size: 0.7em;
+          display: inline-block;
+          padding: 2em 0 0 0; }
+          body main #viewToggle ul#forumToggle li a {
+            padding: 0 2.9em 2.35em 2.9em;
+            color: black;
+            text-decoration: none; }
+            body main #viewToggle ul#forumToggle li a.active {
+              border-bottom: .2em solid black; }
+            body main #viewToggle ul#forumToggle li a span {
+              color: green;
+              font-weight: 500;
+              position: absolute; }
   body main #optionsToggle {
     margin: 3em 0 0 2em;
     float: left;
@@ -171,25 +202,33 @@ body main {
     margin: 8em 0 0 2em;
     height: 24em;
     width: 32em; }
-    body main #dataDisplay #maxUse, body main #dataDisplay #minUse {
+    body main #dataDisplay #maxUse, body main #dataDisplay #avgUse {
       color: #bfbfbf;
-      border-bottom: 1px solid #bfbfbf; }
+      border-bottom: 0.2em solid #bfbfbf;
+      text-align: right;
+      position: absolute;
+      width: 106.5%;
+      font-size: 0.6em; }
     body main #dataDisplay #maxUse {
-      margin: 4em 0 7em 0; }
+      z-index: 1;
+      padding: 3em 0 0 0; }
+    body main #dataDisplay #avgUse {
+      padding: 10em 0 0 0;
+      z-index: 2; }
     body main #dataDisplay #dates {
       position: relative;
       height: 100%; }
       body main #dataDisplay #dates ul {
         position: absolute;
-        bottom: 0; }
+        bottom: 0;
+        z-index: -1; }
         body main #dataDisplay #dates ul li {
           display: inline-block;
           text-decoration: none;
           text-align: center;
           vertical-align: bottom;
-          width: 13.375%; }
-          body main #dataDisplay #dates ul li span {
-            margin: 1em 0 0 0; }
+          width: 4.67em;
+          margin: 0 -.4em 0 0; }
       body main #dataDisplay #dates .usages {
         width: 100%;
         height: 100%; }
@@ -223,8 +262,8 @@ body main {
           border: 5px solid #bde4bf; }
         body main #detailDisplays ul li .circleDetail i {
           font-size: 2em; }
-          body main #detailDisplays ul li .circleDetail i.fa-bolt {
-            margin: 1em 0 0 1.3em; }
+          body main #detailDisplays ul li .circleDetail i.fa-plug {
+            margin: 1em 0 0 1.1em; }
           body main #detailDisplays ul li .circleDetail i.fa-anchor {
             margin: 1em 0 0 1em; }
           body main #detailDisplays ul li .circleDetail i.fa-fire {
@@ -299,8 +338,8 @@ body main {
               border: 5px solid #bde4bf; }
             body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i {
               font-size: 2em; }
-              body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-bolt {
-                margin: 1em 0 0 1.3em; }
+              body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-plug {
+                margin: 1em 0 0 1.1em; }
               body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-anchor {
                 margin: 1em 0 0 1em; }
               body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-fire {
@@ -324,8 +363,23 @@ body main {
               body main #detailDataDisplay #detailDisplayInfo ul li #moneySaved i.fa-pie-chart, body main #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i.fa-pie-chart {
                 color: grey; }
               body main #detailDataDisplay #detailDisplayInfo ul li #moneySaved i.fa-money, body main #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i.fa-money {
-                color: gold;
+                color: #fcb828;
                 margin: 0 0 0 .3em; }
+  body main #posts {
+    width: 80%;
+    margin: auto; }
+    body main #posts .post {
+      position: relative;
+      margin: 1.5em 0 0 0;
+      min-height: 10em;
+      background-color: #f7f7f7; }
+      body main #posts .post header {
+        min-height: 2em;
+        background-color: #bfbfbf;
+        position: inherit;
+        border: none; }
+      body main #posts .post:last-of-type {
+        margin: 1.5em 0 1.5em 0; }
 body nav {
   background-color: black;
   height: 100%;

@@ -38,7 +38,7 @@ checkUser();
 
 				<input id="loginButton" type="submit" value="Inloggen" name="loginUser">
 
-				<a href="#vergeten">Inloggegevens vergeten?</a> <br/>
+				<a href="/school/project/forgot.php">Inloggegevens vergeten?</a> <br/>
 				<a href="#aanvragen">Mijn WoonEnergie aanvragen?</a>
 			</form>
 		<? endif; ?>

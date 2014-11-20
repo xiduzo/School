@@ -34,13 +34,13 @@ function mainNavigation($whoIs, $activePage) {
 					</a>
 				</li>
 				<li class="'. (($activePage == "verbruik") ? $active : $inActive ) .'">
-					<a href="#verbruik">
+					<a href="/school/project/index.php">
 						<i class="fa fa-indent"></i>
 						Mijn verbruik
 					</a>
 				</li>
 				<li class="'. (($activePage == "community") ? $active : $inActive ) .'">
-					<a href="#community">
+					<a href="/school/project/community.php">
 					<i class="fa fa-comment"></i>
 					Community
 				</a>
@@ -77,7 +77,26 @@ function mainNavigation($whoIs, $activePage) {
 	';
 }
 
-function detailDisplayInfo($what, $icon, $measure, $percentage, $moreOrLess, $amoundSaved) {
+
+function detailDisplay($what, $icon, $use, $maxUse, $measure, $cost, $date, $percentage, $moreOrLess) {
+	$iconUse = $moreOrLess == 'onder' ? 'down' : 'up';
+	echo '
+		<div class="circleDetail" id="circel'.$what.'"><i class="fa fa-'.$icon.'"></i></div>
+		<div class="usage">
+			<div class="realUse">
+				<em id="real'.$what.'">'.$use.'</em>/'.$maxUse.' <br/>
+				<span>totaal verbruik ('.$measure.')</span>
+			</div>
+			<div class="toEuros">
+				&euro; '.number_format($cost, 2).' <br/>
+				<span>Kosten per '.$date.'</span>
+			</div>
+			<div class="percentage">U verbruikt '.$percentage.'% '.$moreOrLess.' het gemiddelde <i class="fa fa-arrow-circle-o-'.$iconUse.'"></i></div>
+		</div>
+	';
+}
+
+function detailDisplayInfo($what, $icon, $use, $measure, $percentage, $moreOrLess, $amoundSaved) {
 	echo '
 		<div id="detailDisplayInfo">
 			<ul>
@@ -85,7 +104,7 @@ function detailDisplayInfo($what, $icon, $measure, $percentage, $moreOrLess, $am
 					<div class="circleDetail" id="circel'.$what.'"><i class="fa fa-'.$icon.'"></i></div>
 					<div id="usage">
 						Verbruikt <br/>
-						<span>3.45 '.$measure.'</span>
+						<span>'.$use.' '.$measure.'</span>
 					</div>
 				</li>
 				<li>

@@ -6,11 +6,11 @@ include '../required/config.php';
 
 function checkUser() {
 	if(empty($_SESSION['user'])){
-		if($_SERVER['SCRIPT_NAME'] != '/school/project/login.php') {
+		if($_SERVER['SCRIPT_NAME'] != ('/school/project/login.php' || '/school/project/forgot.php')) {
 			header('location: /school/project/login.php');
 			die();
 		}
-	} elseif(!empty($_SESSION['user'])) {
+	} elseif(!empty($_SESSION['user'])) { // goto the index page when a logged in user goes to the login page
 		if($_SERVER['SCRIPT_NAME'] == '/school/project/login.php') {
 			header('location: /school/project/index.php');
 			die();

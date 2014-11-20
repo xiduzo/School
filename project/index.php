@@ -8,9 +8,7 @@ include 'includes/checks.php';
 
 checkUser();
 
-if($_SESSION['user']){
-	$user = getUser($_SESSION['user']);
-}
+$user = getUser($_SESSION['user']);
 
 ?>
 <!doctype html>
@@ -36,9 +34,9 @@ if($_SESSION['user']){
 					$displayToggle 	= $_GET['displayToggle'] ? $_GET['displayToggle'] : 'bar';
 			?>
 			<div id="viewToggle">
-				<ul>
+				<ul id="mainToggle">
 					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>><i class="fa fa-list-alt"></i></a></li>
-					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=energy" <?=$viewToggle == 'energy' ? 'class="active"' : ''?>><i class="fa fa-bolt"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=energy" <?=$viewToggle == 'energy' ? 'class="active"' : ''?>><i class="fa fa-plug"></i></a></li>
 					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=water" <?=$viewToggle == 'water' ? 'class="active"' : ''?>><i class="fa fa-anchor"></i></a></li>
 					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=gas" <?=$viewToggle == 'gas' ? 'class="active"' : ''?>><i class="fa fa-fire"></i></a></li>
 				</ul>
@@ -48,10 +46,10 @@ if($_SESSION['user']){
 				<!-- all -->
 				<div id="optionsToggle">
 					<ul id="dateToggle">
-						<li><a href="?dateToggle=day&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'day' ? 'class="active"' : ''?>>Dag</a></li>
+						<li><a href="?dateToggle=dag&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'dag' ? 'class="active"' : ''?>>Dag</a></li>
 						<li><a href="?dateToggle=week&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
-						<li><a href="?dateToggle=month&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'month' ? 'class="active"' : ''?>>Maand</a></li>
-						<li><a href="?dateToggle=year&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'year' ? 'class="active"' : ''?>>Jaar</a></li>
+						<li><a href="?dateToggle=maand&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'maand' ? 'class="active"' : ''?>>Maand</a></li>
+						<li><a href="?dateToggle=jaar&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'jaar' ? 'class="active"' : ''?>>Jaar</a></li>
 					</ul>
 
 					<ul id="displayToggle">
@@ -66,12 +64,14 @@ if($_SESSION['user']){
 					<?
 					$maxHeigt = 370;
 
-					$energy 	= $maxHeigt * 0.33;
+					$energy 		= $maxHeigt * 0.33;
 					$water 			= $maxHeigt * 0.33;
 					$gas 			= $maxHeigt * 0.33;
 					?>
 
 					<div id="dates">
+						<div id="maxUse">Max.</div>
+						<div id="avgUse">Gem.</div>
 						<ul>
 							<?
 								for($i == 1; $i < 7; $i++) {
@@ -82,6 +82,7 @@ if($_SESSION['user']){
 												<div class="waterUse" style="height:'.($water-rand(5,50)).'px"><span>3.45 Liter</span></div>
 												<div class="gasUse" style="height:'.($gas-rand(5,50)).'px"><span>3.45 KwH</span></div>
 											</div>
+											<div class=""></div>
 											<span>'.($i+1).'</span>
 										</li>
 									';
@@ -93,50 +94,46 @@ if($_SESSION['user']){
 				</div>
 
 				<div id="detailDisplays">
+					<?
+						function randomUse($dateToggle){
+							$use = rand(400,1200)/100;
+							if($dateToggle == 'dag') {
+								$use = $use;
+							} elseif($dateToggle == 'week') {
+								$use = $use * 7;
+							} elseif($dateToggle == 'maand') {
+								$use = $use * 31;
+							} elseif($dateToggle == 'jaar') {
+								$use = $use * 365;
+							}
+
+							return number_format($use,2);
+						}
+
+						function randomCost($dateToggle) {
+							return rand(500,2000)/100;
+						}
+
+						function randomPercentage() {
+							return number_format(rand(100,1000)/100,1);
+						}
+						
+					?>
 					<ul>
 						<li>
-							<div class="circleDetail" id="circelEnergy"><i class="fa fa-bolt"></i></div>
-							<div class="usage">
-								<div class="realUse">
-									<em id="realEnergy">3.45</em>/12 <br/>
-									<span>totaal verbruik (kWh)</span>
-								</div>
-								<div class="toEuros">
-									&amp;euro; 3.04 <br/>
-									<span>Kosten per week</span>
-								</div>
-								<div class="percentage">U verbruikt 2% onder het gemiddelde <i class="fa fa-arrow-circle-o-down"></i></div>
-							</div>
-						</li>
-
+							<?
+								detailDisplay('Energy', 'plug', randomUse($dateToggle), 120, 'kWh', randomCost(), $dateToggle, randomPercentage(), 'onder');
+							?>
+						</li>						
 						<li>
-							<div class="circleDetail" id="circelWater"><i class="fa fa-anchor"></i></div>
-							<div class="usage">
-								<div class="realUse">
-									<em id="realWater">3.45</em>/12 <br/>
-									<span>totaal verbruik (kWh)</span>
-								</div>
-								<div class="toEuros">
-									&amp;euro; 3.04 <br/>
-									<span>Kosten per week</span>
-								</div>
-								<div class="percentage">U verbruikt 2% onder het gemiddelde <i class="fa fa-arrow-circle-o-down"></i></div>
-							</div>
-						</li>
-
+							<?
+								detailDisplay('Water', 'anchor', randomUse($dateToggle), 120, 'Liter', randomCost(), $dateToggle, randomPercentage(), 'onder');
+							?>
+						</li>						
 						<li>
-							<div class="circleDetail" id="circelGas"><i class="fa fa-fire"></i></div>
-							<div class="usage">
-								<div class="realUse">
-									<em id="realGas">3.45</em>/12 <br/>
-									<span>totaal verbruik (Liter)</span>
-								</div>
-								<div class="toEuros">
-									&amp;euro; 3.04 <br/>
-									<span>Kosten per week</span>
-								</div>
-								<div class="percentage">U verbruikt 2% onder het gemiddelde <i class="fa fa-arrow-circle-o-down"></i></div>
-							</div>
+							<?
+								detailDisplay('Gas', 'fire', randomUse($dateToggle), 120, 'kWh', randomCost(), $dateToggle, randomPercentage(), 'onder');
+							?>
 						</li>
 					</ul>
 				</div>
@@ -153,7 +150,7 @@ if($_SESSION['user']){
 					</h1>
 
 					<?
-						detailDisplayInfo('Energy', 'bolt', 'kWh', rand(5,35), 'minder', rand(100,300)/100);
+						detailDisplayInfo('Energy', 'plug', rand(400,1200)/100, 'kWh', number_format(rand(100,1000)/100,1), 'minder', rand(500,2000)/100);
 					?>
 
 				</div>
@@ -168,7 +165,7 @@ if($_SESSION['user']){
 					</h1>
 				
 					<?
-						detailDisplayInfo('Water', 'anchor', 'Liter', rand(5,35), 'minder', rand(100,300)/100);
+						detailDisplayInfo('Water', 'anchor', rand(30,120)/100, 'Liter', rand(5,35), 'minder', rand(100,300)/100);
 					?>
 					
 				</div>
@@ -183,7 +180,7 @@ if($_SESSION['user']){
 					</h1>
 
 					<?
-						detailDisplayInfo('Gas', 'fire', 'kWh', rand(5,35), 'minder', rand(100,300)/100);
+						detailDisplayInfo('Gas', 'fire', rand(30,120)/100, 'kWh', rand(5,35), 'minder', rand(100,300)/100);
 					?>
 
 				</div>
