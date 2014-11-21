@@ -37,7 +37,7 @@ $user = getUser($_SESSION['user']);
 				<ul id="mainToggle">
 					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>><i class="fa fa-list-alt"></i></a></li>
 					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=energy" <?=$viewToggle == 'energy' ? 'class="active"' : ''?>><i class="fa fa-plug"></i></a></li>
-					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=water" <?=$viewToggle == 'water' ? 'class="active"' : ''?>><i class="fa fa-anchor"></i></a></li>
+					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=water" <?=$viewToggle == 'water' ? 'class="active"' : ''?>><i class="fa fa-tint"></i></a></li>
 					<li><a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=gas" <?=$viewToggle == 'gas' ? 'class="active"' : ''?>><i class="fa fa-fire"></i></a></li>
 				</ul>
 			</div>
@@ -127,7 +127,7 @@ $user = getUser($_SESSION['user']);
 						</li>						
 						<li>
 							<?
-								detailDisplay('Water', 'anchor', randomUse($dateToggle), 120, 'Liter', randomCost(), $dateToggle, randomPercentage(), 'onder');
+								detailDisplay('Water', 'tint', randomUse($dateToggle), 120, 'Liter', randomCost(), $dateToggle, randomPercentage(), 'onder');
 							?>
 						</li>						
 						<li>
@@ -165,7 +165,7 @@ $user = getUser($_SESSION['user']);
 					</h1>
 				
 					<?
-						detailDisplayInfo('Water', 'anchor', rand(30,120)/100, 'Liter', rand(5,35), 'minder', rand(100,300)/100);
+						detailDisplayInfo('Water', 'tint', rand(30,120)/100, 'Liter', rand(5,35), 'minder', rand(100,300)/100);
 					?>
 					
 				</div>
