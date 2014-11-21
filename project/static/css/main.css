@@ -173,9 +173,14 @@ body main {
             body main #viewToggle ul#forumToggle li a.active {
               border-bottom: .2em solid black; }
             body main #viewToggle ul#forumToggle li a span {
-              color: green;
-              font-weight: 500;
-              position: absolute; }
+              color: white;
+              font-weight: 600;
+              position: absolute;
+              top: 1em;
+              background-color: #40d8ff;
+              border-radius: 50%;
+              text-align: center;
+              padding: .2em .7em .2em .7em; }
   body main #optionsToggle {
     margin: 3em 0 0 2em;
     float: left;

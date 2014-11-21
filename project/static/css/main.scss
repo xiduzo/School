@@ -215,9 +215,14 @@ body {
                                 border-bottom: .2em solid black;
                             }
                             span {
-                                color: green;
-                                font-weight: 500;
+                                color: white;
+                                font-weight: 600;
                                 position: absolute;
+                                top: 1em;
+                                background-color: #40d8ff;
+                                border-radius: 50%;
+                                text-align: center;
+                                padding: .2em .7em .2em .7em;
                             }
                         }
                     }

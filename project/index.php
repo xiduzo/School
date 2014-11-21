@@ -150,7 +150,7 @@ $user = getUser($_SESSION['user']);
 					</h1>
 
 					<?
-						detailDisplayInfo('Energy', 'plug', rand(400,1200)/100, 'kWh', number_format(rand(100,1000)/100,1), 'minder', rand(500,2000)/100);
+						detailDisplayInfo('Energy', 'plug', randomUse($dateToggle), 'kWh', number_format(rand(100,1000)/100,1), 'minder', rand(500,2000)/100);
 					?>
 
 				</div>

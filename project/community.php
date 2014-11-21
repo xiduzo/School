@@ -37,7 +37,7 @@ $user = getUser($_SESSION['user']);
 
 				<ul id="forumToggle">
 					<li><a href="?viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>>Alle berichten</a></li>
-					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<span>2 nieuw</span></a></li>
+					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<span><? echo rand(1,8); ?></span></a></li>
 					<li><a href="?viewToggle=tips" <?=$viewToggle == 'tips' ? 'class="active"' : ''?>>Besparingstips</a></li>
 				</ul>
 			</div>
