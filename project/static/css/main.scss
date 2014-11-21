@@ -336,7 +336,7 @@ body {
                         }
                         i {
                             font-size: $fontSize * 2;
-                            margin: 1em 0 0 0;
+                            margin: 1em 0 0 .1em;
                         }
                     }
                     .usage {
@@ -430,7 +430,7 @@ body {
                             }
                             i {
                                 font-size: $fontSize * 2;
-                                margin: 1em 0 0 0;
+                                margin: 1em 0 0 .1em;
                             }
                         }
                         #usage, #usageCompare, .usageSaving{

@@ -263,7 +263,7 @@ body main {
           border: 5px solid #bde4bf; }
         body main #detailDisplays ul li .circleDetail i {
           font-size: 2em;
-          margin: 1em 0 0 0; }
+          margin: 1em 0 0 .1em; }
       body main #detailDisplays ul li .usage {
         text-align: center;
         float: right;
@@ -335,7 +335,7 @@ body main {
               border: 5px solid #bde4bf; }
             body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i {
               font-size: 2em;
-              margin: 1em 0 0 0; }
+              margin: 1em 0 0 .1em; }
           body main #detailDataDisplay #detailDisplayInfo ul li #usage, body main #detailDataDisplay #detailDisplayInfo ul li #usageCompare, body main #detailDataDisplay #detailDisplayInfo ul li .usageSaving {
             position: relative;
             font-size: 0.7em;
