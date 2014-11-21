@@ -253,7 +253,8 @@ body main {
         height: 6em;
         background-color: white;
         border-radius: 50%;
-        margin: 1em 0 0 1em; }
+        margin: 1em 0 0 1em;
+        text-align: center; }
         body main #detailDisplays ul li .circleDetail#circelEnergy {
           border: 5px solid #e8af62; }
         body main #detailDisplays ul li .circleDetail#circelWater {
@@ -261,13 +262,8 @@ body main {
         body main #detailDisplays ul li .circleDetail#circelGas {
           border: 5px solid #bde4bf; }
         body main #detailDisplays ul li .circleDetail i {
-          font-size: 2em; }
-          body main #detailDisplays ul li .circleDetail i.fa-plug {
-            margin: 1em 0 0 1.1em; }
-          body main #detailDisplays ul li .circleDetail i.fa-anchor {
-            margin: 1em 0 0 1em; }
-          body main #detailDisplays ul li .circleDetail i.fa-fire {
-            margin: 1em 0 0 1.1em; }
+          font-size: 2em;
+          margin: 1em 0 0 0; }
       body main #detailDisplays ul li .usage {
         text-align: center;
         float: right;
@@ -329,7 +325,8 @@ body main {
             background-color: white;
             border-radius: 50%;
             margin: 1em 0 0 0;
-            float: left; }
+            float: left;
+            text-align: center; }
             body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelEnergy {
               border: 5px solid #e8af62; }
             body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelWater {
@@ -337,13 +334,8 @@ body main {
             body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelGas {
               border: 5px solid #bde4bf; }
             body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i {
-              font-size: 2em; }
-              body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-plug {
-                margin: 1em 0 0 1.1em; }
-              body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-anchor {
-                margin: 1em 0 0 1em; }
-              body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i.fa-fire {
-                margin: 1em 0 0 1.1em; }
+              font-size: 2em;
+              margin: 1em 0 0 0; }
           body main #detailDataDisplay #detailDisplayInfo ul li #usage, body main #detailDataDisplay #detailDisplayInfo ul li #usageCompare, body main #detailDataDisplay #detailDisplayInfo ul li .usageSaving {
             position: relative;
             font-size: 0.7em;
