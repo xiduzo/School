@@ -44,54 +44,14 @@ $user = getUser($_SESSION['user']);
 
 			<? if($viewToggle == 'all'): ?>
 				<!-- all -->
-				<div id="optionsToggle">
+				<!-- <div id="optionsToggle">
 					<ul id="dateToggle">
 						<li><a href="?dateToggle=dag&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'dag' ? 'class="active"' : ''?>>Dag</a></li>
 						<li><a href="?dateToggle=week&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
 						<li><a href="?dateToggle=maand&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'maand' ? 'class="active"' : ''?>>Maand</a></li>
 						<li><a href="?dateToggle=jaar&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'jaar' ? 'class="active"' : ''?>>Jaar</a></li>
 					</ul>
-
-					<ul id="displayToggle">
-						<li><a href="?dateToggle=<?=$dateToggle?>&amp;displayToggle=area" <?=$displayToggle == 'area' ? 'class="active"' : ''?>><i class="fa fa-area-chart"></i></a></li>
-						<li><a href="?dateToggle=<?=$dateToggle?>&amp;displayToggle=bar" <?=$displayToggle == 'bar' ? 'class="active"' : ''?>><i class="fa fa-bar-chart"></i></a></li>
-					</ul>
-				</div>
-
-				<div id="dataDisplay">
-					<!-- <div id="maxUse">max verbruik</div>
-					<div id="minUse">min verbruik</div> -->
-					<?
-					$maxHeigt = 370;
-
-					$energy 		= $maxHeigt * 0.33;
-					$water 			= $maxHeigt * 0.33;
-					$gas 			= $maxHeigt * 0.33;
-					?>
-
-					<div id="dates">
-						<div id="maxUse">Max.</div>
-						<div id="avgUse">Gem.</div>
-						<ul>
-							<?
-								for($i == 1; $i < 7; $i++) {
-									echo '
-										<li>
-											<div class="usages">
-												<div class="energyUse" style="height:'.($energy-rand(5,50)).'px"><span>3.45 KwH</span></div>
-												<div class="waterUse" style="height:'.($water-rand(5,50)).'px"><span>3.45 Liter</span></div>
-												<div class="gasUse" style="height:'.($gas-rand(5,50)).'px"><span>3.45 KwH</span></div>
-											</div>
-											<div class=""></div>
-											<span>'.($i+1).'</span>
-										</li>
-									';
-								}
-							?>
-							
-						</ul>
-					</div>			
-				</div>
+				</div> -->
 
 				<div id="detailDisplays">
 					<?
@@ -150,7 +110,7 @@ $user = getUser($_SESSION['user']);
 					</h1>
 
 					<?
-						detailDisplayInfo('Energy', 'plug', randomUse($dateToggle), 'kWh', number_format(rand(100,1000)/100,1), 'minder', rand(500,2000)/100);
+						detailDisplayInfo('Energy', 'plug', rand(30,120)/100, 'kWh', number_format(rand(100,1000)/100,1), 'minder', rand(500,2000)/100);
 					?>
 
 				</div>

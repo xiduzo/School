@@ -313,34 +313,34 @@ body {
             }
         }
         #detailDisplays {
-            width: 40%;
-            float: right;
-            margin: 2.4em 2em 0 0;
+            width: 94%;
+            margin: auto;
+            margin-top: 2em;
             ul {
                 li {
                     background-color: rgb(244, 248, 245);
-                    height: 9em;
-                    list-style: none;
-                    margin: 0 0 1em 0;
+                    height: 27em;;
+                    display: inline-block;
+                    width: 32.9%;
                     .circleDetail {
-                        float: left;
-                        width: 6em;
-                        height: 6em;
+                        width: 9em;
+                        height: 9em;
                         background-color: white;
                         border-radius: 50%;
-                        margin: 1em 0 0 1em;
+                        margin: auto;
+                        margin-top: 2em;
                         text-align: center;
                         &#circelEnergy {
-                            border: 5px solid $energyMainColor;
+                            border: 1em solid $energyMainColor;
                         }
                         &#circelWater {
-                            border: 5px solid $waterMainColor;
+                            border: 1em solid $waterMainColor;
                         }
                         &#circelGas {
-                            border: 5px solid $gasMainColor;
+                            border: 1em solid $gasMainColor;
                         }
                         i {
-                            font-size: $fontSize * 2;
+                            font-size: $fontSize * 3;
                             margin: 1em 0 0 .1em;
                         }
                     }

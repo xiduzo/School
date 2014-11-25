@@ -244,30 +244,30 @@ body main {
         body main #dataDisplay #dates .usages .gasUse {
           background-color: #bde4bf; }
   body main #detailDisplays {
-    width: 40%;
-    float: right;
-    margin: 2.4em 2em 0 0; }
+    width: 94%;
+    margin: auto;
+    margin-top: 2em; }
     body main #detailDisplays ul li {
       background-color: #f4f8f5;
-      height: 9em;
-      list-style: none;
-      margin: 0 0 1em 0; }
+      height: 27em;
+      display: inline-block;
+      width: 32.9%; }
       body main #detailDisplays ul li .circleDetail {
-        float: left;
-        width: 6em;
-        height: 6em;
+        width: 9em;
+        height: 9em;
         background-color: white;
         border-radius: 50%;
-        margin: 1em 0 0 1em;
+        margin: auto;
+        margin-top: 2em;
         text-align: center; }
         body main #detailDisplays ul li .circleDetail#circelEnergy {
-          border: 5px solid #e8af62; }
+          border: 1em solid #e8af62; }
         body main #detailDisplays ul li .circleDetail#circelWater {
-          border: 5px solid #34a5e6; }
+          border: 1em solid #34a5e6; }
         body main #detailDisplays ul li .circleDetail#circelGas {
-          border: 5px solid #bde4bf; }
+          border: 1em solid #bde4bf; }
         body main #detailDisplays ul li .circleDetail i {
-          font-size: 2em;
+          font-size: 3em;
           margin: 1em 0 0 .1em; }
       body main #detailDisplays ul li .usage {
         text-align: center;
