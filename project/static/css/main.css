@@ -270,14 +270,9 @@ body main {
           font-size: 3em;
           margin: 1em 0 0 .1em; }
       body main #detailDisplays ul li .usage {
-        text-align: center;
-        float: right;
-        margin: 1em 1em 0 0;
-        width: 63%; }
+        text-align: center; }
         body main #detailDisplays ul li .usage .realUse {
-          font-weight: bold;
-          float: left;
-          width: 49%; }
+          font-weight: bold; }
           body main #detailDisplays ul li .usage .realUse em {
             font-style: normal; }
             body main #detailDisplays ul li .usage .realUse em#realEnergy {
@@ -291,19 +286,11 @@ body main {
             color: #bfbfbf;
             font-weight: normal; }
         body main #detailDisplays ul li .usage .toEuros {
-          font-weight: bold;
-          float: right;
-          width: 49%;
-          border-left: 1px solid #bfbfbf; }
+          font-weight: bold; }
           body main #detailDisplays ul li .usage .toEuros span {
             font-size: 0.7em;
             color: #bfbfbf;
             font-weight: normal; }
-        body main #detailDisplays ul li .usage .percentage {
-          clear: both;
-          width: 100%;
-          border-top: 1px solid #bfbfbf;
-          padding: 1em 0 0 0; }
   body main #detailDataDisplay {
     width: 100%;
     background-color: #f7f7f7; }
