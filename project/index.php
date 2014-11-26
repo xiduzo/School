@@ -44,14 +44,14 @@ $user = getUser($_SESSION['user']);
 
 			<? if($viewToggle == 'all'): ?>
 				<!-- all -->
-				<!-- <div id="optionsToggle">
+				<div id="optionsToggle">
 					<ul id="dateToggle">
 						<li><a href="?dateToggle=dag&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'dag' ? 'class="active"' : ''?>>Dag</a></li>
 						<li><a href="?dateToggle=week&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
 						<li><a href="?dateToggle=maand&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'maand' ? 'class="active"' : ''?>>Maand</a></li>
 						<li><a href="?dateToggle=jaar&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'jaar' ? 'class="active"' : ''?>>Jaar</a></li>
 					</ul>
-				</div> -->
+				</div>
 
 				<div id="detailDisplays">
 					<?

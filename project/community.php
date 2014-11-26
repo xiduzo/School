@@ -43,37 +43,15 @@ $user = getUser($_SESSION['user']);
 			</div>
 
 			<div id="posts">
-				<div class="post">
-					<header></header>
-				</div>
-
-				<div class="post">
-					<header></header>
-				</div>
-
-				<div class="post">
-					<header></header>
-				</div>
-
-				<div class="post">
-					<header></header>
-				</div>
-
-				<div class="post">
-					<header></header>
-				</div>
-
-				<div class="post">
-					<header></header>
-				</div>
-
-				<div class="post">
-					<header></header>
-				</div>
-
-				<div class="post">
-					<header></header>
-				</div>
+				<?
+					for($i = 1; $i < 15; $i++) {
+						echo '
+							<div class="post" style="height:'.rand(100,300).'px;">
+								<header>'.$i.'</header>
+							</div>
+						';
+					}
+				?>
 			</div>
 		</main>
 

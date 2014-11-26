@@ -182,9 +182,9 @@ body main {
               text-align: center;
               padding: .2em .7em .2em .7em; }
   body main #optionsToggle {
-    margin: 3em 0 0 2em;
-    float: left;
-    width: 50%; }
+    width: 100%;
+    text-align: center;
+    margin: 2em 0 0 0; }
     body main #optionsToggle ul li {
       display: inline-block;
       list-style: none;
@@ -198,51 +198,6 @@ body main {
         background-color: #e1e4e2; }
         body main #optionsToggle ul li a.active {
           background-color: white; }
-    body main #optionsToggle #dateToggle {
-      float: left; }
-    body main #optionsToggle #displayToggle {
-      float: right; }
-  body main #dataDisplay {
-    position: absolute;
-    margin: 8em 0 0 2em;
-    height: 24em;
-    width: 32em; }
-    body main #dataDisplay #maxUse, body main #dataDisplay #avgUse {
-      color: #bfbfbf;
-      border-bottom: 0.2em solid #bfbfbf;
-      text-align: right;
-      position: absolute;
-      width: 106.5%;
-      font-size: 0.6em; }
-    body main #dataDisplay #maxUse {
-      z-index: 1;
-      padding: 3em 0 0 0; }
-    body main #dataDisplay #avgUse {
-      padding: 10em 0 0 0;
-      z-index: 2; }
-    body main #dataDisplay #dates {
-      position: relative;
-      height: 100%; }
-      body main #dataDisplay #dates ul {
-        position: absolute;
-        bottom: 0;
-        z-index: -1; }
-        body main #dataDisplay #dates ul li {
-          display: inline-block;
-          text-decoration: none;
-          text-align: center;
-          vertical-align: bottom;
-          width: 4.67em;
-          margin: 0 -.4em 0 0; }
-      body main #dataDisplay #dates .usages {
-        width: 100%;
-        height: 100%; }
-        body main #dataDisplay #dates .usages .energyUse {
-          background-color: #e8af62; }
-        body main #dataDisplay #dates .usages .waterUse {
-          background-color: #34a5e6; }
-        body main #dataDisplay #dates .usages .gasUse {
-          background-color: #bde4bf; }
   body main #detailDisplays {
     width: 94%;
     margin: auto;
@@ -350,20 +305,35 @@ body main {
                 color: #fcb828;
                 margin: 0 0 0 .3em; }
   body main #posts {
-    width: 80%;
-    margin: auto; }
+    -webkit-column-count: 3;
+    -webkit-column-gap: 1em;
+    -webkit-column-fill: auto;
+    -moz-column-count: 3;
+    -moz-column-gap: 1em;
+    -moz-column-fill: auto;
+    column-count: 2;
+    column-gap: 1em;
+    column-fill: auto;
+    width: 98%;
+    margin: auto;
+    margin-top: 1.5em; }
     body main #posts .post {
-      position: relative;
-      margin: 1.5em 0 0 0;
-      min-height: 10em;
-      background-color: #f7f7f7; }
+      border: 2px solid #f7f7f7;
+      margin: 0 2px 1em;
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+      column-break-inside: avoid;
+      padding: 1em;
+      padding-bottom: 5px;
+      -webkit-transition: all .2s ease;
+      -moz-transition: all .2s ease;
+      -o-transition: all .2s ease;
+      transition: all .2s ease; }
       body main #posts .post header {
         min-height: 2em;
         background-color: #bfbfbf;
         position: inherit;
         border: none; }
-      body main #posts .post:last-of-type {
-        margin: 1.5em 0 1.5em 0; }
 body nav {
   background-color: black;
   height: 100%;
