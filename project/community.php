@@ -46,9 +46,10 @@ $user = getUser($_SESSION['user']);
 			<div id="posts">
 				<?
 					while($post = mysqli_fetch_array($allPosts)){
+						$opacity = $post['reader'] == 1 ? 'opacity:.7;' : 'opacity:1;';
 						if($post['type'] == 1){
 							echo '
-								<div class="post">
+								<div class="post" style="'.$opacity.'">
 									<header>
 									<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
 									</header>
@@ -65,7 +66,7 @@ $user = getUser($_SESSION['user']);
 							';
 						} else {
 							echo '
-								<div class="post">
+								<div class="post" style="'.$opacity.'">
 									<article>
 										<h1>'.$post['titel'].'</h1>
 										<div class="postedBy">

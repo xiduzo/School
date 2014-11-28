@@ -24,18 +24,25 @@ function getUser($user){
 
 function getPosts($type) {
 
+	$q = "SELECT * FROM school_project_posts";
+
 	switch($type) {
 		case 'corp':
-			$q = "SELECT * FROM school_project_posts WHERE type = 1 ORDER BY datum DESC";
+			$q = "SELECT * FROM school_project_posts WHERE type = 1";
 		break;
 		case 'tips':
-			$q = "SELECT * FROM school_project_posts WHERE type = 2 ORDER BY datum DESC";
+			$q = "SELECT * FROM school_project_posts WHERE type = 2";
 		break;
 		default:
-			$q = "SELECT * FROM school_project_posts ORDER BY datum DESC";
+			$q = "SELECT * FROM school_project_posts";
 		break;
 	}
 
+	$q.= " JOIN school_project_post_reads ON `school_project_posts`.`id`=`school_project_post_reads`.`postID`";
+
+	$q.= " ORDER BY datum DESC";
+
+	die($q);
 
 	$host	=	"sql8.pcextreme.nl";
 	$user	= 	"63744sanderboer";
