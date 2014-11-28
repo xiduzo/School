@@ -30,26 +30,54 @@ $user = getUser($_SESSION['user']);
 		<main  id="mainContent">
 			<?
 				$viewToggle 	= $_GET['viewToggle'] ? $_GET['viewToggle'] : 'all';
+				$allPosts 		= getPosts($viewToggle);
 			?>
 			<div id="viewToggle">
 
-				<button id="newTip"><a href="#nieuweTip">Schrijf een tip</a></button>
+				<button id="newTip"><a href="#nieuweTip"><i class="fa fa-plus"></i></a></button>
 
 				<ul id="forumToggle">
-					<li><a href="?viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>>Alle berichten</a></li>
-					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<span><? echo rand(1,8); ?></span></a></li>
-					<li><a href="?viewToggle=tips" <?=$viewToggle == 'tips' ? 'class="active"' : ''?>>Besparingstips</a></li>
+					<li><a href="?viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>>Alle berichten<span><?echo mysqli_num_rows(getPosts('all'))?></span></a></li>
+					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<span><?echo mysqli_num_rows(getPosts('corp'))?></span></a></li>
+					<li><a href="?viewToggle=tips" <?=$viewToggle == 'tips' ? 'class="active"' : ''?>>Besparingstips<span><?echo mysqli_num_rows(getPosts('tips'))?></span></a></li>
 				</ul>
 			</div>
 
 			<div id="posts">
 				<?
-					for($i = 1; $i < 15; $i++) {
-						echo '
-							<div class="post" style="height:'.rand(100,300).'px;">
-								<header>'.$i.'</header>
-							</div>
-						';
+					while($post = mysqli_fetch_array($allPosts)){
+						if($post['type'] == 1){
+							echo '
+								<div class="post">
+									<header>
+									<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
+									</header>
+									<article>
+										<h1>'.$post['titel'].'</h1>
+										<div class="postedBy">
+										 	<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
+											'.$post['door'].' <br/>
+											<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
+										</div>
+										<p>'.$post['bericht'].'</p>
+									</article>
+								</div>
+							';
+						} else {
+							echo '
+								<div class="post">
+									<article>
+										<h1>'.$post['titel'].'</h1>
+										<div class="postedBy">
+										 	<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
+											'.$post['door'].' <br/>
+											<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
+										</div>
+										<p>'.$post['bericht'].'</p>
+									</article>
+								</div>
+							';
+						}
 					}
 				?>
 			</div>

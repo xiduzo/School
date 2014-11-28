@@ -31,7 +31,6 @@ $user = getUser($_SESSION['user']);
 			<?
 					$viewToggle 	= $_GET['viewToggle'] ? $_GET['viewToggle'] : 'all';
 					$dateToggle 	= $_GET['dateToggle'] ? $_GET['dateToggle'] : 'week';
-					$displayToggle 	= $_GET['displayToggle'] ? $_GET['displayToggle'] : 'bar';
 			?>
 			<div id="viewToggle">
 				<ul id="mainToggle">
@@ -46,10 +45,10 @@ $user = getUser($_SESSION['user']);
 				<!-- all -->
 				<div id="optionsToggle">
 					<ul id="dateToggle">
-						<li><a href="?dateToggle=dag&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'dag' ? 'class="active"' : ''?>>Dag</a></li>
-						<li><a href="?dateToggle=week&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
-						<li><a href="?dateToggle=maand&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'maand' ? 'class="active"' : ''?>>Maand</a></li>
-						<li><a href="?dateToggle=jaar&amp;displayToggle=<?=$displayToggle?>" <?=$dateToggle == 'jaar' ? 'class="active"' : ''?>>Jaar</a></li>
+						<li><a href="?dateToggle=dag" <?=$dateToggle == 'dag' ? 'class="active"' : ''?>>Dag</a></li>
+						<li><a href="?dateToggle=week" <?=$dateToggle == 'week' ? 'class="active"' : ''?>>Week</a></li>
+						<li><a href="?dateToggle=maand" <?=$dateToggle == 'maand' ? 'class="active"' : ''?>>Maand</a></li>
+						<li><a href="?dateToggle=jaar" <?=$dateToggle == 'jaar' ? 'class="active"' : ''?>>Jaar</a></li>
 					</ul>
 				</div>
 

@@ -1,3 +1,8 @@
+.box-shadow, body #mainHeader, body main #posts .post {
+  -webkit-box-shadow: 0 0 0.5em 0 #cfc4c4;
+  -moz-box-shadow: 0 0 0.5em 0 #cfc4c4;
+  box-shadow: 0 0 0.5em 0 #cfc4c4; }
+
 @-webkit-keyframes showNav {
   0% {
     left: 0%; }
@@ -44,34 +49,33 @@
   font-size: 1em;
   line-height: 1.625em;
   letter-spacing: 0.0625em;
-  font-family: helvetica; }
+  font-family: helvetica;
+  color: black; }
 
-body header {
+body #mainHeader {
   left: 0%;
   width: 100%;
   position: fixed;
   z-index: 3;
-  background-color: white;
-  border-bottom: 0.2em solid #dfdfdf; }
-  body header #navButton {
-    margin: 0;
-    font-size: 2em;
-    color: #bfbfbf; }
-  body header.activeNav {
+  background-color: white; }
+  body #mainHeader #navButton {
+    margin: 0 0 0 .7em;
+    font-size: 2em; }
+  body #mainHeader.activeNav {
     -webkit-animation: showNav .7s 1;
     -moz-animation: showNav .7s 1;
     -o-animation: showNav .7s 1;
     animation: showNav .7s 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
-  body header.inActiveNav {
+  body #mainHeader.inActiveNav {
     -webkit-animation: hideNav .7s 1;
     -moz-animation: hideNav .7s 1;
     -o-animation: hideNav .7s 1;
     animation: hideNav .7s 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
-  body header #appName {
+  body #mainHeader #appName {
     position: absolute;
     left: 46%;
     top: 1em; }
@@ -79,7 +83,7 @@ body main {
   top: 3.2em;
   width: 100%;
   left: 0%;
-  background-color: white;
+  background-color: #ededed;
   min-height: 50px;
   position: absolute;
   z-index: 2;
@@ -133,54 +137,62 @@ body main {
     float: right;
     font-weight: bold; }
   body main #viewToggle {
+    margin: 1.5em 0 0 0;
     height: 4em;
     width: 100%;
-    background-color: #f2f2f2;
-    border-bottom: 0.2em solid #dfdfdf; }
+    background-color: #a3c700;
+    border-bottom: 1em solid #ecff94; }
     body main #viewToggle #newTip {
+      border-radius: 50%;
       float: right;
-      background-color: #40D8FF;
+      background-color: #00a6e9;
       border: none;
-      font-weight: 600;
-      padding: 0.7em 1em;
-      margin: .6em .6em 0 0; }
+      padding: 0 .5em 0 .5em;
+      margin: .7em 3em 0 0; }
       body main #viewToggle #newTip a {
-        color: white;
-        text-decoration: none; }
+        font-size: 1.5em;
+        text-decoration: none;
+        margin: 0 0 0 .05em; }
+        body main #viewToggle #newTip a i {
+          color: white; }
     body main #viewToggle ul {
       text-align: center; }
       body main #viewToggle ul#mainToggle li {
-        font-size: 1.5em;
+        font-size: 1.8em;
         display: inline-block; }
         body main #viewToggle ul#mainToggle li a {
-          padding: 0 2.9em .65em 2.9em;
-          color: black; }
+          padding: 0 2.9em .6em 2.9em; }
           body main #viewToggle ul#mainToggle li a.active {
-            border-bottom: .2em solid black; }
+            -webkit-box-shadow: inset 0 -0.3em 0 0 #00a6e9;
+            -moz-box-shadow: inset 0 -0.3em 0 0 #00a6e9;
+            box-shadow: inset inset 0 -0.3em 0 0 #00a6e9; }
           body main #viewToggle ul#mainToggle li a i {
-            padding: .9em 0 0 0; }
+            padding: .6em 0 0 0; }
       body main #viewToggle ul#forumToggle {
-        width: 50%;
+        width: 70%;
         margin: auto; }
         body main #viewToggle ul#forumToggle li {
-          font-size: 0.7em;
           display: inline-block;
-          padding: 2em 0 0 0; }
+          padding: 1.3em 0 0 0; }
           body main #viewToggle ul#forumToggle li a {
-            padding: 0 2.9em 2.35em 2.9em;
-            color: black;
+            padding: 0 1.9em 1.3em 1.9em;
             text-decoration: none; }
             body main #viewToggle ul#forumToggle li a.active {
-              border-bottom: .2em solid black; }
+              -webkit-box-shadow: inset 0 -0.5em 0 0 #00a6e9;
+              -moz-box-shadow: inset 0 -0.5em 0 0 #00a6e9;
+              box-shadow: inset inset 0 -0.5em 0 0 #00a6e9; }
             body main #viewToggle ul#forumToggle li a span {
               color: white;
               font-weight: 600;
               position: absolute;
-              top: 1em;
-              background-color: #40d8ff;
+              top: 3em;
+              background-color: #00a6e9;
               border-radius: 50%;
               text-align: center;
-              padding: .2em .7em .2em .7em; }
+              width: 2em;
+              height: 2em;
+              line-height: 2em;
+              font-size: 0.7em; }
   body main #optionsToggle {
     width: 100%;
     text-align: center;
@@ -191,7 +203,6 @@ body main {
       margin-right: -.5em; }
       body main #optionsToggle ul li a {
         text-decoration: none;
-        color: black;
         border: 0.15em solid #afafaf;
         padding: .7em 1em;
         background-color: #e1e4e2;
@@ -248,7 +259,7 @@ body main {
             font-weight: normal; }
   body main #detailDataDisplay {
     width: 100%;
-    background-color: #f7f7f7; }
+    background-color: #c4c4c4; }
     body main #detailDataDisplay h1 {
       padding: 2em 1em 1em 0;
       width: 95%;
@@ -316,24 +327,47 @@ body main {
     column-fill: auto;
     width: 98%;
     margin: auto;
-    margin-top: 1.5em; }
+    margin-top: 1.5em;
+    padding-bottom: 3em; }
     body main #posts .post {
-      border: 2px solid #f7f7f7;
+      background-color: white;
       margin: 0 2px 1em;
+      padding: 0 0 1em 0;
       -webkit-column-break-inside: avoid;
       -moz-column-break-inside: avoid;
       column-break-inside: avoid;
-      padding: 1em;
-      padding-bottom: 5px;
-      -webkit-transition: all .2s ease;
-      -moz-transition: all .2s ease;
-      -o-transition: all .2s ease;
-      transition: all .2s ease; }
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      -o-transition: all 2s ease;
+      transition: all 2s ease; }
       body main #posts .post header {
-        min-height: 2em;
+        height: 10em;
         background-color: #bfbfbf;
         position: inherit;
-        border: none; }
+        border: none;
+        text-align: center; }
+        body main #posts .post header img {
+          width: 100%;
+          height: 100%; }
+      body main #posts .post article {
+        padding: 3% 5% 0 5%;
+        position: inherit; }
+        body main #posts .post article .postedBy {
+          padding: .7em 0 0 0; }
+        body main #posts .post article h1 {
+          font-size: 1.5em; }
+        body main #posts .post article img {
+          width: 4em;
+          height: 4em;
+          border-radius: 50%;
+          float: left;
+          margin: 0 1em 0 0;
+          border: 0.2em solid #ecff94; }
+        body main #posts .post article time {
+          font-size: 0.8em;
+          color: #c4c4c4; }
+        body main #posts .post article p {
+          margin: 2em 0 0 0; }
 body nav {
   background-color: black;
   height: 100%;
@@ -360,6 +394,7 @@ body nav {
         margin: 0 0 0 .5em;
         padding: 1.4em 3.5em 1.5em 0; }
         body nav ul li a i {
+          color: white;
           font-size: 1.5em;
           margin: .5em 1.5em 0 0; }
 
