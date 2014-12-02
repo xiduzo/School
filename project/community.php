@@ -27,14 +27,16 @@ $user = getUser($_SESSION['user']);
     		pageHeader();
     	?>
 
+
+		<button id="newTip"><a href="#nieuweTip"><i class="fa fa-plus"></i></a></button>
+
 		<main  id="mainContent">
+
 			<?
 				$viewToggle 	= $_GET['viewToggle'] ? $_GET['viewToggle'] : 'all';
 				$allPosts 		= getPosts($viewToggle);
 			?>
 			<div id="viewToggle">
-
-				<button id="newTip"><a href="#nieuweTip"><i class="fa fa-plus"></i></a></button>
 
 				<ul id="forumToggle">
 					<li><a href="?viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>>Alle berichten<span><?echo mysqli_num_rows(getPosts('all'))?></span></a></li>
@@ -46,10 +48,9 @@ $user = getUser($_SESSION['user']);
 			<div id="posts">
 				<?
 					while($post = mysqli_fetch_array($allPosts)){
-						$opacity = $post['reader'] == 1 ? 'opacity:.7;' : 'opacity:1;';
 						if($post['type'] == 1){
 							echo '
-								<div class="post" style="'.$opacity.'">
+								<div class="post">
 									<header>
 									<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
 									</header>
@@ -66,7 +67,7 @@ $user = getUser($_SESSION['user']);
 							';
 						} else {
 							echo '
-								<div class="post" style="'.$opacity.'">
+								<div class="post">
 									<article>
 										<h1>'.$post['titel'].'</h1>
 										<div class="postedBy">

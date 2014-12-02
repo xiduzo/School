@@ -1,7 +1,6 @@
 <?
 session_start();
 
-
 include '../required/config.php';
 
 function checkUser() {
@@ -26,11 +25,6 @@ function checkLogin($username, $password) {
 	$db 	= 	"63744sanderboer";
 
 	$checkConnection = mysqli_connect($host,$user,$pass,$db);
-
-	if(mysqli_connect_errno()){
-		echo "Er is iets mis gegaan met MYSQL: " . mysqli_connect_error();
-		die();
-	}
 
 	$q 	= "	SELECT `klantNummer` 
 			FROM school_project_users 

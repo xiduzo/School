@@ -80,19 +80,25 @@ $user = getUser($_SESSION['user']);
 					?>
 					<ul>
 						<li>
-							<?
-								detailDisplay('Energy', 'plug', randomUse($dateToggle), 120, 'kWh', randomCost(), $dateToggle, randomPercentage(), 'onder');
-							?>
+							<a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=energy">
+								<?
+									detailDisplay('Energy', 'plug', randomUse($dateToggle), 120, 'kWh', randomCost(), $dateToggle, randomPercentage(), 'onder');
+								?>
+							</a>
 						</li>						
 						<li>
-							<?
-								detailDisplay('Water', 'tint', randomUse($dateToggle), 120, 'Liter', randomCost(), $dateToggle, randomPercentage(), 'onder');
-							?>
+							<a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=water">
+								<?
+									detailDisplay('Water', 'tint', randomUse($dateToggle), 120, 'Liter', randomCost(), $dateToggle, randomPercentage(), 'onder');
+								?>
+							</a>
 						</li>						
 						<li>
-							<?
-								detailDisplay('Gas', 'fire', randomUse($dateToggle), 120, 'kWh', randomCost(), $dateToggle, randomPercentage(), 'onder');
-							?>
+							<a href="?dateToggle=<?=$dateToggle?>&amp;viewToggle=gas">
+								<?
+									detailDisplay('Gas', 'fire', randomUse($dateToggle), 120, 'kWh', randomCost(), $dateToggle, randomPercentage(), 'onder');
+								?>
+							</a>
 						</li>
 					</ul>
 				</div>

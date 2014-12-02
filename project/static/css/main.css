@@ -79,6 +79,22 @@ body #mainHeader {
     position: absolute;
     left: 46%;
     top: 1em; }
+body #newTip {
+  border-radius: 50%;
+  float: right;
+  background-color: #00a6e9;
+  border: none;
+  padding: 0 .5em 0 .5em;
+  margin: .4em 1em 0 0;
+  z-index: 3;
+  position: fixed;
+  right: 0; }
+  body #newTip a {
+    font-size: 1.5em;
+    text-decoration: none;
+    margin: 0 0 0 .05em; }
+    body #newTip a i {
+      color: white; }
 body main {
   top: 3.2em;
   width: 100%;
@@ -142,19 +158,6 @@ body main {
     width: 100%;
     background-color: #a3c700;
     border-bottom: 1em solid #ecff94; }
-    body main #viewToggle #newTip {
-      border-radius: 50%;
-      float: right;
-      background-color: #00a6e9;
-      border: none;
-      padding: 0 .5em 0 .5em;
-      margin: .7em 3em 0 0; }
-      body main #viewToggle #newTip a {
-        font-size: 1.5em;
-        text-decoration: none;
-        margin: 0 0 0 .05em; }
-        body main #viewToggle #newTip a i {
-          color: white; }
     body main #viewToggle ul {
       text-align: center; }
       body main #viewToggle ul#mainToggle li {
@@ -218,45 +221,47 @@ body main {
       height: 27em;
       display: inline-block;
       width: 32.9%; }
-      body main #detailDisplays ul li .circleDetail {
-        width: 9em;
-        height: 9em;
-        background-color: white;
-        border-radius: 50%;
-        margin: auto;
-        margin-top: 2em;
-        text-align: center; }
-        body main #detailDisplays ul li .circleDetail#circelEnergy {
-          border: 1em solid #e8af62; }
-        body main #detailDisplays ul li .circleDetail#circelWater {
-          border: 1em solid #34a5e6; }
-        body main #detailDisplays ul li .circleDetail#circelGas {
-          border: 1em solid #bde4bf; }
-        body main #detailDisplays ul li .circleDetail i {
-          font-size: 3em;
-          margin: 1em 0 0 .1em; }
-      body main #detailDisplays ul li .usage {
-        text-align: center; }
-        body main #detailDisplays ul li .usage .realUse {
-          font-weight: bold; }
-          body main #detailDisplays ul li .usage .realUse em {
-            font-style: normal; }
-            body main #detailDisplays ul li .usage .realUse em#realEnergy {
-              color: #e8af62; }
-            body main #detailDisplays ul li .usage .realUse em#realWater {
-              color: #34a5e6; }
-            body main #detailDisplays ul li .usage .realUse em#realGas {
-              color: #bde4bf; }
-          body main #detailDisplays ul li .usage .realUse span {
-            font-size: 0.7em;
-            color: #bfbfbf;
-            font-weight: normal; }
-        body main #detailDisplays ul li .usage .toEuros {
-          font-weight: bold; }
-          body main #detailDisplays ul li .usage .toEuros span {
-            font-size: 0.7em;
-            color: #bfbfbf;
-            font-weight: normal; }
+      body main #detailDisplays ul li a {
+        text-decoration: none; }
+        body main #detailDisplays ul li a .circleDetail {
+          width: 9em;
+          height: 9em;
+          background-color: white;
+          border-radius: 50%;
+          margin: auto;
+          margin-top: 2em;
+          text-align: center; }
+          body main #detailDisplays ul li a .circleDetail#circelEnergy {
+            border: 1em solid #e8af62; }
+          body main #detailDisplays ul li a .circleDetail#circelWater {
+            border: 1em solid #34a5e6; }
+          body main #detailDisplays ul li a .circleDetail#circelGas {
+            border: 1em solid #bde4bf; }
+          body main #detailDisplays ul li a .circleDetail i {
+            font-size: 3em;
+            margin: 1em 0 0 .1em; }
+        body main #detailDisplays ul li a .usage {
+          text-align: center; }
+          body main #detailDisplays ul li a .usage .realUse {
+            font-weight: bold; }
+            body main #detailDisplays ul li a .usage .realUse em {
+              font-style: normal; }
+              body main #detailDisplays ul li a .usage .realUse em#realEnergy {
+                color: #e8af62; }
+              body main #detailDisplays ul li a .usage .realUse em#realWater {
+                color: #34a5e6; }
+              body main #detailDisplays ul li a .usage .realUse em#realGas {
+                color: #bde4bf; }
+            body main #detailDisplays ul li a .usage .realUse span {
+              font-size: 0.7em;
+              color: #bfbfbf;
+              font-weight: normal; }
+          body main #detailDisplays ul li a .usage .toEuros {
+            font-weight: bold; }
+            body main #detailDisplays ul li a .usage .toEuros span {
+              font-size: 0.7em;
+              color: #bfbfbf;
+              font-weight: normal; }
   body main #detailDataDisplay {
     width: 100%;
     background-color: #c4c4c4; }
