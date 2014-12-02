@@ -50,34 +50,38 @@ $user = getUser($_SESSION['user']);
 					while($post = mysqli_fetch_array($allPosts)){
 						if($post['type'] == 1){
 							echo '
-								<div class="post">
-									<header>
-									<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
-									</header>
-									<article>
-										<h1>'.$post['titel'].'</h1>
-										<div class="postedBy">
-										 	<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
-											'.$post['door'].' <br/>
-											<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
-										</div>
-										<p>'.$post['bericht'].'</p>
-									</article>
-								</div>
+								<a href="detailPost.php?postID='.$post['id'].'">
+									<div class="post">
+										<header>
+										<img src="data:image/jpeg;base64,'.base64_encode($post['image'] ).'"/>
+										</header>
+										<article>
+											<h1>'.$post['titel'].'</h1>
+											<div class="postedBy">
+											 	<img src="data:image/jpeg;base64,'.base64_encode($post['image'] ).'"/>
+												'.$post['door'].' <br/>
+												<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
+											</div>
+											<p>'.$post['bericht'].'</p>
+										</article>
+									</div>
+								</a>
 							';
 						} else {
 							echo '
-								<div class="post">
-									<article>
-										<h1>'.$post['titel'].'</h1>
-										<div class="postedBy">
-										 	<img src="data:image/jpeg;base64,'.base64_encode( $post['image'] ).'"/>
-											'.$post['door'].' <br/>
-											<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
-										</div>
-										<p>'.$post['bericht'].'</p>
-									</article>
-								</div>
+								<a href="detailPost.php?postID='.$post['id'].'">
+									<div class="post">
+										<article>
+											<h1>'.$post['titel'].'</h1>
+											<div class="postedBy">
+											 	<img src="data:image/jpeg;base64,'.base64_encode($post['image'] ).'"/>
+												'.$post['door'].' <br/>
+												<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
+											</div>
+											<p>'.$post['bericht'].'</p>
+										</article>
+									</div>
+								</a>
 							';
 						}
 					}

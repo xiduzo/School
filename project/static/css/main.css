@@ -1,4 +1,4 @@
-.box-shadow, body #mainHeader, body main #posts .post {
+.box-shadow, body #mainHeader, body main #posts a .post {
   -webkit-box-shadow: 0 0 0.5em 0 #cfc4c4;
   -moz-box-shadow: 0 0 0.5em 0 #cfc4c4;
   box-shadow: 0 0 0.5em 0 #cfc4c4; }
@@ -334,45 +334,50 @@ body main {
     margin: auto;
     margin-top: 1.5em;
     padding-bottom: 3em; }
-    body main #posts .post {
-      background-color: white;
-      margin: 0 2px 1em;
-      padding: 0 0 1em 0;
-      -webkit-column-break-inside: avoid;
-      -moz-column-break-inside: avoid;
-      column-break-inside: avoid;
-      -webkit-transition: all 2s ease;
-      -moz-transition: all 2s ease;
-      -o-transition: all 2s ease;
-      transition: all 2s ease; }
-      body main #posts .post header {
-        height: 10em;
-        background-color: #bfbfbf;
-        position: inherit;
-        border: none;
-        text-align: center; }
-        body main #posts .post header img {
-          width: 100%;
-          height: 100%; }
-      body main #posts .post article {
-        padding: 3% 5% 0 5%;
-        position: inherit; }
-        body main #posts .post article .postedBy {
-          padding: .7em 0 0 0; }
-        body main #posts .post article h1 {
-          font-size: 1.5em; }
-        body main #posts .post article img {
-          width: 4em;
-          height: 4em;
-          border-radius: 50%;
-          float: left;
-          margin: 0 1em 0 0;
-          border: 0.2em solid #ecff94; }
-        body main #posts .post article time {
-          font-size: 0.8em;
-          color: #c4c4c4; }
-        body main #posts .post article p {
-          margin: 2em 0 0 0; }
+    body main #posts a {
+      text-decoration: none; }
+      body main #posts a .post {
+        background-color: white;
+        margin: 0 2px 1em;
+        padding: 0 0 1em 0;
+        -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
+        column-break-inside: avoid;
+        -webkit-transition: all 2s ease;
+        -moz-transition: all 2s ease;
+        -o-transition: all 2s ease;
+        transition: all 2s ease; }
+        body main #posts a .post header {
+          height: 10em;
+          background-color: #bfbfbf;
+          position: inherit;
+          border: none;
+          text-align: center; }
+          body main #posts a .post header img {
+            width: 100%;
+            height: 100%; }
+        body main #posts a .post article {
+          padding: 3% 5% 0 5%;
+          position: inherit; }
+          body main #posts a .post article .postedBy {
+            padding: .7em 0 0 0; }
+          body main #posts a .post article h1 {
+            font-size: 1.5em; }
+          body main #posts a .post article img {
+            width: 4em;
+            height: 4em;
+            border-radius: 50%;
+            float: left;
+            margin: 0 1em 0 0;
+            border: 0.2em solid #ecff94; }
+          body main #posts a .post article time {
+            font-size: 0.8em;
+            color: #c4c4c4; }
+          body main #posts a .post article p {
+            margin: 2em 0 0 0; }
+  body main #detailPost {
+    width: 80%;
+    margin: auto; }
 body nav {
   background-color: black;
   height: 100%;

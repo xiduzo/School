@@ -22,7 +22,7 @@ function getUser($user){
 
 }
 
-function getPosts($type, $userID) {
+function getPosts($type) {
 
 	$q = "SELECT * FROM school_project_posts";
 
@@ -35,7 +35,7 @@ function getPosts($type, $userID) {
 		break;
 	}
 
-	$q.= " ORDER BY datum DESC";;
+	$q.= " ORDER BY datum DESC";
 
 	$host	=	"sql8.pcextreme.nl";
 	$user	= 	"63744sanderboer";
@@ -48,6 +48,22 @@ function getPosts($type, $userID) {
 
 	return $result;
 
+}
+
+function getPost($id) {
+
+	$q = "SELECT * FROM school_project_posts WHERE id = ".$id."";
+
+	$host	=	"sql8.pcextreme.nl";
+	$user	= 	"63744sanderboer";
+	$pass	=	"Feyenoord1994!";
+	$db 	= 	"63744sanderboer";
+
+	$checkConnection = mysqli_connect($host,$user,$pass,$db) or die('Geen connectie mogenlijk met de database');
+
+	$result = mysqli_query($checkConnection, $q) or die("Error: ".mysqli_error($checkConnection));
+
+	return $result;
 }
 
 ?>
