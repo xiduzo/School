@@ -28,7 +28,34 @@ $user = getUser($_SESSION['user']);
     	?>
 
 
-		<button id="newTip"><a href="#nieuweTip"><i class="fa fa-plus"></i></a></button>
+		<button id="newTip" onclick="addNewTip()"><i class="fa fa-plus"></i></button>
+
+		<div id="newTipScreen">
+			<section id="newTipVisableScreen">
+				<button id="closeTipScreen" onclick="closeNewTipScreen()"><i class="fa fa-close"></i></button>
+				<h1>Schrijf je tip</h1>
+				<p>Deel je besparingstips met andere gebruikers. En hier nog wat tekst waarom het handig is.</p>
+				<form id="tipForm" method="post" action="<?=$_SERVER['PHP_SELF']?>">
+					
+					Titel:<br/>
+					<input type="text" name="title" placeholder="Vul hier een titel in">
+					Uw besparingstip:<br/>
+					<textarea name="tip"></textarea>
+
+					<input id="addTip" type="submit" value="Verstuur tip" name="addTip">
+				</form>
+			</section>
+		</div>
+
+		<script type="text/javascript">
+			function addNewTip() {
+				$("#newTipScreen").toggleClass("active");
+			}
+
+			function closeNewTipScreen() {
+				$("#newTipScreen").toggleClass("active");
+			}
+		</script>
 
 		<main  id="mainContent">
 
