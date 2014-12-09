@@ -22,6 +22,8 @@ $gasMainColor:                  rgb(189, 228, 191);
 $piggyBankColor:                rgb(252, 184, 40);
 $usagePercentageCompareColor:   grey;
 
+$donutSize: 300px;
+
 //extends
 .box-shadow {
     -webkit-box-shadow: 0 0 .5em 0 rgb(207, 196, 196);
@@ -63,15 +65,37 @@ $usagePercentageCompareColor:   grey;
     }
 }
 
+@mixin circle($donutSize) {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - #{$donutSize/2});
+  top: calc(50% - #{$donutSize/2});
+  width: $donutSize;
+  height: $donutSize;
+}
+
 //Animations
 @include keyframes(showNav) {
     0% { left: 0%; }
+    90% { left: 26%; }
     100% { left: 25%; }
 }
 
 @include keyframes(hideNav) {
     0% { left: 25%; }
     100% { left: 0%; }
+}
+
+@include keyframes(viewDetail) {
+    0% { bottom: -8em; }
+    90% { bottom: 23em; }
+    100% { bottom: 24em; }
+}
+
+@include keyframes(hideDetail) {
+    0% { bottom: 24em; }
+    100% { bottom: -8em; }
 }
 
 * {
@@ -132,7 +156,9 @@ body {
         }
     }
     #newTipScreen {
+            display: none;
         &.active {
+            display: block;
             position: fixed;
             width: 100%;
             height: 100%;
@@ -194,7 +220,7 @@ body {
         }
     }
     // Main
-    main {
+    #mainContent {
         top: 3.2em;
         width: 100%;
         left: 0%;
@@ -256,6 +282,60 @@ body {
             }
         } // End login page
 
+        //Index
+        #mainSection {
+            #donut {
+              width: 29rem;
+              height: 29rem;
+              margin: 6em 0 0 3em;
+            }
+
+            path.color0 {
+              fill: $mainColor;
+            }
+
+            path.color1 {
+              fill: white;
+            }
+            img {
+                position: absolute;
+                border-radius: 50%;
+                width: 435px;
+                height: 435px;
+                top: 100px;
+                left: 56px;
+                z-index: -1;
+                -webkit-filter: blur(3px);
+                -moz-filter: blur(5px);
+                -o-filter: blur(5px);
+                -ms-filter: blur(5px);
+                filter: blur(5px);
+            }
+            text {
+                font-size: $fontSize *3;
+            }
+        }
+        #detailUseSection {
+            position: absolute;
+            width: 100%;
+            background-color: white;
+            min-height: 10em;
+            bottom: -8em;
+            &.viewDetail {
+                @include animation("viewDetail .7s 1");
+                -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+            }
+            &.hideDetail {
+                @include animation("hideDetail .7s 1");
+                -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
+            }
+            #showDetailButton {
+                text-align: center;
+            }
+        }
+        //End of index
         // Data display
         #viewToggle {
             margin: 1.5em 0 0 0;
@@ -568,7 +648,7 @@ body {
         background-color: $menuBackgroundColor;
         height: 100%;
         position: fixed;
-        width: 25%;
+        width: 26%;
         z-index: 1;
         #whoIs {
             width: 100%;

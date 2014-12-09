@@ -1,4 +1,4 @@
-.box-shadow, body #mainHeader, body main #posts a .post {
+.box-shadow, body #mainHeader, body #mainContent #posts a .post {
   -webkit-box-shadow: 0 0 0.5em 0 #cfc4c4;
   -moz-box-shadow: 0 0 0.5em 0 #cfc4c4;
   box-shadow: 0 0 0.5em 0 #cfc4c4; }
@@ -6,21 +6,29 @@
 @-webkit-keyframes showNav {
   0% {
     left: 0%; }
+  90% {
+    left: 26%; }
   100% {
     left: 25%; } }
 @-moz-keyframes showNav {
   0% {
     left: 0%; }
+  90% {
+    left: 26%; }
   100% {
     left: 25%; } }
 @-o-keyframes showNav {
   0% {
     left: 0%; }
+  90% {
+    left: 26%; }
   100% {
     left: 25%; } }
 @keyframes showNav {
   0% {
     left: 0%; }
+  90% {
+    left: 26%; }
   100% {
     left: 25%; } }
 @-webkit-keyframes hideNav {
@@ -43,6 +51,54 @@
     left: 25%; }
   100% {
     left: 0%; } }
+@-webkit-keyframes viewDetail {
+  0% {
+    bottom: -8em; }
+  90% {
+    bottom: 23em; }
+  100% {
+    bottom: 24em; } }
+@-moz-keyframes viewDetail {
+  0% {
+    bottom: -8em; }
+  90% {
+    bottom: 23em; }
+  100% {
+    bottom: 24em; } }
+@-o-keyframes viewDetail {
+  0% {
+    bottom: -8em; }
+  90% {
+    bottom: 23em; }
+  100% {
+    bottom: 24em; } }
+@keyframes viewDetail {
+  0% {
+    bottom: -8em; }
+  90% {
+    bottom: 23em; }
+  100% {
+    bottom: 24em; } }
+@-webkit-keyframes hideDetail {
+  0% {
+    bottom: 24em; }
+  100% {
+    bottom: -8em; } }
+@-moz-keyframes hideDetail {
+  0% {
+    bottom: 24em; }
+  100% {
+    bottom: -8em; } }
+@-o-keyframes hideDetail {
+  0% {
+    bottom: 24em; }
+  100% {
+    bottom: -8em; } }
+@keyframes hideDetail {
+  0% {
+    bottom: 24em; }
+  100% {
+    bottom: -8em; } }
 * {
   padding: 0;
   margin: 0;
@@ -94,56 +150,59 @@ body #newTip {
     text-decoration: none;
     margin: .2em 0 0 .05em;
     color: white; }
-body #newTipScreen.active {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 3; }
-  body #newTipScreen.active #newTipVisableScreen {
-    background-color: white;
-    width: 70%;
+body #newTipScreen {
+  display: none; }
+  body #newTipScreen.active {
+    display: block;
     position: fixed;
-    top: 11%;
-    left: 11%;
-    border: 1px solid black;
-    padding: 2em; }
-    body #newTipScreen.active #newTipVisableScreen #closeTipScreen {
-      border: none;
-      background: none;
-      float: right; }
-      body #newTipScreen.active #newTipVisableScreen #closeTipScreen i {
-        font-size: 2em;
-        position: absolute;
-        top: .3em;
-        right: .2em; }
-    body #newTipScreen.active #newTipVisableScreen h1 {
-      font-size: 2em; }
-    body #newTipScreen.active #newTipVisableScreen #tipForm {
-      margin: 1em 0 0 0; }
-      body #newTipScreen.active #newTipVisableScreen #tipForm input[type="text"], body #newTipScreen.active #newTipVisableScreen #tipForm textarea {
-        width: 100%;
-        display: inherit;
-        height: 3em;
-        padding: 0 0 0 1em;
-        margin: 0 0 1.5em 0; }
-      body #newTipScreen.active #newTipVisableScreen #tipForm textarea {
-        height: 25vh;
-        padding: .5em 0 0 1em; }
-      body #newTipScreen.active #newTipVisableScreen #tipForm #addTip {
-        width: 28.5%;
-        float: right;
-        background-color: #00a6e9;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 3; }
+    body #newTipScreen.active #newTipVisableScreen {
+      background-color: white;
+      width: 70%;
+      position: fixed;
+      top: 11%;
+      left: 11%;
+      border: 1px solid black;
+      padding: 2em; }
+      body #newTipScreen.active #newTipVisableScreen #closeTipScreen {
         border: none;
-        color: white;
-        font-size: 1.2em;
-        height: 3em;
-        margin-top: 2em; }
-      body #newTipScreen.active #newTipVisableScreen #tipForm a {
-        padding: 0 27% 2em 27%;
-        float: right;
-        font-weight: bold; }
-body main {
+        background: none;
+        float: right; }
+        body #newTipScreen.active #newTipVisableScreen #closeTipScreen i {
+          font-size: 2em;
+          position: absolute;
+          top: .3em;
+          right: .2em; }
+      body #newTipScreen.active #newTipVisableScreen h1 {
+        font-size: 2em; }
+      body #newTipScreen.active #newTipVisableScreen #tipForm {
+        margin: 1em 0 0 0; }
+        body #newTipScreen.active #newTipVisableScreen #tipForm input[type="text"], body #newTipScreen.active #newTipVisableScreen #tipForm textarea {
+          width: 100%;
+          display: inherit;
+          height: 3em;
+          padding: 0 0 0 1em;
+          margin: 0 0 1.5em 0; }
+        body #newTipScreen.active #newTipVisableScreen #tipForm textarea {
+          height: 25vh;
+          padding: .5em 0 0 1em; }
+        body #newTipScreen.active #newTipVisableScreen #tipForm #addTip {
+          width: 28.5%;
+          float: right;
+          background-color: #00a6e9;
+          border: none;
+          color: white;
+          font-size: 1.2em;
+          height: 3em;
+          margin-top: 2em; }
+        body #newTipScreen.active #newTipVisableScreen #tipForm a {
+          padding: 0 27% 2em 27%;
+          float: right;
+          font-weight: bold; }
+body #mainContent {
   top: 3.2em;
   width: 100%;
   left: 0%;
@@ -152,40 +211,40 @@ body main {
   position: absolute;
   z-index: 2;
   min-height: 93.4%; }
-  body main.activeNav {
+  body #mainContent.activeNav {
     -webkit-animation: showNav .7s 1;
     -moz-animation: showNav .7s 1;
     -o-animation: showNav .7s 1;
     animation: showNav .7s 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
-  body main.inActiveNav {
+  body #mainContent.inActiveNav {
     -webkit-animation: hideNav .7s 1;
     -moz-animation: hideNav .7s 1;
     -o-animation: hideNav .7s 1;
     animation: hideNav .7s 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
-  body main #loginForm legend, body main #forgotForm legend {
+  body #mainContent #loginForm legend, body #mainContent #forgotForm legend {
     font-size: 2em;
     font-weight: bold;
     width: 100%;
     text-align: center;
     margin: 2em 0 1em 0; }
-    body main #loginForm legend span, body main #forgotForm legend span {
+    body #mainContent #loginForm legend span, body #mainContent #forgotForm legend span {
       padding: 1em 0 0 0;
       font-size: 0.4em;
       display: inline-block;
       font-weight: 100;
       width: 59%; }
-  body main #loginForm input[type="text"], body main #loginForm input[type="password"], body main #forgotForm input[type="text"], body main #forgotForm input[type="password"] {
+  body #mainContent #loginForm input[type="text"], body #mainContent #loginForm input[type="password"], body #mainContent #forgotForm input[type="text"], body #mainContent #forgotForm input[type="password"] {
     display: inherit;
     width: 45%;
     height: 3em;
     margin: auto;
     padding: 0 0 0 1em;
     border: 0.1em solid #bfbfbf; }
-  body main #loginForm #loginButton, body main #loginForm #forgotButton, body main #forgotForm #loginButton, body main #forgotForm #forgotButton {
+  body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton {
     width: 46.5%;
     margin: auto;
     display: inherit;
@@ -196,43 +255,88 @@ body main {
     height: 3em;
     margin-top: 3em;
     margin-bottom: 3em; }
-  body main #loginForm a, body main #forgotForm a {
+  body #mainContent #loginForm a, body #mainContent #forgotForm a {
     padding: 0 27% 2em 27%;
     float: right;
     font-weight: bold; }
-  body main #viewToggle {
+  body #mainContent #mainSection #donut {
+    width: 29rem;
+    height: 29rem;
+    margin: 6em 0 0 3em; }
+  body #mainContent #mainSection path.color0 {
+    fill: #a3c700; }
+  body #mainContent #mainSection path.color1 {
+    fill: white; }
+  body #mainContent #mainSection img {
+    position: absolute;
+    border-radius: 50%;
+    width: 435px;
+    height: 435px;
+    top: 100px;
+    left: 56px;
+    z-index: -1;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px); }
+  body #mainContent #mainSection text {
+    font-size: 3em; }
+  body #mainContent #detailUseSection {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    min-height: 10em;
+    bottom: -8em; }
+    body #mainContent #detailUseSection.viewDetail {
+      -webkit-animation: viewDetail .7s 1;
+      -moz-animation: viewDetail .7s 1;
+      -o-animation: viewDetail .7s 1;
+      animation: viewDetail .7s 1;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards; }
+    body #mainContent #detailUseSection.hideDetail {
+      -webkit-animation: hideDetail .7s 1;
+      -moz-animation: hideDetail .7s 1;
+      -o-animation: hideDetail .7s 1;
+      animation: hideDetail .7s 1;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards; }
+    body #mainContent #detailUseSection #showDetailButton {
+      text-align: center; }
+  body #mainContent #viewToggle {
     margin: 1.5em 0 0 0;
     height: 4em;
     width: 100%;
     background-color: #a3c700;
     border-bottom: 1em solid #ecff94; }
-    body main #viewToggle ul {
+    body #mainContent #viewToggle ul {
       text-align: center; }
-      body main #viewToggle ul#mainToggle li {
+      body #mainContent #viewToggle ul#mainToggle li {
         font-size: 1.8em;
         display: inline-block; }
-        body main #viewToggle ul#mainToggle li a {
+        body #mainContent #viewToggle ul#mainToggle li a {
           padding: 0 2.9em .6em 2.9em; }
-          body main #viewToggle ul#mainToggle li a.active {
+          body #mainContent #viewToggle ul#mainToggle li a.active {
             -webkit-box-shadow: inset 0 -0.3em 0 0 #00a6e9;
             -moz-box-shadow: inset 0 -0.3em 0 0 #00a6e9;
             box-shadow: inset inset 0 -0.3em 0 0 #00a6e9; }
-          body main #viewToggle ul#mainToggle li a i {
+          body #mainContent #viewToggle ul#mainToggle li a i {
             padding: .6em 0 0 0; }
-      body main #viewToggle ul#forumToggle {
+      body #mainContent #viewToggle ul#forumToggle {
         width: 70%;
         margin: auto; }
-        body main #viewToggle ul#forumToggle li {
+        body #mainContent #viewToggle ul#forumToggle li {
           display: inline-block;
           padding: 1.3em 0 0 0; }
-          body main #viewToggle ul#forumToggle li a {
+          body #mainContent #viewToggle ul#forumToggle li a {
             padding: 0 1.9em 1.3em 1.9em;
             text-decoration: none; }
-            body main #viewToggle ul#forumToggle li a.active {
+            body #mainContent #viewToggle ul#forumToggle li a.active {
               -webkit-box-shadow: inset 0 -0.5em 0 0 #00a6e9;
               -moz-box-shadow: inset 0 -0.5em 0 0 #00a6e9;
               box-shadow: inset inset 0 -0.5em 0 0 #00a6e9; }
-            body main #viewToggle ul#forumToggle li a span {
+            body #mainContent #viewToggle ul#forumToggle li a span {
               color: white;
               font-weight: 600;
               position: absolute;
@@ -244,34 +348,34 @@ body main {
               height: 2em;
               line-height: 2em;
               font-size: 0.7em; }
-  body main #optionsToggle {
+  body #mainContent #optionsToggle {
     width: 100%;
     text-align: center;
     margin: 2em 0 0 0; }
-    body main #optionsToggle ul li {
+    body #mainContent #optionsToggle ul li {
       display: inline-block;
       list-style: none;
       margin-right: -.5em; }
-      body main #optionsToggle ul li a {
+      body #mainContent #optionsToggle ul li a {
         text-decoration: none;
         border: 0.15em solid #afafaf;
         padding: .7em 1em;
         background-color: #e1e4e2;
         background-color: #e1e4e2; }
-        body main #optionsToggle ul li a.active {
+        body #mainContent #optionsToggle ul li a.active {
           background-color: white; }
-  body main #detailDisplays {
+  body #mainContent #detailDisplays {
     width: 94%;
     margin: auto;
     margin-top: 2em; }
-    body main #detailDisplays ul li {
+    body #mainContent #detailDisplays ul li {
       background-color: #f4f8f5;
       height: 27em;
       display: inline-block;
       width: 32.9%; }
-      body main #detailDisplays ul li a {
+      body #mainContent #detailDisplays ul li a {
         text-decoration: none; }
-        body main #detailDisplays ul li a .circleDetail {
+        body #mainContent #detailDisplays ul li a .circleDetail {
           width: 9em;
           height: 9em;
           background-color: white;
@@ -279,58 +383,58 @@ body main {
           margin: auto;
           margin-top: 2em;
           text-align: center; }
-          body main #detailDisplays ul li a .circleDetail#circelEnergy {
+          body #mainContent #detailDisplays ul li a .circleDetail#circelEnergy {
             border: 1em solid #e8af62; }
-          body main #detailDisplays ul li a .circleDetail#circelWater {
+          body #mainContent #detailDisplays ul li a .circleDetail#circelWater {
             border: 1em solid #34a5e6; }
-          body main #detailDisplays ul li a .circleDetail#circelGas {
+          body #mainContent #detailDisplays ul li a .circleDetail#circelGas {
             border: 1em solid #bde4bf; }
-          body main #detailDisplays ul li a .circleDetail i {
+          body #mainContent #detailDisplays ul li a .circleDetail i {
             font-size: 3em;
             margin: 1em 0 0 .1em; }
-        body main #detailDisplays ul li a .usage {
+        body #mainContent #detailDisplays ul li a .usage {
           text-align: center; }
-          body main #detailDisplays ul li a .usage .realUse {
+          body #mainContent #detailDisplays ul li a .usage .realUse {
             font-weight: bold; }
-            body main #detailDisplays ul li a .usage .realUse em {
+            body #mainContent #detailDisplays ul li a .usage .realUse em {
               font-style: normal; }
-              body main #detailDisplays ul li a .usage .realUse em#realEnergy {
+              body #mainContent #detailDisplays ul li a .usage .realUse em#realEnergy {
                 color: #e8af62; }
-              body main #detailDisplays ul li a .usage .realUse em#realWater {
+              body #mainContent #detailDisplays ul li a .usage .realUse em#realWater {
                 color: #34a5e6; }
-              body main #detailDisplays ul li a .usage .realUse em#realGas {
+              body #mainContent #detailDisplays ul li a .usage .realUse em#realGas {
                 color: #bde4bf; }
-            body main #detailDisplays ul li a .usage .realUse span {
+            body #mainContent #detailDisplays ul li a .usage .realUse span {
               font-size: 0.7em;
               color: #bfbfbf;
               font-weight: normal; }
-          body main #detailDisplays ul li a .usage .toEuros {
+          body #mainContent #detailDisplays ul li a .usage .toEuros {
             font-weight: bold; }
-            body main #detailDisplays ul li a .usage .toEuros span {
+            body #mainContent #detailDisplays ul li a .usage .toEuros span {
               font-size: 0.7em;
               color: #bfbfbf;
               font-weight: normal; }
-  body main #detailDataDisplay {
+  body #mainContent #detailDataDisplay {
     width: 100%;
     background-color: #c4c4c4; }
-    body main #detailDataDisplay h1 {
+    body #mainContent #detailDataDisplay h1 {
       padding: 2em 1em 1em 0;
       width: 95%;
       margin: auto;
       border-bottom: 0.1em solid #bfbfbf; }
-      body main #detailDataDisplay h1 span {
+      body #mainContent #detailDataDisplay h1 span {
         font-weight: 100;
         padding: 0 0 0 1.5em; }
-    body main #detailDataDisplay #detailDisplayInfo {
+    body #mainContent #detailDataDisplay #detailDisplayInfo {
       width: 100%;
       height: 8.5em;
       margin: 0 0 0 .7em; }
-      body main #detailDataDisplay #detailDisplayInfo ul {
+      body #mainContent #detailDataDisplay #detailDisplayInfo ul {
         margin: 0 0 0 1em; }
-        body main #detailDataDisplay #detailDisplayInfo ul li {
+        body #mainContent #detailDataDisplay #detailDisplayInfo ul li {
           display: inline-block;
           vertical-align: top; }
-          body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail {
+          body #mainContent #detailDataDisplay #detailDisplayInfo ul li .circleDetail {
             width: 6em;
             height: 6em;
             background-color: white;
@@ -338,37 +442,37 @@ body main {
             margin: 1em 0 0 0;
             float: left;
             text-align: center; }
-            body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelEnergy {
+            body #mainContent #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelEnergy {
               border: 5px solid #e8af62; }
-            body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelWater {
+            body #mainContent #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelWater {
               border: 5px solid #34a5e6; }
-            body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelGas {
+            body #mainContent #detailDataDisplay #detailDisplayInfo ul li .circleDetail#circelGas {
               border: 5px solid #bde4bf; }
-            body main #detailDataDisplay #detailDisplayInfo ul li .circleDetail i {
+            body #mainContent #detailDataDisplay #detailDisplayInfo ul li .circleDetail i {
               font-size: 2em;
               margin: 1em 0 0 .1em; }
-          body main #detailDataDisplay #detailDisplayInfo ul li #usage, body main #detailDataDisplay #detailDisplayInfo ul li #usageCompare, body main #detailDataDisplay #detailDisplayInfo ul li .usageSaving {
+          body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usage, body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usageCompare, body #mainContent #detailDataDisplay #detailDisplayInfo ul li .usageSaving {
             position: relative;
             font-size: 0.7em;
             margin: 2.5em 0 0 1.5em;
             width: 10em;
             float: left;
             min-height: 6em; }
-            body main #detailDataDisplay #detailDisplayInfo ul li #usage span, body main #detailDataDisplay #detailDisplayInfo ul li #usageCompare span, body main #detailDataDisplay #detailDisplayInfo ul li .usageSaving span {
+            body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usage span, body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usageCompare span, body #mainContent #detailDataDisplay #detailDisplayInfo ul li .usageSaving span {
               position: absolute;
               bottom: 0;
               font-size: 1.3em; }
-          body main #detailDataDisplay #detailDisplayInfo ul li #moneySaved, body main #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare {
+          body #mainContent #detailDataDisplay #detailDisplayInfo ul li #moneySaved, body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare {
             margin: 1.5em 0 0 0;
             float: left; }
-            body main #detailDataDisplay #detailDisplayInfo ul li #moneySaved i, body main #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i {
+            body #mainContent #detailDataDisplay #detailDisplayInfo ul li #moneySaved i, body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i {
               font-size: 5.5em; }
-              body main #detailDataDisplay #detailDisplayInfo ul li #moneySaved i.fa-pie-chart, body main #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i.fa-pie-chart {
+              body #mainContent #detailDataDisplay #detailDisplayInfo ul li #moneySaved i.fa-pie-chart, body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i.fa-pie-chart {
                 color: grey; }
-              body main #detailDataDisplay #detailDisplayInfo ul li #moneySaved i.fa-money, body main #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i.fa-money {
+              body #mainContent #detailDataDisplay #detailDisplayInfo ul li #moneySaved i.fa-money, body #mainContent #detailDataDisplay #detailDisplayInfo ul li #usagePercentageCompare i.fa-money {
                 color: #fcb828;
                 margin: 0 0 0 .3em; }
-  body main #posts {
+  body #mainContent #posts {
     -webkit-column-count: 3;
     -webkit-column-gap: 1em;
     -webkit-column-fill: auto;
@@ -382,9 +486,9 @@ body main {
     margin: auto;
     margin-top: 1.5em;
     padding-bottom: 3em; }
-    body main #posts a {
+    body #mainContent #posts a {
       text-decoration: none; }
-      body main #posts a .post {
+      body #mainContent #posts a .post {
         background-color: white;
         margin: 0 2px 1em;
         padding: 0 0 1em 0;
@@ -395,42 +499,42 @@ body main {
         -moz-transition: all 2s ease;
         -o-transition: all 2s ease;
         transition: all 2s ease; }
-        body main #posts a .post header {
+        body #mainContent #posts a .post header {
           height: 10em;
           background-color: #bfbfbf;
           position: inherit;
           border: none;
           text-align: center; }
-          body main #posts a .post header img {
+          body #mainContent #posts a .post header img {
             width: 100%;
             height: 100%; }
-        body main #posts a .post article {
+        body #mainContent #posts a .post article {
           padding: 3% 5% 0 5%;
           position: inherit; }
-          body main #posts a .post article .postedBy {
+          body #mainContent #posts a .post article .postedBy {
             padding: .7em 0 0 0; }
-          body main #posts a .post article h1 {
+          body #mainContent #posts a .post article h1 {
             font-size: 1.5em; }
-          body main #posts a .post article img {
+          body #mainContent #posts a .post article img {
             width: 4em;
             height: 4em;
             border-radius: 50%;
             float: left;
             margin: 0 1em 0 0;
             border: 0.2em solid #ecff94; }
-          body main #posts a .post article time {
+          body #mainContent #posts a .post article time {
             font-size: 0.8em;
             color: #c4c4c4; }
-          body main #posts a .post article p {
+          body #mainContent #posts a .post article p {
             margin: 2em 0 0 0; }
-  body main #detailPost {
+  body #mainContent #detailPost {
     width: 80%;
     margin: auto; }
 body nav {
   background-color: black;
   height: 100%;
   position: fixed;
-  width: 25%;
+  width: 26%;
   z-index: 1; }
   body nav #whoIs {
     width: 100%;

@@ -9,7 +9,8 @@
 		var header		= document.getElementById('mainHeader');
 
 		// add new hammers
-		var navigation 	= new Hammer(navButton);
+		var navigation 		= new Hammer(navButton);
+		var contentPress 	= new Hammer(content);
 		
 		// menu 
 			// swipte menu to the right
@@ -23,13 +24,12 @@
 			});
 
 			// toggle menu
-			navigation.on("tap press", function(ev) {
+			navigation.on("tap press", function() {
 				content.classList.contains('activeNav') ? hideNav() : showNav();
 			});
 
 			// swipe "content" back to the left
-			// Doens't seem to work yet
-			content.on("panleft", function() {
+			contentPress.on("panleft", function() {
 				hideNav();
 			});
 
