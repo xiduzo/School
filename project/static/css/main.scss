@@ -88,14 +88,14 @@ $donutSize: 300px;
 }
 
 @include keyframes(viewDetail) {
-    0% { bottom: -8em; }
-    90% { bottom: 23em; }
-    100% { bottom: 24em; }
+    0% { bottom: -85%; }
+    90% { bottom: 2%; }
+    100% { bottom: 0; }
 }
 
 @include keyframes(hideDetail) {
-    0% { bottom: 24em; }
-    100% { bottom: -8em; }
+    0% { bottom: 0; }
+    100% { bottom: -85%; }
 }
 
 * {
@@ -301,8 +301,8 @@ body {
                 border-radius: 50%;
                 width: 435px;
                 height: 435px;
-                top: 100px;
-                left: 56px;
+                top: 6.6em;
+                left: 3.5em;
                 z-index: -1;
                 -webkit-filter: blur(3px);
                 -moz-filter: blur(5px);
@@ -315,12 +315,22 @@ body {
                 fill: #000;
             }
         }
-        #detailUseSection {
+        #callToActionSection {
+            @extend .box-shadow;
+            width: 46%;
+            right: 2em;
+            top: 4em;
             position: absolute;
+            height: 35em;
+            background-color: white;      
+        }
+        #detailUseSection {
+            @extend .box-shadow;
+            position: fixed;
             width: 100%;
             background-color: white;
-            min-height: 10em;
-            bottom: -8em;
+            min-height: 88%;
+            bottom: -85%;
             &.viewDetail {
                 @include animation("viewDetail .7s 1");
                 -webkit-animation-fill-mode: forwards;

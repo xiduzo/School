@@ -39,6 +39,10 @@ $user = getUser($_SESSION['user']);
 			</div>
 		</section>
 
+		<section id="callToActionSection">
+			
+		</section>
+
 		<section id="detailUseSection">
 			<div id="showDetailButton"><i class="fa fa-chevron-up"></i> Bekijk meer info <i class="fa fa-chevron-up"></i></div>
 		</section>
