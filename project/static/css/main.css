@@ -260,8 +260,8 @@ body #mainContent {
     float: right;
     font-weight: bold; }
   body #mainContent #mainSection #donut {
-    width: 29rem;
-    height: 29rem;
+    width: 29em;
+    height: 29em;
     margin: 6em 0 0 3em; }
   body #mainContent #mainSection path.color0 {
     fill: #a3c700; }
@@ -281,7 +281,8 @@ body #mainContent {
     -ms-filter: blur(5px);
     filter: blur(5px); }
   body #mainContent #mainSection text {
-    font-size: 3em; }
+    font-size: 5em;
+    fill: #000; }
   body #mainContent #detailUseSection {
     position: absolute;
     width: 100%;

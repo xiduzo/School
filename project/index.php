@@ -30,7 +30,7 @@ $user = getUser($_SESSION['user']);
 		<main  id="mainContent">
 		<?
 		$savingGoal 	= 400.32;
-		$randomPercent 	= rand(30, 70);
+		$randomPercent 	= rand(5, 95);
 		$randomSaving  	= ($savingGoal * $randomPercent) / 100;
 		?>
 		<section id="mainSection">

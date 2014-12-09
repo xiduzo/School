@@ -285,11 +285,10 @@ body {
         //Index
         #mainSection {
             #donut {
-              width: 29rem;
-              height: 29rem;
+              width: 29em;
+              height: 29em;
               margin: 6em 0 0 3em;
             }
-
             path.color0 {
               fill: $mainColor;
             }
@@ -312,7 +311,8 @@ body {
                 filter: blur(5px);
             }
             text {
-                font-size: $fontSize *3;
+                font-size: 5em;
+                fill: #000;
             }
         }
         #detailUseSection {
