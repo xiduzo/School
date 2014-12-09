@@ -53,7 +53,6 @@ checkUser();
 			addJS('static/js/extern/jquery-1.7.1.min.js');
 
 			// Self
-			addJS('static/js/functions.js');
 		?>
     </body>
 </html>

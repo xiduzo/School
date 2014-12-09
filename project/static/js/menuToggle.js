@@ -27,6 +27,12 @@
 				content.classList.contains('activeNav') ? hideNav() : showNav();
 			});
 
+			// swipe "content" back to the left
+			// Doens't seem to work yet
+			content.on("panleft", function() {
+				hideNav();
+			});
+
 			// menu options
 				/*
 				 * This function will show the navigation 
