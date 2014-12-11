@@ -10,14 +10,13 @@ $mainColorTint:                 lighten($mainColor, 40%);
 $supportColor:                  rgb(0, 166, 233);
 $supportColorTint:              lighten($supportColor, 10%);
 
-$grey:                          rgb(191, 191, 191);
+$grey:                          rgb(204, 204, 204);
 $lightGrey:                     lighten($grey, 2%);
 $whoIs:                         rgb(72, 72, 72);
-$activeNavItem:                 rgb(71, 188, 231);
 
-$energyMainColor:               rgb(232, 175, 98);
-$waterMainColor:                rgb(52, 165, 230);
-$gasMainColor:                  rgb(189, 228, 191);
+$energyMainColor:               rgb(245, 215, 110);
+$waterMainColor:                rgb(75, 119, 190);
+$gasMainColor:                  rgb(38, 166, 91);
 
 $piggyBankColor:                rgb(252, 184, 40);
 $usagePercentageCompareColor:   grey;
@@ -88,14 +87,14 @@ $donutSize: 300px;
 }
 
 @include keyframes(viewDetail) {
-    0% { bottom: -85%; }
+    0% { bottom: -72.4%; }
     90% { bottom: 2%; }
     100% { bottom: 0; }
 }
 
 @include keyframes(hideDetail) {
     0% { bottom: 0; }
-    100% { bottom: -85%; }
+    100% { bottom: -72.4%; }
 }
 
 * {
@@ -120,6 +119,9 @@ body {
         #navButton {
             margin: 0 0 0 .7em;
             font-size: $fontSize * 2;
+            i {
+                color: $supportColor;
+            }
         }
         &.activeNav {
             @include animation("showNav .7s 1");
@@ -283,54 +285,102 @@ body {
         } // End login page
 
         //Index
-        #mainSection {
+        #indexSection {
             #donut {
               width: 29em;
               height: 29em;
-              margin: 6em 0 0 3em;
+              margin: 6em 0 0 4em;
             }
-            path.color0 {
-              fill: $mainColor;
-            }
-
-            path.color1 {
-              fill: white;
+            path {
+                &.color0 {
+                    fill: $supportColor;
+                }
+                &.color1 {
+                    fill: $grey;
+                }
             }
             img {
                 position: absolute;
                 border-radius: 50%;
-                width: 435px;
-                height: 435px;
-                top: 6.6em;
-                left: 3.5em;
+                width: 300px;
+                height: 300px;
+                top: 9em;
+                left: 7.1em;
                 z-index: -1;
-                -webkit-filter: blur(3px);
-                -moz-filter: blur(5px);
-                -o-filter: blur(5px);
-                -ms-filter: blur(5px);
-                filter: blur(5px);
             }
             text {
-                font-size: 5em;
+                font-size: 4em;
                 fill: #000;
             }
+            #saving {
+                position: absolute;
+                margin: 25em 0 0 9em;
+                #euroSaving {
+                    font-size: $fontSize * 2;;
+                    font-weight: bold;    
+                }
+                span {
+                    font-size: $fontSize;
+                    margin: 0 0 0 1.8em;
+                }
+            }
         }
+
         #callToActionSection {
-            @extend .box-shadow;
             width: 46%;
             right: 2em;
-            top: 4em;
+            top: 11em;
             position: absolute;
-            height: 35em;
-            background-color: white;      
+            header {
+                @extend .box-shadow;
+                background-color: $mainColor;
+                margin: 0 0 1em 0;
+                padding: .2em 0 .2em 0;
+                ul {
+                    text-align: center;
+                    li {
+                        font-size: $fontSize * 1.5;
+                        display: inline-block;
+                        width: 32%;
+                        span {
+                            font-weight: bold;
+                            display: inline-block;
+                            width: 100%;
+                        }
+                    }
+                }
+            } 
+            article {
+                @extend .box-shadow;
+                background-color: $mainColor;
+                p {
+                    font-size: $fontSize * 1.2;
+                    padding: 1em;
+                    span {
+                        font-weight: bold;
+                    }
+                } 
+                button {
+                    @extend .box-shadow;
+                    background-color: white;
+                    color: $supportColor;
+                    border: none;
+                    font-weight: bold;
+                    height: 3em;
+                    width: 45%;
+                    margin: 1em 0 1em 8em;
+                    border-radius: .7em .7em .7em 0;
+                }  
+            } 
         }
+
         #detailUseSection {
             @extend .box-shadow;
             position: fixed;
             width: 100%;
             background-color: white;
-            min-height: 88%;
-            bottom: -85%;
+            height: 76.5%;
+            bottom: -72.4%;
             &.viewDetail {
                 @include animation("viewDetail .7s 1");
                 -webkit-animation-fill-mode: forwards;
@@ -343,7 +393,58 @@ body {
             }
             #showDetailButton {
                 text-align: center;
+                margin: .3em 0 0 0;
             }
+            #detailDisplays{
+                height: 41em;
+                background-color: $mainColor;
+                ul {
+                    text-align: center;
+                    padding: 3em 0 0 0;
+                    li {
+                        @extend .box-shadow;
+                        display: inline-block;
+                        width: 29%;
+                        background-color: white;
+                        min-height: 30em;
+                        margin: 0 1em 0 1em;
+                        a {
+                            text-decoration: none;
+                            header {
+                                height: 1.75em;
+                                width: 100%;
+                                &.energy {
+                                    background-color: $energyMainColor;
+                                }
+                                &.water {
+                                    background-color: $waterMainColor;
+                                }
+                                &.gas {
+                                    background-color: $gasMainColor;
+                                }
+                            }
+                        }
+                        i {
+                            font-size: 3.5em;
+                            margin: .7em 0 0 0;
+                        }
+                        h1 {
+                            font-size: $fontSize * 2;
+                            font-weight: 200;
+                        }
+                        .expense {
+                            font-size: $fontSize * 3;
+                            font-weight: bold;
+                            margin: .6em 0 0 0;
+                        }
+                        .use {
+                            font-weight: bold;
+                            margin: 0.5em 0 0 0;
+                        }
+                    }
+                }
+            }
+            
         }
         //End of index
         // Data display
@@ -427,78 +528,6 @@ body {
                 }
             }
         }
-
-        #detailDisplays {
-            width: 94%;
-            margin: auto;
-            margin-top: 2em;
-            ul {
-                li {
-                    background-color: rgb(244, 248, 245);
-                    height: 27em;
-                    display: inline-block;
-                    width: 32.9%;
-                    a {
-                        text-decoration: none;
-                        .circleDetail {
-                            width: 9em;
-                            height: 9em;
-                            background-color: white;
-                            border-radius: 50%;
-                            margin: auto;
-                            margin-top: 2em;
-                            text-align: center;
-                            &#circelEnergy {
-                                border: 1em solid $energyMainColor;
-                            }
-                            &#circelWater {
-                                border: 1em solid $waterMainColor;
-                            }
-                            &#circelGas {
-                                border: 1em solid $gasMainColor;
-                            }
-                            i {
-                                font-size: $fontSize * 3;
-                                margin: 1em 0 0 .1em;
-                            }
-                        }
-                        .usage {
-                            text-align: center;
-                            .realUse {
-                                font-weight: bold;
-                                em {
-                                    font-style: normal;
-                                    &#realEnergy{
-                                        color: $energyMainColor;
-                                    }
-                                    &#realWater{
-                                        color: $waterMainColor;
-                                    }
-                                    &#realGas{
-                                        color: $gasMainColor;
-                                    }
-                                }
-                                span {
-                                    font-size: $fontSize * 0.7;
-                                    color: $grey;
-                                    font-weight: normal;
-                                }
-                            }
-                            .toEuros {
-                                font-weight: bold;
-                                span {
-                                    font-size: $fontSize * 0.7;
-                                    color: $grey;
-                                    font-weight: normal;
-                                }
-                            }
-                            .percentage {
-                            }
-                        }
-                    }
-                }
-            }
-        } // End all data display
 
         // Detail data display
         #detailDataDisplay {
@@ -674,7 +703,7 @@ body {
                 height: 3em;
                 padding: 1em 0 0 0;
                 &.activeNavItem {  
-                    background-color: $activeNavItem;
+                    background-color: $supportColorTint;
                 }
                 a {
                     color: white;
