@@ -349,7 +349,7 @@ body #mainContent {
       margin: .3em 0 0 0; }
     body #mainContent #detailUseSection #detailDisplays {
       height: 41em;
-      background-color: #a3c700; }
+      background-color: #ededed; }
       body #mainContent #detailUseSection #detailDisplays ul {
         text-align: center;
         padding: 3em 0 0 0; }
@@ -383,11 +383,13 @@ body #mainContent {
           body #mainContent #detailUseSection #detailDisplays ul li .use {
             font-weight: bold;
             margin: 0.5em 0 0 0; }
+          body #mainContent #detailUseSection #detailDisplays ul li .percent i {
+            margin: 0; }
   body #mainContent #viewToggle {
     margin: 1.5em 0 0 0;
     height: 4em;
     width: 100%;
-    background-color: #a3c700;
+    background-color: #cccccc;
     border-bottom: 1em solid #ecff94; }
     body #mainContent #viewToggle ul {
       text-align: center; }
