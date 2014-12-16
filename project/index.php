@@ -70,31 +70,6 @@ $user = getUser($_SESSION['user']);
 		<section id="detailUseSection">
 			<div id="showDetailButton"><i class="fa fa-chevron-up"></i> Bekijk meer info <i class="fa fa-chevron-up"></i></div>
 			<div id="detailDisplays">
-				<?
-					function randomUse($dateToggle){
-						$use = rand(400,1200)/100;
-						if($dateToggle == 'dag') {
-							$use = $use;
-						} elseif($dateToggle == 'week') {
-							$use = $use * 7;
-						} elseif($dateToggle == 'maand') {
-							$use = $use * 31;
-						} elseif($dateToggle == 'jaar') {
-							$use = $use * 365;
-						}
-
-						return number_format($use,2);
-					}
-
-					function randomCost($dateToggle) {
-						return rand(500,2000)/100;
-					}
-
-					function randomPercentage() {
-						return number_format(rand(100,1000)/100,1);
-					}
-					
-				?>
 				<ul>
 					<li>
 						<a href="#energy">
@@ -108,7 +83,7 @@ $user = getUser($_SESSION['user']);
 								<? echo number_format(rand(30000,50000)/100,2) ?> kWh
 							</div>
 							<div class="percent">
-								% minder <i class="fa fa-chevron-circle-down"></i>
+								% minder <i class="fa fa-arrow-circle-o-down"></i>
 							</div>
 						</a>
 					</li>						
@@ -124,7 +99,7 @@ $user = getUser($_SESSION['user']);
 								<? echo number_format(rand(10000,20000)/100,2) ?> Liter
 							</div>
 							<div class="percent">
-								% minder <i class="fa fa-chevron-circle-down"></i>
+								% minder <i class="fa fa-arrow-circle-o-down"></i>
 							</div>
 						</a>
 					</li>						
@@ -140,7 +115,7 @@ $user = getUser($_SESSION['user']);
 								<? echo number_format(rand(30000,50000)/100,2) ?> kWh
 							</div>
 							<div class="percent">
-								% minder <i class="fa fa-chevron-circle-down"></i>
+								% meer <i class="fa fa-arrow-circle-o-up"></i>
 							</div>
 						</a>
 					</li>

@@ -57,63 +57,65 @@ $user = getUser($_SESSION['user']);
 			}
 		</script>
 
-		<main  id="mainContent">
+		<main id="mainContent">
 
 			<?
-				$viewToggle 	= $_GET['viewToggle'] ? $_GET['viewToggle'] : 'all';
+				$viewToggle 	= $_GET['viewToggle'] ? $_GET['viewToggle'] : 'corp';
 				$allPosts 		= getPosts($viewToggle);
 			?>
-			<div id="viewToggle">
 
+			<div id="viewToggle">
 				<ul id="forumToggle">
-					<li><a href="?viewToggle=all" <?=$viewToggle == 'all' ? 'class="active"' : ''?>>Alle berichten<span><?echo mysqli_num_rows(getPosts('all'))?></span></a></li>
 					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<span><?echo mysqli_num_rows(getPosts('corp'))?></span></a></li>
 					<li><a href="?viewToggle=tips" <?=$viewToggle == 'tips' ? 'class="active"' : ''?>>Besparingstips<span><?echo mysqli_num_rows(getPosts('tips'))?></span></a></li>
 				</ul>
 			</div>
 
-			<div id="posts">
-				<?
-					while($post = mysqli_fetch_array($allPosts)){
-						if($post['type'] == 1){
-							echo '
-								<a href="detailPost.php?postID='.$post['id'].'">
-									<div class="post">
-										<header>
-										<img src="data:image/jpeg;base64,'.base64_encode($post['image'] ).'"/>
-										</header>
-										<article>
-											<h1>'.$post['titel'].'</h1>
-											<div class="postedBy">
-											 	<img src="data:image/jpeg;base64,'.base64_encode($post['image'] ).'"/>
-												'.$post['door'].' <br/>
-												<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
-											</div>
-											<p>'.$post['bericht'].'</p>
-										</article>
-									</div>
-								</a>
-							';
-						} else {
-							echo '
-								<a href="detailPost.php?postID='.$post['id'].'">
-									<div class="post">
-										<article>
-											<h1>'.$post['titel'].'</h1>
-											<div class="postedBy">
-											 	<img src="data:image/jpeg;base64,'.base64_encode($post['image'] ).'"/>
-												'.$post['door'].' <br/>
-												<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
-											</div>
-											<p>'.$post['bericht'].'</p>
-										</article>
-									</div>
-								</a>
-							';
+			<section id="postsSection">
+				
+
+				<div id="posts">
+					<?
+						function cutString($string, $amount) {
+							if (strlen($string) > $amount) $string = array_shift(explode("|||", wordwrap($string, $amount, "|||"))) . "...<br/><span>Lees verder</span>";
+							return $string;
 						}
-					}
-				?>
-			</div>
+
+						while($post = mysqli_fetch_array($allPosts)){
+							if($post['typeBericht'] == 1) {
+								echo '
+									<a href="detailPost.php?postID='.$post['id'].'">
+										<div class="post">
+											<header class='.$post['typeUse'].'></header>
+											<article>
+												<h1>'.$post['titel'].'</h1>
+												<p>'.cutString($post['bericht'],400).'</p>
+											</article>
+										</div>
+									</a>
+								';
+							} else {
+								echo '
+									<a href="detailPost.php?postID='.$post['id'].'">
+										<div class="post">
+											<header class='.$post['typeUse'].'></header>
+											<article>
+												<h1>'.$post['titel'].'</h1>
+												<p>'.cutString($post['bericht'], 200).'</p>
+												<div class="postedBy">
+												 	<img src="data:image/jpeg;base64,'.base64_encode($post['image'] ).'"/>
+													'.getUserName($post['door']).' <br/>
+													<time datetime="'.date('d-m-Y',strtotime($post['datum'])).'">'.date('d-m-Y',strtotime($post['datum'])).'</time>
+												</div>
+											</article>
+										</div>
+									</a>
+								';
+							}
+						}
+					?>
+				</div>
+			</section>
 		</main>
 
 		<?

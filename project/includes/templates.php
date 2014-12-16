@@ -61,7 +61,7 @@ function mainNavigation($whoIs, $activePage) {
 
 			<ul>
 				<li class="'. (($activePage == "meterstand") ? $active : $inActive ) .'">
-					<a href="#meterstand">
+					<a href="/school/project/meterstand.php">
 						<i class="fa fa-user"></i>
 						Meterstand doorgeven
 					</a>
