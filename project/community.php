@@ -64,7 +64,7 @@ $user = getUser($_SESSION['user']);
 				$allPosts 		= getPosts($viewToggle);
 			?>
 
-			<div id="viewToggle">
+			<div id="headerBalk">
 				<ul id="forumToggle">
 					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<span><?echo mysqli_num_rows(getPosts('corp'))?></span></a></li>
 					<li><a href="?viewToggle=tips" <?=$viewToggle == 'tips' ? 'class="active"' : ''?>>Besparingstips<span><?echo mysqli_num_rows(getPosts('tips'))?></span></a></li>

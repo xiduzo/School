@@ -29,6 +29,10 @@ $user = getUser($_SESSION['user']);
 
 		<main  id="mainContent">
 
+		<div id="headerBalk">
+			<div id="plainText">Mijn meterstanden</div>
+		</div>
+
 		<section id="readingsSection">
 			<ul>
 				<li>
