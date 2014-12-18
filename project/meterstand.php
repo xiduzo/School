@@ -27,6 +27,30 @@ $user = getUser($_SESSION['user']);
     		pageHeader();
     	?>
 
+    	<div id="popUpScreen">
+			<section id="popUpVisableScreen">
+				<button id="closePopUpScreen" onclick="closePopUpScreen()"><i class="fa fa-close"></i></button>
+				<h1>Vul hier de meest recente meterstand in</h1>
+				<p>De meterstand is te vinden in de meterkast.</p>
+				<form id="readForm" method="post" action="<?=$_SERVER['PHP_SELF']?>">
+
+					<input type="number" name="amount" placeholder="Vul hier de meterstand in">
+
+					<input id="addRead" type="submit" value="Voeg nieuwe meterstand toe" name="addRead">
+				</form>
+			</section>
+		</div>
+
+		<script type="text/javascript">
+			function addNewRead() {
+				$("#popUpScreen").toggleClass("active");
+			}
+
+			function closePopUpScreen() {
+				$("#popUpScreen").toggleClass("active");
+			}
+		</script>
+
 		<main  id="mainContent">
 		<div id="background"></div>
 
@@ -46,7 +70,7 @@ $user = getUser($_SESSION['user']);
 						?>
 					</div>
 					<div class="newReading">
-						<button><i class="fa fa-plus"></i></button>
+						<button onclick="addNewRead()"><i class="fa fa-plus"></i></button>
 					</div>
 				</li>						
 				<li>
@@ -59,7 +83,7 @@ $user = getUser($_SESSION['user']);
 						?>
 					</div>
 					<div class="newReading">
-						<button><i class="fa fa-plus"></i></button>
+						<button onclick="addNewRead()"><i class="fa fa-plus"></i></button>
 					</div>
 				</li>						
 				<li>
@@ -72,7 +96,7 @@ $user = getUser($_SESSION['user']);
 						?>
 					</div>
 					<div class="newReading">
-						<button><i class="fa fa-plus"></i></button>
+						<button onclick="addNewRead()"><i class="fa fa-plus"></i></button>
 					</div>
 				</li>
 			</ul>
@@ -95,8 +119,6 @@ $user = getUser($_SESSION['user']);
 
 			// Self
 			addJS('static/js/menuToggle.js');
-			addJS('static/js/detailViewToggle.js');
-			addJS('static/js/donut.js');
 		?>
     </body>
 </html>

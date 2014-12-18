@@ -20,5 +20,5 @@ Nadat de gebruikers van de applicatie bewust zijn geworden van het feit dat ze t
 De laatste stap in ons 4B model staat voor: Beloning. De gebruiker gaat niets veranderen in zijn gedrag als er voor hem geen beloning te behalen is. De grootste beloning voor de gebruiker is zijn eigen ingestelde bespaar doel, hier willen wij het echter niet bij laten. Wij willen de gebruiker steeds blijven stimuleren om nog energie bewuster te gaan leven. 
 
 Voor deze laatste stap hebben wij ook nog wat ideeen maar nog niet doorgevoert in de applicatie, een voorbeeld hiervan is:
-> Random rewards
+> Random rewards:
 	Is de gebruiker niet goed op weg? Of juist wel? Dit is geen probleem, door de gebruiker eens in de X aantal tijd te stimuleren met een kleine beloning zou de gebruiker zich vaker keren tot de applicatie en zich nog meer inzetten om te gaan besparen. Voor deze kleine beloning kun je denken aan: Een besparende gloeilamp, Een tijdsschakelaar etc.

@@ -14,6 +14,12 @@
 				content.classList.contains('viewDetail') ? hideContent() : showContent();
 			});
 
+			// swipe down
+			button.on("pandown", function() {
+				hideContent();
+			});
+
+
 			// content options
 				/*
 				 * This function will show the detail content

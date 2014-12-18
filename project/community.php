@@ -30,9 +30,9 @@ $user = getUser($_SESSION['user']);
 
 		<button id="newTip" onclick="addNewTip()"><i class="fa fa-plus"></i></button>
 
-		<div id="newTipScreen">
-			<section id="newTipVisableScreen">
-				<button id="closeTipScreen" onclick="closeNewTipScreen()"><i class="fa fa-close"></i></button>
+		<div id="popUpScreen">
+			<section id="popUpVisableScreen">
+				<button id="closePopUpScreen" onclick="closePopUpScreen()"><i class="fa fa-close"></i></button>
 				<h1>Schrijf je tip</h1>
 				<p>Deel je besparingstips met andere gebruikers. En hier nog wat tekst waarom het handig is.</p>
 				<form id="tipForm" method="post" action="<?=$_SERVER['PHP_SELF']?>">
@@ -49,11 +49,11 @@ $user = getUser($_SESSION['user']);
 
 		<script type="text/javascript">
 			function addNewTip() {
-				$("#newTipScreen").toggleClass("active");
+				$("#popUpScreen").toggleClass("active");
 			}
 
-			function closeNewTipScreen() {
-				$("#newTipScreen").toggleClass("active");
+			function closePopUpScreen() {
+				$("#popUpScreen").toggleClass("active");
 			}
 		</script>
 

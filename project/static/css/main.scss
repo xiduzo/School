@@ -30,6 +30,14 @@ $donutSize: 300px;
     box-shadow: 0 0 0.5em 0 #3C3535;
 }
 
+.blur {
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
+}
+
 // animations
 @mixin animation($animate...) {
     $max: length($animate);
@@ -169,7 +177,7 @@ body {
             color: white;
         }
     }
-    #newTipScreen {
+    #popUpScreen {
             display: none;
         &.active {
             display: block;
@@ -180,7 +188,7 @@ body {
             @include animation("darkBackGround .7s 1");
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
-            #newTipVisableScreen{
+            #popUpVisableScreen{
                 background-color: white;
                 width: 70%;
                 position: fixed;
@@ -191,7 +199,7 @@ body {
                 @include animation("newTip .7s 1");
                 -webkit-animation-fill-mode: forwards;
                 animation-fill-mode: forwards;
-                #closeTipScreen {
+                #closePopUpScreen {
                     border: none;
                     background: none;
                     float: right;
@@ -206,9 +214,9 @@ body {
                     font-size: $fontSize * 2;
                 }
 
-                #tipForm{
+                form{
                     margin: 1em 0 0 0;
-                    input[type="text"], textarea{
+                    input[type="text"], input[type="number"], textarea{
                         width: 100%;
                         display: inherit;
                         height: 3em;
@@ -219,8 +227,8 @@ body {
                         height: 25vh;
                         padding: .5em 0 0 1em;
                     }
-                    #addTip {
-                        width: 28.5%;
+                    #addTip, #addRead {
+                        min-width: 28.5%;
                         float: right;
                         background-color: $supportColor;
                         border: none;
@@ -228,6 +236,7 @@ body {
                         font-size: 1.2em;
                         height: 3em;
                         margin-top: 2em;
+                        padding: 0 1em 0 1em;
                     }
                     a {
                         padding: 0 27% 2em 27%;
@@ -248,13 +257,9 @@ body {
         z-index: 2;
         min-height: 93.4%;
         #background {
+            @extend .blur;
             background-image: url("../images/energie18.jpg");
             background-size: cover;
-            -webkit-filter: blur(5px);
-            -moz-filter: blur(5px);
-            -o-filter: blur(5px);
-            -ms-filter: blur(5px);
-            filter: blur(5px);
             position: absolute;
             width: 106%;
             height: 102%;

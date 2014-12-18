@@ -41,12 +41,12 @@ function mainNavigation($whoIs, $activePage) {
 				</li>
 				<li class="'. (($activePage == "community") ? $active : $inActive ) .'">
 					<a href="/school/project/community.php">
-					<i class="fa fa-comments"></i>
-					Community
-				</a>
+						<i class="fa fa-comments"></i>
+						Community
+					</a>
 				</li>
 				<li class="'. (($activePage == "betalingen") ? $active : $inActive ) .'">
-					<a href="#betalingen">
+					<a href="/school/project/betalingen.php">
 						<i class="fa fa-folder-open"></i>
 						Mijn betalingen
 					</a>
