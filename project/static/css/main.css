@@ -1,7 +1,7 @@
 .box-shadow, body #mainHeader, body #mainContent #callToActionSection header, body #mainContent #callToActionSection article, body #mainContent #callToActionSection article button, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #readingsSection ul li, body #mainContent #postsSection #posts a .post {
-  -webkit-box-shadow: 0 0 0.5em 0 #cfc4c4;
-  -moz-box-shadow: 0 0 0.5em 0 #cfc4c4;
-  box-shadow: 0 0 0.5em 0 #cfc4c4; }
+  -webkit-box-shadow: 0 0 .3em 0 black;
+  -moz-box-shadow: 0 0 .3em 0 black;
+  box-shadow: 0 0 .3em 0 black; }
 
 @-webkit-keyframes showNav {
   0% {
@@ -99,6 +99,54 @@
     bottom: 0; }
   100% {
     bottom: -72.4%; } }
+@-webkit-keyframes newTip {
+  0% {
+    top: -50%; }
+  90% {
+    top: 10%; }
+  100% {
+    top: 9%; } }
+@-moz-keyframes newTip {
+  0% {
+    top: -50%; }
+  90% {
+    top: 10%; }
+  100% {
+    top: 9%; } }
+@-o-keyframes newTip {
+  0% {
+    top: -50%; }
+  90% {
+    top: 10%; }
+  100% {
+    top: 9%; } }
+@keyframes newTip {
+  0% {
+    top: -50%; }
+  90% {
+    top: 10%; }
+  100% {
+    top: 9%; } }
+@-webkit-keyframes darkBackGround {
+  0% {
+    background-color: rgba(0, 0, 0, 0.1); }
+  100% {
+    background-color: rgba(0, 0, 0, 0.75); } }
+@-moz-keyframes darkBackGround {
+  0% {
+    background-color: rgba(0, 0, 0, 0.1); }
+  100% {
+    background-color: rgba(0, 0, 0, 0.75); } }
+@-o-keyframes darkBackGround {
+  0% {
+    background-color: rgba(0, 0, 0, 0.1); }
+  100% {
+    background-color: rgba(0, 0, 0, 0.75); } }
+@keyframes darkBackGround {
+  0% {
+    background-color: rgba(0, 0, 0, 0.1); }
+  100% {
+    background-color: rgba(0, 0, 0, 0.75); } }
 * {
   padding: 0;
   margin: 0;
@@ -115,7 +163,8 @@ body #mainHeader {
   z-index: 3;
   background-color: white; }
   body #mainHeader #navButton {
-    margin: 0 0 0 .7em;
+    width: 1em;
+    padding: 0 .7em;
     font-size: 2em; }
     body #mainHeader #navButton i {
       color: #00a6e9; }
@@ -159,16 +208,27 @@ body #newTipScreen {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 3; }
+    z-index: 3;
+    -webkit-animation: darkBackGround .7s 1;
+    -moz-animation: darkBackGround .7s 1;
+    -o-animation: darkBackGround .7s 1;
+    animation: darkBackGround .7s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
     body #newTipScreen.active #newTipVisableScreen {
       background-color: white;
       width: 70%;
       position: fixed;
-      top: 11%;
+      top: -50%;
       left: 11%;
       border: 1px solid black;
-      padding: 2em; }
+      padding: 2em;
+      -webkit-animation: newTip .7s 1;
+      -moz-animation: newTip .7s 1;
+      -o-animation: newTip .7s 1;
+      animation: newTip .7s 1;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards; }
       body #newTipScreen.active #newTipVisableScreen #closeTipScreen {
         border: none;
         background: none;
@@ -434,29 +494,34 @@ body #mainContent {
           margin: 0;
           font-size: 1.8em;
           color: white; }
-  body #mainContent #viewToggle {
+  body #mainContent #headerBalk {
     margin: 1.5em 0 0 0;
     height: 4em;
     width: 100%;
     background-color: #a3c700; }
-    body #mainContent #viewToggle ul {
+    body #mainContent #headerBalk #plainText {
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+      padding: 0.2em 0 0 1em; }
+    body #mainContent #headerBalk ul {
       text-align: center; }
-      body #mainContent #viewToggle ul#forumToggle {
+      body #mainContent #headerBalk ul#forumToggle {
         width: 70%;
         margin: auto; }
-        body #mainContent #viewToggle ul#forumToggle li {
+        body #mainContent #headerBalk ul#forumToggle li {
           display: inline-block;
           padding: 1.3em 0 0 0; }
-          body #mainContent #viewToggle ul#forumToggle li a {
+          body #mainContent #headerBalk ul#forumToggle li a {
             padding: 1.4em 1.9em .9em 1.9em;
             text-decoration: none;
             font-weight: bold;
             color: white;
             font-size: 1.2em; }
-            body #mainContent #viewToggle ul#forumToggle li a.active {
+            body #mainContent #headerBalk ul#forumToggle li a.active {
               background-color: #ecff94;
               color: #a3c700; }
-            body #mainContent #viewToggle ul#forumToggle li a span {
+            body #mainContent #headerBalk ul#forumToggle li a span {
               color: white;
               font-weight: 600;
               position: absolute;

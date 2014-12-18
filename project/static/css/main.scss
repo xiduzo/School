@@ -25,9 +25,9 @@ $donutSize: 300px;
 
 //extends
 .box-shadow {
-    -webkit-box-shadow: 0 0 .5em 0 rgb(207, 196, 196);
-    -moz-box-shadow: 0 0 .5em 0 rgb(207, 196, 196);
-    box-shadow: 0 0 .5em 0 rgb(207, 196, 196);
+    -webkit-box-shadow: 0 0 .3em 0 black;
+    -moz-box-shadow: 0 0 .3em 0 black;
+    box-shadow: 0 0 .3em 0 black;
 }
 
 // animations
@@ -76,25 +76,36 @@ $donutSize: 300px;
 
 //Animations
 @include keyframes(showNav) {
-    0% { left: 0%; }
-    90% { left: 26%; }
-    100% { left: 25%; }
+    0%      { left: 0%; }
+    90%     { left: 26%; }
+    100%    { left: 25%; }
 }
 
 @include keyframes(hideNav) {
-    0% { left: 25%; }
-    100% { left: 0%; }
+    0%      { left: 25%; }
+    100%    { left: 0%; }
 }
 
 @include keyframes(viewDetail) {
-    0% { bottom: -72.4%; }
-    90% { bottom: 2%; }
-    100% { bottom: 0; }
+    0%      { bottom: -72.4%; }
+    90%     { bottom: 2%; }
+    100%    { bottom: 0; }
 }
 
 @include keyframes(hideDetail) {
-    0% { bottom: 0; }
-    100% { bottom: -72.4%; }
+    0%      { bottom: 0; }
+    100%    { bottom: -72.4%; }
+}
+
+@include keyframes(newTip) {
+    0%      { top: -50%; }
+    90%     { top: 10%; }
+    100%    { top: 9%; }
+}
+
+@include keyframes(darkBackGround) {
+    0% { background-color: rgba(0, 0, 0, .1); }
+    100% { background-color: rgba(0, 0, 0, .75); }
 }
 
 * {
@@ -117,7 +128,8 @@ body {
         z-index: 3;
         background-color: white;
         #navButton {
-            margin: 0 0 0 .7em;
+            width: 1em;
+            padding: 0 .7em;
             font-size: $fontSize * 2;
             i {
                 color: $supportColor;
@@ -163,17 +175,22 @@ body {
             display: block;
             position: fixed;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, .75);
+            height: 100%;            
             z-index: 3;
+            @include animation("darkBackGround .7s 1");
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
             #newTipVisableScreen{
                 background-color: white;
                 width: 70%;
                 position: fixed;
-                top: 11%;
+                top: -50%;
                 left: 11%;
                 border: 1px solid black;
                 padding: 2em;
+                @include animation("newTip .7s 1");
+                -webkit-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
                 #closeTipScreen {
                     border: none;
                     background: none;
@@ -516,12 +533,18 @@ body {
             }
         }
         // End readings
-        #viewToggle {
+        #headerBalk {
             margin: 1.5em 0 0 0;
             height: 4em;
             width: 100%;
             background-color: $mainColor;
-            ul{
+            #plainText {
+                color: white;
+                font-size: $fontSize * 2;
+                font-weight: bold;
+                padding: 0.2em 0 0 1em;
+            }
+            ul {
                 text-align: center;
                 &#forumToggle {
                     width: 70%;
