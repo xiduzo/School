@@ -25,9 +25,9 @@ $donutSize: 300px;
 
 //extends
 .box-shadow {
-    -webkit-box-shadow: 0 0 .3em 0 black;
-    -moz-box-shadow: 0 0 .3em 0 black;
-    box-shadow: 0 0 .3em 0 black;
+    -webkit-box-shadow: 0 0 0.5em 0 #3C3535;
+    -moz-box-shadow: 0 0 0.5em 0 #3C3535;
+    box-shadow: 0 0 0.5em 0 #3C3535;
 }
 
 // animations
@@ -243,15 +243,32 @@ body {
         top: 3.2em;
         width: 100%;
         left: 0%;
-        background-color: $backgroundColor;
         min-height: 50px;
         position: absolute;
         z-index: 2;
         min-height: 93.4%;
+        #background {
+            background-image: url("../images/energie18.jpg");
+            background-size: cover;
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
+            position: absolute;
+            width: 106%;
+            height: 102%;
+            top: -2%;
+            left: -1%;
+            z-index: -1;
+        }
         &.activeNav {
             @include animation("showNav .7s 1");
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
+            #background {
+                left: 0%;
+            }
         }
         &.inActiveNav {
             @include animation("hideNav .7s 1");
@@ -283,16 +300,18 @@ body {
                 border: .1em solid $grey;
             }
             #loginButton, #forgotButton {
+                @extend .box-shadow;
                 width: 46.5%;
                 margin: auto;
                 display: inherit;
-                background-color: rgb(158, 158, 158);
+                background-color: white;
                 border: none;
-                color: white;
+                color: $supportColor;
                 font-size: $fontSize * 1.2;
                 height: 3em;
                 margin-top: 3em;
                 margin-bottom: 3em;
+                border-radius: .7em .7em .7em 0;
             }
             a {
                 padding: 0 27% 2em 27%;
@@ -331,7 +350,7 @@ body {
             }
             #saving {
                 position: absolute;
-                margin: 25em 0 0 9em;
+                margin: 25em 0 0 8.5em;
                 #euroSaving {
                     font-size: $fontSize * 2;;
                     font-weight: bold;    
@@ -345,7 +364,7 @@ body {
         #callToActionSection {
             width: 46%;
             right: 2em;
-            top: 11em;
+            top: 8em;
             position: absolute;
             header {
                 @extend .box-shadow;
@@ -408,7 +427,11 @@ body {
             }
             #showDetailButton {
                 text-align: center;
+                color: $supportColor;
                 margin: .3em 0 0 0;
+                i {
+                    color: $supportColor;
+                }
             }
             #detailDisplays{
                 height: 41em;
@@ -475,6 +498,80 @@ body {
             }    
         }
         //End of index
+
+        // Bespaardoel
+        #goalSection {
+            position: absolute;
+            top: 11em;
+            left: 7.1em;
+            .fileUpload {
+                span {
+                    width: 300px;
+                    height: 300px;
+                    border-radius: 50%;
+                    border: .5em dashed $supportColor;
+                    background-color: white;
+                    position: absolute;
+                    i {
+                        font-size: 7em;
+                        position: relative;
+                        top: .9em;
+                        left: 1em;
+                        color: $supportColor;
+                    }
+                }
+                input.upload {
+                    position: absolute;
+                    width: 300px;
+                    height: 300px;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    filter: alpha(opacity=0);
+                }
+            }
+            img {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+            }
+        }
+
+        #goalPriceSection {
+            width: 46%;
+            right: 2em;
+            top: 10em;
+            position: absolute;
+            article {
+                @extend .box-shadow;
+                background-color: $mainColor;
+                p {
+                    font-size: $fontSize * 1.2;
+                    padding: 1em;
+                    span {
+                        font-weight: bold;
+                    }
+                }
+                form {
+                    margin: 0 0 0 1.3em;
+                    input {
+                        width: 70%;
+                    }
+                    button {
+                        @extend .box-shadow;
+                        background-color: white;
+                        color: $supportColor;
+                        border: none;
+                        font-weight: bold;
+                        height: 3em;
+                        width: 45%;
+                        margin: 1em 0 1em 6.7em;
+                        border-radius: .7em .7em .7em 0;
+                    }  
+                }
+            } 
+        }
+        // Einde bespraar doel
 
         // readings
         #readingsSection {
@@ -546,9 +643,27 @@ body {
             }
             ul {
                 text-align: center;
+                &#displayToggle {
+                    li {
+                        display: inline-block;
+                        padding: 0 1em 0 1em;
+                        a {
+                            padding: 1.9em 1em 1.1em 1em;
+                            &.active {
+                                background-color: $mainColorTint;
+                                i {
+                                    color: $mainColor;
+                                }
+                            }
+                            i {
+                                padding: .5em 1em .5em 1em;
+                                font-size: $fontSize * 2;
+                                color: white;
+                            } 
+                        }
+                    }
+                }
                 &#forumToggle {
-                    width: 70%;
-                    margin: auto;
                     li {
                         display: inline-block;
                         padding: 1.3em 0 0 0;
@@ -582,13 +697,15 @@ body {
         }
         // Detail data display
         #detailDataDisplay {
+            @extend .box-shadow;
             width: 100%;
-            background-color: $lightGrey;
+            background-color: white;
+            margin: 3em 0 0 0;
             h1 {
-                padding: 2em 1em 1em 0;
-                width: 95%;
-                margin: auto;
-                border-bottom: .1em solid $grey;
+                padding: 2em 1em 0em 0;
+                width: 50%;
+                margin: 0 0 0 2em;
+                border-bottom: 0.3em solid $mainColor;
                 span {
                     font-weight: 100;
                     padding: 0 0 0 1.5em;
@@ -596,35 +713,13 @@ body {
             }
             #detailDisplayInfo {
                 width: 100%;
-                height: 8.5em;
+                height: 9.5em;
                 margin: 0 0 0 .7em;
                 ul {
                     margin: 0 0 0 1em;
                     li {
                         display: inline-block;
                         vertical-align: top;
-                        .circleDetail {
-                            width: 6em;
-                            height: 6em;
-                            background-color: white;
-                            border-radius: 50%;
-                            margin: 1em 0 0 0;
-                            float: left;
-                            text-align: center;
-                            &#circelEnergy {
-                                border: 5px solid $energyMainColor;
-                            }
-                            &#circelWater {
-                                border: 5px solid $waterMainColor;
-                            }
-                            &#circelGas {
-                                border: 5px solid $gasMainColor;
-                            }
-                            i {
-                                font-size: $fontSize * 2;
-                                margin: 1em 0 0 .1em;
-                            }
-                        }
                         #usage, #usageCompare, .usageSaving{
                             position: relative;
                             font-size: $fontSize * 0.7;
@@ -748,7 +843,7 @@ body {
         background-color: $menuBackgroundColor;
         height: 100%;
         position: fixed;
-        width: 26%;
+        width: 25%;
         z-index: 1;
         #whoIs {
             width: 100%;

@@ -28,6 +28,7 @@ $user = getUser($_SESSION['user']);
     	?>
 
 		<main  id="mainContent">
+		<div id="background"></div>
 		<?
 		$savingGoal 	= 400.32;
 		$randomPercent 	= rand(5, 95);
@@ -68,11 +69,11 @@ $user = getUser($_SESSION['user']);
 		</section>
 
 		<section id="detailUseSection">
-			<div id="showDetailButton"><i class="fa fa-chevron-up"></i> Bekijk meer info <i class="fa fa-chevron-up"></i></div>
+			<div id="showDetailButton"><i class="fa fa-chevron-up"></i> Bekijk je verbruik details <i class="fa fa-chevron-up"></i></div>
 			<div id="detailDisplays">
 				<ul>
 					<li>
-						<a href="#energy">
+						<a href="/school/project/detailDisplay.php?viewToggle=energy">
 							<header class="energy"></header>
 							<i class="fa fa-plug"></i>
 							<h1>Electriciteit</h1>
@@ -86,9 +87,10 @@ $user = getUser($_SESSION['user']);
 								% minder <i class="fa fa-arrow-circle-o-down"></i>
 							</div>
 						</a>
+
 					</li>						
 					<li>
-						<a href="#water">
+						<a href="/school/project/detailDisplay.php?viewToggle=water">
 							<header class="water"></header>
 							<i class="fa fa-tint"></i>
 							<h1>Water</h1>
@@ -104,7 +106,7 @@ $user = getUser($_SESSION['user']);
 						</a>
 					</li>						
 					<li>
-						<a href="#gas">
+						<a href="/school/project/detailDisplay.php?viewToggle=gas">
 							<header class="gas"></header>
 							<i class="fa fa-fire"></i>
 							<h1>Gas</h1>
@@ -127,7 +129,7 @@ $user = getUser($_SESSION['user']);
 
 		<?
 			$userName = $user['voorNaam']." ".$user['achterNaam'];
-			mainNavigation($userName, 'verbruik');
+			mainNavigation($userName, 'home');
 		?>
 
 		<!-- JS scripts -->

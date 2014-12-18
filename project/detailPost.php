@@ -28,6 +28,7 @@ $user = getUser($_SESSION['user']);
     	?>
 
 		<main  id="mainContent">
+		<div id="background"></div>
 
 			<? if(empty($_GET['postID']) || !is_numeric($_GET['postID'])): ?>
 				<h1>geen post gevonden</h1>

@@ -58,6 +58,7 @@ $user = getUser($_SESSION['user']);
 		</script>
 
 		<main id="mainContent">
+		<div id="background"></div>
 
 			<?
 				$viewToggle 	= $_GET['viewToggle'] ? $_GET['viewToggle'] : 'corp';
@@ -66,8 +67,8 @@ $user = getUser($_SESSION['user']);
 
 			<div id="headerBalk">
 				<ul id="forumToggle">
-					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<span><?echo mysqli_num_rows(getPosts('corp'))?></span></a></li>
-					<li><a href="?viewToggle=tips" <?=$viewToggle == 'tips' ? 'class="active"' : ''?>>Besparingstips<span><?echo mysqli_num_rows(getPosts('tips'))?></span></a></li>
+					<li><a href="?viewToggle=corp" <?=$viewToggle == 'corp' ? 'class="active"' : ''?>>WoningCorp. berichten<!-- <span><?echo mysqli_num_rows(getPosts('corp'))?></span> --></a></li>
+					<li><a href="?viewToggle=tips" <?=$viewToggle == 'tips' ? 'class="active"' : ''?>>Besparingstips<!-- <span><?echo mysqli_num_rows(getPosts('tips'))?></span> --></a></li>
 				</ul>
 			</div>
 

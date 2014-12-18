@@ -14,7 +14,7 @@ function pageHeader() {
 	echo '
 		<header id="mainHeader">
 			<div id="navButton"> <i class="fa fa-bars"></i> </div>
-			<div id="appName">De huishoud app</div>
+			<div id="appName"></div>
     	</header>
 	';
 }
@@ -27,34 +27,34 @@ function mainNavigation($whoIs, $activePage) {
 			<div id="whoIs">'.$whoIs.'</div>
 
 			<ul>
-				<li class="'. (($activePage == "overzicht") ? $active : $inActive ) .'">
-					<a href="#overzicht">
-						<i class="fa fa-th"></i>
-						Verbruik overzicht
+				<li class="'. (($activePage == "home") ? $active : $inActive ) .'">
+					<a href="/school/project/index.php">
+						<i class="fa fa-home"></i>
+						Home
 					</a>
 				</li>
 				<li class="'. (($activePage == "verbruik") ? $active : $inActive ) .'">
-					<a href="/school/project/index.php">
+					<a href="/school/project/detailDisplay.php">
 						<i class="fa fa-indent"></i>
 						Mijn verbruik
 					</a>
 				</li>
 				<li class="'. (($activePage == "community") ? $active : $inActive ) .'">
 					<a href="/school/project/community.php">
-					<i class="fa fa-comment"></i>
+					<i class="fa fa-comments"></i>
 					Community
 				</a>
 				</li>
 				<li class="'. (($activePage == "betalingen") ? $active : $inActive ) .'">
 					<a href="#betalingen">
-						<i class="fa fa-exclamation-circle"></i>
+						<i class="fa fa-folder-open"></i>
 						Mijn betalingen
 					</a>
 				</li>
-				<li class="'. (($activePage == "bespaardoelen") ? $active : $inActive ) .'">
-					<a href="#bespaardoelen">
-						<i class="fa fa-align-center"></i>
-						Mijn bespaardoelen
+				<li class="'. (($activePage == "bespaardoel") ? $active : $inActive ) .'">
+					<a href="/school/project/bespaardoel.php">
+						<i class="fa fa-sliders"></i>
+						Mijn bespaardoel
 					</a>
 				</li>
 			</ul>
@@ -62,13 +62,13 @@ function mainNavigation($whoIs, $activePage) {
 			<ul>
 				<li class="'. (($activePage == "meterstand") ? $active : $inActive ) .'">
 					<a href="/school/project/meterstand.php">
-						<i class="fa fa-user"></i>
+						<i class="fa fa-tasks"></i>
 						Meterstand doorgeven
 					</a>
 				</li>
 				<li class="'. (($activePage == "loguit") ? $active : $inActive ) .'">
 					<a href="/school/project/logout.php">
-						<i class="fa fa-book"></i>
+						<i class="fa fa-power-off"></i>
 						Log uit
 					</a>
 				</li>
@@ -77,36 +77,33 @@ function mainNavigation($whoIs, $activePage) {
 	';
 }
 
+// function detailDisplay($header, $icon, $what, $cost, $use, $measure, $percent, $moreOrLess) {
+// 	$iconUse = $moreOrLess == 'meer' ? 'up' : 'down';
+// 	echo '
+// 		<header class="'.$header.'"></header>
+// 		<i class="fa fa-'.$icon.'></i>
+// 		<h1>'.$what.'</h1>
+// 		<div class="expense">
+// 			&euro;'.$cost.'
+// 		</div>
+// 		<div class="use">
+// 			'.$use.' '.$measure.'
+// 		</div>
+// 		<div class="percent">
+// 			'.$percent.' '.$moreOrLess.' <i class="fa fa-arrow-circle-o-'.$iconUse.'"></i>
+// 		</div>
+// 	';
+// }
 
-function detailDisplay($what, $icon, $use, $maxUse, $measure, $cost, $date, $percentage, $moreOrLess) {
-	$iconUse = $moreOrLess == 'onder' ? 'down' : 'up';
+function detailDisplayInfo($what, $percentage, $moreOrLess, $amoundSaved) {
 	echo '
-		<div class="circleDetail" id="circel'.$what.'"><i class="fa fa-'.$icon.'"></i></div>
-		<div class="usage">
-			<div class="realUse">
-				<em id="real'.$what.'">'.$use.'</em>/'.$maxUse.' <br/>
-				<span>totaal verbruik ('.$measure.')</span>
-			</div>
-			<div class="toEuros">
-				&euro; '.number_format($cost, 2).' <br/>
-				<span>Kosten per '.$date.'</span>
-			</div>
-			<div class="percentage">U verbruikt '.$percentage.'% '.$moreOrLess.' het gemiddelde <i class="fa fa-arrow-circle-o-'.$iconUse.'"></i></div>
-		</div>
-	';
-}
-
-function detailDisplayInfo($what, $icon, $use, $measure, $percentage, $moreOrLess, $amoundSaved) {
-	echo '
+		<h1>'.$what.'verbruik
+			<span> vandaag,
+					'.date('d F Y').'
+			</span>
+		</h1>
 		<div id="detailDisplayInfo">
 			<ul>
-				<li>
-					<div class="circleDetail" id="circel'.$what.'"><i class="fa fa-'.$icon.'"></i></div>
-					<div id="usage">
-						Verbruikt <br/>
-						<span>'.$use.' '.$measure.'</span>
-					</div>
-				</li>
 				<li>
 					<div id="usagePercentageCompare"><i class="fa fa-pie-chart"></i></div>
 					<div id="usageCompare">

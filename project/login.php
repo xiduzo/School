@@ -22,6 +22,7 @@ checkUser();
     <body>
 
 		<main id="mainContent">
+		<div id="background"></div>
 
 		<? if($_POST['loginUser']): ?>
 			<?
