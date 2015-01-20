@@ -33,16 +33,10 @@ function mainNavigation($whoIs, $activePage) {
 						Home
 					</a>
 				</li>
-				<li class="'. (($activePage == "verbruik") ? $active : $inActive ) .'">
-					<a href="/school/project/detailDisplay.php">
-						<i class="fa fa-indent"></i>
-						Mijn verbruik
-					</a>
-				</li>
 				<li class="'. (($activePage == "community") ? $active : $inActive ) .'">
 					<a href="/school/project/community.php">
 						<i class="fa fa-comments"></i>
-						Community
+						Bespaartips
 					</a>
 				</li>
 				<li class="'. (($activePage == "betalingen") ? $active : $inActive ) .'">

@@ -1,9 +1,9 @@
-.box-shadow, body #mainHeader, body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton, body #mainContent #callToActionSection header, body #mainContent #callToActionSection article, body #mainContent #callToActionSection article button, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #goalPriceSection article form button, body #mainContent #readingsSection ul li, body #mainContent #detailDataDisplay, body #mainContent #postsSection #posts a .post {
-  -webkit-box-shadow: 0 0 0.5em 0 #3C3535;
-  -moz-box-shadow: 0 0 0.5em 0 #3C3535;
-  box-shadow: 0 0 0.5em 0 #3C3535; }
+.box-shadow, body #mainHeader, body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton, body #mainContent #callToActionSection article, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #readingsSection ul li, body #mainContent #detailDataDisplay, body #mainContent #postsSection #posts a .post {
+  -webkit-box-shadow: 0 0 0.5em 0 #a6a6a6;
+  -moz-box-shadow: 0 0 0.5em 0 #a6a6a6;
+  box-shadow: 0 0 0.5em 0 #a6a6a6; }
 
-.blur, body #mainContent #background {
+.blur {
   -webkit-filter: blur(8px);
   -moz-filter: blur(8px);
   -o-filter: blur(8px);
@@ -60,52 +60,52 @@
     left: 0%; } }
 @-webkit-keyframes viewDetail {
   0% {
-    bottom: -72.4%; }
+    bottom: -69.4%; }
   90% {
-    bottom: 2%; }
+    bottom: 12%; }
   100% {
-    bottom: 0; } }
+    bottom: 10%; } }
 @-moz-keyframes viewDetail {
   0% {
-    bottom: -72.4%; }
+    bottom: -69.4%; }
   90% {
-    bottom: 2%; }
+    bottom: 12%; }
   100% {
-    bottom: 0; } }
+    bottom: 10%; } }
 @-o-keyframes viewDetail {
   0% {
-    bottom: -72.4%; }
+    bottom: -69.4%; }
   90% {
-    bottom: 2%; }
+    bottom: 12%; }
   100% {
-    bottom: 0; } }
+    bottom: 10%; } }
 @keyframes viewDetail {
   0% {
-    bottom: -72.4%; }
+    bottom: -69.4%; }
   90% {
-    bottom: 2%; }
+    bottom: 12%; }
   100% {
-    bottom: 0; } }
+    bottom: 10%; } }
 @-webkit-keyframes hideDetail {
   0% {
-    bottom: 0; }
+    bottom: 10%; }
   100% {
-    bottom: -72.4%; } }
+    bottom: -69.4%; } }
 @-moz-keyframes hideDetail {
   0% {
-    bottom: 0; }
+    bottom: 10%; }
   100% {
-    bottom: -72.4%; } }
+    bottom: -69.4%; } }
 @-o-keyframes hideDetail {
   0% {
-    bottom: 0; }
+    bottom: 10%; }
   100% {
-    bottom: -72.4%; } }
+    bottom: -69.4%; } }
 @keyframes hideDetail {
   0% {
-    bottom: 0; }
+    bottom: 10%; }
   100% {
-    bottom: -72.4%; } }
+    bottom: -69.4%; } }
 @-webkit-keyframes newTip {
   0% {
     top: -50%; }
@@ -174,7 +174,7 @@ body #mainHeader {
     padding: 0 .7em;
     font-size: 2em; }
     body #mainHeader #navButton i {
-      color: #00a6e9; }
+      color: #009adf; }
   body #mainHeader.activeNav {
     -webkit-animation: showNav .7s 1;
     -moz-animation: showNav .7s 1;
@@ -261,7 +261,7 @@ body #popUpScreen {
         body #popUpScreen.active #popUpVisableScreen form #addTip, body #popUpScreen.active #popUpVisableScreen form #addRead {
           min-width: 28.5%;
           float: right;
-          background-color: #00a6e9;
+          background-color: #009adf;
           border: none;
           color: white;
           font-size: 1.2em;
@@ -281,13 +281,11 @@ body #mainContent {
   z-index: 2;
   min-height: 93.4%; }
   body #mainContent #background {
-    background-image: url("../images/energie18.jpg");
+    background-image: url("../images/background.png");
     background-size: cover;
     position: absolute;
-    width: 106%;
-    height: 102%;
-    top: -2%;
-    left: -1%;
+    width: 100%;
+    height: 100%;
     z-index: -1; }
   body #mainContent.activeNav {
     -webkit-animation: showNav .7s 1;
@@ -323,14 +321,14 @@ body #mainContent {
     height: 3em;
     margin: auto;
     padding: 0 0 0 1em;
-    border: 0.1em solid #cccccc; }
+    border: 0.1em solid #f3f3f3; }
   body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton {
     width: 46.5%;
     margin: auto;
     display: inherit;
     background-color: white;
     border: none;
-    color: #00a6e9;
+    color: #009adf;
     font-size: 1.2em;
     height: 3em;
     margin-top: 3em;
@@ -345,9 +343,9 @@ body #mainContent {
     height: 29em;
     margin: 6em 0 0 4em; }
   body #mainContent #indexSection path.color0 {
-    fill: #00a6e9; }
+    fill: #a3c700; }
   body #mainContent #indexSection path.color1 {
-    fill: #cccccc; }
+    fill: #f8f8f8; }
   body #mainContent #indexSection img {
     position: absolute;
     border-radius: 50%;
@@ -371,44 +369,47 @@ body #mainContent {
   body #mainContent #callToActionSection {
     width: 46%;
     right: 2em;
-    top: 8em;
+    top: 4em;
     position: absolute; }
-    body #mainContent #callToActionSection header {
-      background-color: #a3c700;
-      margin: 0 0 1em 0;
-      padding: .2em 0 .2em 0; }
-      body #mainContent #callToActionSection header ul {
-        text-align: center; }
-        body #mainContent #callToActionSection header ul li {
-          font-size: 1.5em;
-          display: inline-block;
-          width: 32%; }
-          body #mainContent #callToActionSection header ul li span {
-            font-weight: bold;
-            display: inline-block;
-            width: 100%; }
     body #mainContent #callToActionSection article {
-      background-color: #a3c700; }
+      background-color: #f3f3f3;
+      margin: 0 0 1em 0; }
       body #mainContent #callToActionSection article p {
         font-size: 1.2em;
         padding: 1em; }
         body #mainContent #callToActionSection article p span {
+          color: #718a00;
           font-weight: bold; }
+        body #mainContent #callToActionSection article p i {
+          color: #009adf; }
+        body #mainContent #callToActionSection article p em {
+          font-style: normal;
+          font-weight: bold; }
+      body #mainContent #callToActionSection article ul {
+        text-align: center; }
+        body #mainContent #callToActionSection article ul li {
+          font-size: 1.5em;
+          display: inline-block;
+          width: 32%; }
+          body #mainContent #callToActionSection article ul li span {
+            font-weight: bold;
+            color: #718a00;
+            width: 100%; }
       body #mainContent #callToActionSection article button {
-        background-color: white;
-        color: #00a6e9;
+        background-color: #009adf;
+        color: white;
         border: none;
         font-weight: bold;
         height: 3em;
-        width: 45%;
-        margin: 1em 0 1em 8em;
+        padding: 0 1em 0 1em;
+        margin: 0em 0 1em 1em;
         border-radius: .7em .7em .7em 0; }
   body #mainContent #detailUseSection {
     position: fixed;
     width: 100%;
-    background-color: white;
+    background-color: #009adf;
     height: 76.5%;
-    bottom: -72.4%; }
+    bottom: -69.4%; }
     body #mainContent #detailUseSection.viewDetail {
       -webkit-animation: viewDetail .7s 1;
       -moz-animation: viewDetail .7s 1;
@@ -425,10 +426,10 @@ body #mainContent {
       animation-fill-mode: forwards; }
     body #mainContent #detailUseSection #showDetailButton {
       text-align: center;
-      color: #00a6e9;
-      margin: .3em 0 0 0; }
+      color: white;
+      margin: 1em 0 1em 0; }
       body #mainContent #detailUseSection #showDetailButton i {
-        color: #00a6e9; }
+        color: white; }
     body #mainContent #detailUseSection #detailDisplays {
       height: 41em;
       background-color: #ededed; }
@@ -443,15 +444,6 @@ body #mainContent {
           margin: 0 1em 0 1em; }
           body #mainContent #detailUseSection #detailDisplays ul li a {
             text-decoration: none; }
-            body #mainContent #detailUseSection #detailDisplays ul li a header {
-              height: 1.75em;
-              width: 100%; }
-              body #mainContent #detailUseSection #detailDisplays ul li a header.energy {
-                background-color: #f5d76e; }
-              body #mainContent #detailUseSection #detailDisplays ul li a header.water {
-                background-color: #4b77be; }
-              body #mainContent #detailUseSection #detailDisplays ul li a header.gas {
-                background-color: #26a65b; }
           body #mainContent #detailUseSection #detailDisplays ul li i {
             font-size: 3.5em;
             margin: .7em 0 0 0; }
@@ -467,7 +459,7 @@ body #mainContent {
             margin: 0.5em 0 0 0; }
           body #mainContent #detailUseSection #detailDisplays ul li .percent {
             margin: 5em 0 0 0;
-            border-top: 1px solid #cccccc;
+            border-top: 1px solid #f3f3f3;
             padding: 0.8em 0 0 0;
             font-size: 1.3em;
             font-weight: bold; }
@@ -485,7 +477,7 @@ body #mainContent {
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      border: 0.5em dashed #00a6e9;
+      border: 0.5em dashed #009adf;
       background-color: white;
       position: absolute; }
       body #mainContent #goalSection .fileUpload span i {
@@ -493,7 +485,7 @@ body #mainContent {
         position: relative;
         top: .9em;
         left: 1em;
-        color: #00a6e9; }
+        color: #009adf; }
     body #mainContent #goalSection .fileUpload input.upload {
       position: absolute;
       width: 300px;
@@ -512,24 +504,30 @@ body #mainContent {
     top: 10em;
     position: absolute; }
     body #mainContent #goalPriceSection article {
-      background-color: #a3c700; }
+      background-color: #f3f3f3; }
       body #mainContent #goalPriceSection article p {
         font-size: 1.2em;
         padding: 1em; }
         body #mainContent #goalPriceSection article p span {
+          color: #718a00;
           font-weight: bold; }
       body #mainContent #goalPriceSection article form {
         margin: 0 0 0 1.3em; }
         body #mainContent #goalPriceSection article form input {
-          width: 70%; }
+          width: 70%;
+          margin: 0 0 .5em 0;
+          font-size: .9em;
+          padding: .3em 0 .3em .6em; }
+        body #mainContent #goalPriceSection article form input:last-of-type {
+          margin: 0 0 2em 0; }
         body #mainContent #goalPriceSection article form button {
-          background-color: white;
-          color: #00a6e9;
+          background-color: #009adf;
+          color: white;
           border: none;
           font-weight: bold;
           height: 3em;
-          width: 45%;
-          margin: 1em 0 1em 6.7em;
+          padding: 0 1em 0 1em;
+          margin: 0 0 1em 0;
           border-radius: .7em .7em .7em 0; }
   body #mainContent #readingsSection ul {
     text-align: center;
@@ -561,9 +559,9 @@ body #mainContent {
         margin: 2em 0 0 0; }
       body #mainContent #readingsSection ul li .newReading button {
         border: none;
-        background-color: #00a6e9;
+        background-color: #009adf;
         height: 3.5em;
-        border-top: 1px solid #cccccc;
+        border-top: 1px solid #f3f3f3;
         width: 100%;
         margin: 6.5em 0 0 0; }
         body #mainContent #readingsSection ul li .newReading button i {
@@ -577,9 +575,9 @@ body #mainContent {
     background-color: #a3c700; }
     body #mainContent #headerBalk #plainText {
       color: white;
-      font-size: 2em;
+      font-size: 1.5em;
       font-weight: bold;
-      padding: 0.2em 0 0 1em; }
+      padding: 0.5em 0 0 1em; }
     body #mainContent #headerBalk ul {
       text-align: center; }
       body #mainContent #headerBalk ul#displayToggle li {
@@ -707,10 +705,10 @@ body #mainContent {
             padding: 3% 5% 0 5%;
             margin: 1em 0 1em 0; }
             body #mainContent #postsSection #posts a .post article p span {
-              color: #00a6e9; }
+              color: #009adf; }
           body #mainContent #postsSection #posts a .post article .postedBy {
             padding: .7em 0 .7em 0;
-            border-top: 1px solid #cccccc; }
+            border-top: 1px solid #f3f3f3; }
             body #mainContent #postsSection #posts a .post article .postedBy img {
               width: 4em;
               height: 4em;
@@ -720,7 +718,7 @@ body #mainContent {
               border: 0.2em solid #a3c700; }
             body #mainContent #postsSection #posts a .post article .postedBy time {
               font-size: 0.8em;
-              color: #d1d1d1; }
+              color: #f8f8f8; }
   body #mainContent #postsSection #detailPost {
     width: 80%;
     margin: auto; }
@@ -743,7 +741,7 @@ body nav {
       height: 3em;
       padding: 1em 0 0 0; }
       body nav ul li.activeNavItem {
-        background-color: #1dbeff; }
+        background-color: #13b6ff; }
       body nav ul li a {
         color: white;
         text-decoration: none;

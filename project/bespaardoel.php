@@ -45,14 +45,14 @@ $user = getUser($_SESSION['user']);
 		<section id="goalPriceSection">
 			<article>
 				<p>
-					Beste <?=$user['voorNaam']?>, <br/>
+					<span>Bespaardoel instellen</span> <br/>
 					stel hier je persoonlijke bespaardoel in. <br/>
 				</p>
 
 				<form id="savingsGoal" method="post" action="<?=$_SERVER['PHP_SELF']?>">
 
-					Vul hier de prijs van je bespaardoel in:
-					<input type="number" name="savingsGoal" placeholder="vul hier de prijs van je doel in">
+					<input type="text" name="savingsName" placeholder="Naam bespaardoel">
+					<input type="number" name="savingsGoal" placeholder="Vul hier de prijs van je doel in">
 
 					<button>Stel bespraardoel in</button>
 				</form>

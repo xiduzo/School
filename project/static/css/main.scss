@@ -7,11 +7,13 @@ $menuBackgroundColor:           rgb(0, 0, 0);
 
 $mainColor:                     rgb(163, 199, 0);
 $mainColorTint:                 lighten($mainColor, 40%);
-$supportColor:                  rgb(0, 166, 233);
+$mainColorDark:                 darken($mainColor, 12%);
+$supportColor:                  rgb(0, 154, 223);
 $supportColorTint:              lighten($supportColor, 10%);
 
-$grey:                          rgb(204, 204, 204);
+$grey:                          rgb(243, 243, 243);
 $lightGrey:                     lighten($grey, 2%);
+$darkGrey:                      darken($grey, 30%);
 $whoIs:                         rgb(72, 72, 72);
 
 $energyMainColor:               rgb(245, 215, 110);
@@ -25,9 +27,9 @@ $donutSize: 300px;
 
 //extends
 .box-shadow {
-    -webkit-box-shadow: 0 0 0.5em 0 #3C3535;
-    -moz-box-shadow: 0 0 0.5em 0 #3C3535;
-    box-shadow: 0 0 0.5em 0 #3C3535;
+    -webkit-box-shadow: 0 0 0.5em 0 $darkGrey;
+    -moz-box-shadow: 0 0 0.5em 0 $darkGrey;
+    box-shadow: 0 0 0.5em 0 $darkGrey;
 }
 
 .blur {
@@ -95,14 +97,14 @@ $donutSize: 300px;
 }
 
 @include keyframes(viewDetail) {
-    0%      { bottom: -72.4%; }
-    90%     { bottom: 2%; }
-    100%    { bottom: 0; }
+    0%      { bottom: -69.4%; }
+    90%     { bottom: 12%; }
+    100%    { bottom: 10%; }
 }
 
 @include keyframes(hideDetail) {
-    0%      { bottom: 0; }
-    100%    { bottom: -72.4%; }
+    0%      { bottom: 10%; }
+    100%    { bottom: -69.4%; }
 }
 
 @include keyframes(newTip) {
@@ -257,14 +259,11 @@ body {
         z-index: 2;
         min-height: 93.4%;
         #background {
-            @extend .blur;
-            background-image: url("../images/energie18.jpg");
+            background-image: url("../images/background.png");
             background-size: cover;
             position: absolute;
-            width: 106%;
-            height: 102%;
-            top: -2%;
-            left: -1%;
+            width: 100%;
+            height: 100%;
             z-index: -1;
         }
         &.activeNav {
@@ -334,10 +333,10 @@ body {
             }
             path {
                 &.color0 {
-                    fill: $supportColor;
+                    fill: $mainColor;
                 }
                 &.color1 {
-                    fill: $grey;
+                    fill: $lightGrey;
                 }
             }
             img {
@@ -369,13 +368,27 @@ body {
         #callToActionSection {
             width: 46%;
             right: 2em;
-            top: 8em;
-            position: absolute;
-            header {
+            top: 4em;
+            position: absolute; 
+            article {
                 @extend .box-shadow;
-                background-color: $mainColor;
+                background-color: $grey;
                 margin: 0 0 1em 0;
-                padding: .2em 0 .2em 0;
+                p {
+                    font-size: $fontSize * 1.2;
+                    padding: 1em;
+                    span {
+                        color: $mainColorDark;
+                        font-weight: bold;
+                    }
+                    i {
+                        color: $supportColor;
+                    }
+                    em {
+                        font-style: normal;
+                        font-weight: bold;
+                    }
+                }
                 ul {
                     text-align: center;
                     li {
@@ -384,31 +397,19 @@ body {
                         width: 32%;
                         span {
                             font-weight: bold;
-                            display: inline-block;
+                            color: $mainColorDark;
                             width: 100%;
                         }
                     }
                 }
-            } 
-            article {
-                @extend .box-shadow;
-                background-color: $mainColor;
-                p {
-                    font-size: $fontSize * 1.2;
-                    padding: 1em;
-                    span {
-                        font-weight: bold;
-                    }
-                } 
                 button {
-                    @extend .box-shadow;
-                    background-color: white;
-                    color: $supportColor;
+                    background-color: $supportColor;
+                    color: white;
                     border: none;
                     font-weight: bold;
                     height: 3em;
-                    width: 45%;
-                    margin: 1em 0 1em 8em;
+                    padding: 0 1em 0 1em;
+                    margin: 0em 0 1em 1em;
                     border-radius: .7em .7em .7em 0;
                 }  
             } 
@@ -417,9 +418,9 @@ body {
             @extend .box-shadow;
             position: fixed;
             width: 100%;
-            background-color: white;
+            background-color: $supportColor;
             height: 76.5%;
-            bottom: -72.4%;
+            bottom: -69.4%;
             &.viewDetail {
                 @include animation("viewDetail .7s 1");
                 -webkit-animation-fill-mode: forwards;
@@ -432,10 +433,10 @@ body {
             }
             #showDetailButton {
                 text-align: center;
-                color: $supportColor;
-                margin: .3em 0 0 0;
+                color: white;
+                margin: 1em 0 1em 0;
                 i {
-                    color: $supportColor;
+                    color: white;
                 }
             }
             #detailDisplays{
@@ -453,19 +454,6 @@ body {
                         margin: 0 1em 0 1em;
                         a {
                             text-decoration: none;
-                            header {
-                                height: 1.75em;
-                                width: 100%;
-                                &.energy {
-                                    background-color: $energyMainColor;
-                                }
-                                &.water {
-                                    background-color: $waterMainColor;
-                                }
-                                &.gas {
-                                    background-color: $gasMainColor;
-                                }
-                            }
                         }
                         i {
                             font-size: 3.5em;
@@ -549,11 +537,12 @@ body {
             position: absolute;
             article {
                 @extend .box-shadow;
-                background-color: $mainColor;
+                background-color: $grey;
                 p {
                     font-size: $fontSize * 1.2;
                     padding: 1em;
                     span {
+                        color: $mainColorDark;
                         font-weight: bold;
                     }
                 }
@@ -561,18 +550,23 @@ body {
                     margin: 0 0 0 1.3em;
                     input {
                         width: 70%;
+                        margin: 0 0 .5em 0;
+                        font-size: .9em;
+                        padding: .3em 0 .3em .6em;
+                    }
+                    input:last-of-type {
+                        margin: 0 0 2em 0;
                     }
                     button {
-                        @extend .box-shadow;
-                        background-color: white;
-                        color: $supportColor;
-                        border: none;
-                        font-weight: bold;
-                        height: 3em;
-                        width: 45%;
-                        margin: 1em 0 1em 6.7em;
-                        border-radius: .7em .7em .7em 0;
-                    }  
+                    background-color: $supportColor;
+                    color: white;
+                    border: none;
+                    font-weight: bold;
+                    height: 3em;
+                    padding: 0 1em 0 1em;
+                    margin: 0 0 1em 0;
+                    border-radius: .7em .7em .7em 0;
+                } 
                 }
             } 
         }
@@ -642,9 +636,9 @@ body {
             background-color: $mainColor;
             #plainText {
                 color: white;
-                font-size: $fontSize * 2;
+                font-size: $fontSize * 1.5;
                 font-weight: bold;
-                padding: 0.2em 0 0 1em;
+                padding: 0.5em 0 0 1em;
             }
             ul {
                 text-align: center;

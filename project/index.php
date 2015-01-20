@@ -42,46 +42,71 @@ $user = getUser($_SESSION['user']);
 		</section>
 
 		<section id="callToActionSection">
-			<header>
+			<article>	
+				<p>
+					<span>Beste <?=$user['voorNaam']?>,</span> <br/>
+					Uw doel is haalbaar als u op deze manier blijft besparen. U bespaart nu: <br/>
+				</p>
 				<ul>
 					<li>
-						Week
-						<span>&euro;<? echo number_format(rand(100,500)/100,2) ?></span>
+						Per week
+						<span>&euro;<? echo number_format(rand(100,300)/100,2) ?></span>
 					</li>
 					<li>
-						Maand
-						<span>&euro;<? echo number_format(rand(2000,5000)/100,2) ?></span>
+						Per maand
+						<span>&euro;<? echo number_format(rand(1000,1800)/100,2) ?></span>
 					</li>
 					<li>
-						Jaar
-						<span>&euro;<? echo number_format(rand(10000,20000)/100,2) ?></span>
+						Per jaar
+						<span>&euro;<? echo number_format(rand(5000,10000)/100,2) ?></span>
 					</li>
 				</ul>
-			</header>
+			</article>
 			<article>
 				<p>
-					Beste <?=$user['voorNaam']?>, <br/>
-					Dit is jouw persoonlijke besparing op: <br/>
-					<span><? echo date('d F Y, H:i',strtotime("now")) ?></span>
+					<span>Persoonlijke bespaartips</span> <br/>
+					Uw verbruikt veel <em>water</em>. De beste manier om hierop te besparen is:
 				</p>
-				<button>Ik wil meer besparen</button>
+
+				<p>
+					Nieuwe afwasmachine nodig? Koop de zuinigste <br/>
+					<i class="fa fa-money"></i> &euro;4,00
+				</p>
+				<button onClick="location.href='/school/project/community.php'">Ik wil meer besparen</button>
 			</article>
 		</section>
 
 		<section id="detailUseSection">
-			<div id="showDetailButton"><i class="fa fa-chevron-up"></i> Bekijk je verbruik details <i class="fa fa-chevron-up"></i></div>
+			<div id="showDetailButton"><i class="fa fa-chevron-up"></i> Bekijk de details van je gebruik <i class="fa fa-chevron-up"></i></div>
 			<div id="detailDisplays">
 				<ul>
+					<!-- http://www.nibud.nl/uitgaven/huishouden/gas-elektriciteit-en-water.html -->					
 					<li>
-						<a href="/school/project/detailDisplay.php?viewToggle=energy">
-							<header class="energy"></header>
-							<i class="fa fa-plug"></i>
-							<h1>Electriciteit</h1>
+						<a href="/school/project/detailDisplay.php?viewToggle=gas">
+							<i class="fa fa-fire"></i>
+							<h1>Gas</h1>
+							Totaal verbruik deze maand:
 							<div class="expense">
-								&euro;<? echo number_format(rand(3000,5000)/100,2) ?>
+								&euro;<? echo number_format(rand(7000,8000)/100,2) ?>
 							</div>
 							<div class="use">
-								<? echo number_format(rand(30000,50000)/100,2) ?> kWh
+								(<? echo number_format(rand(8000,10000)/100,2) ?> m³)
+							</div>
+							<div class="percent">
+								% meer <i class="fa fa-arrow-circle-o-up"></i>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/school/project/detailDisplay.php?viewToggle=energy">
+							<i class="fa fa-plug"></i>
+							<h1>Electriciteit</h1>
+							Totaal verbruik deze maand:
+							<div class="expense">
+								&euro;<? echo number_format(rand(2500,3500)/100,2) ?>
+							</div>
+							<div class="use">
+								(<? echo number_format(rand(16000,17500)/100,2) ?> kWh)
 							</div>
 							<div class="percent">
 								% minder <i class="fa fa-arrow-circle-o-down"></i>
@@ -91,33 +116,17 @@ $user = getUser($_SESSION['user']);
 					</li>						
 					<li>
 						<a href="/school/project/detailDisplay.php?viewToggle=water">
-							<header class="water"></header>
 							<i class="fa fa-tint"></i>
 							<h1>Water</h1>
+							Totaal verbruik deze maand:
 							<div class="expense">
-								&euro;<? echo number_format(rand(1000,2000)/100,2) ?>
+								&euro;<? echo number_format(rand(800,1300)/100,2) ?>
 							</div>
 							<div class="use">
-								<? echo number_format(rand(10000,20000)/100,2) ?> Liter
+								(<? echo number_format(rand(370000,380000)/100,2) ?> Liter)
 							</div>
 							<div class="percent">
 								% minder <i class="fa fa-arrow-circle-o-down"></i>
-							</div>
-						</a>
-					</li>						
-					<li>
-						<a href="/school/project/detailDisplay.php?viewToggle=gas">
-							<header class="gas"></header>
-							<i class="fa fa-fire"></i>
-							<h1>Gas</h1>
-							<div class="expense">
-								&euro;<? echo number_format(rand(3000,5000)/100,2) ?>
-							</div>
-							<div class="use">
-								<? echo number_format(rand(30000,50000)/100,2) ?> kWh
-							</div>
-							<div class="percent">
-								% meer <i class="fa fa-arrow-circle-o-up"></i>
 							</div>
 						</a>
 					</li>
