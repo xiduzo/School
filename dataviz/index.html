@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+
+body {
+  font: 10px sans-serif;
+}
+
+#wrapper {
+  width: 1020px;
+  margin: auto;
+  padding: 40px;
+  position: relative;
+  top: -1em;
+  -webkit-box-shadow: 0px 7px 16px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 7px 16px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 7px 16px 0px rgba(50, 50, 50, 0.75);
+}
+
+header, article {
+  padding: 1em;
+  font-size: 24px;
+}
+
+svg {
+  padding: 10px 0 0 10px;
+}
+
+.arc {
+  stroke: #fff;
+}
+
+</style>
+<body>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <div id="wrapper">
+    <header>In gebieden waar realtief gezien meer horeca dan recreatie gelegenheid is, zijn meer misdrijven. Om ervoor te zorgen dat dit niveau omlaag gaat, moet de gemeente Amsterdam meer geld stoppen in recreatie gelegenheid.</header>
+    <article>Het cijfer bij het stadsdeel is het aantal misdrijven per persoon wonend in een stadsdeel.</article>
+    
+    <!-- Dataset(s) voor misdrijf
+    Stadsdeel   : Wonend    : Aantal misdr. : Misdr. per persoon
+    Cemtrum     : 85618     : 28011         : 0,327
+    Westpoort   : 506       : 1684          : 3,321
+    West        : 138568    : 12201         : 0,088
+    Nieuw-West  : 141825    : 11818         : 0,083
+    Zuid        : 137901    : 14241         : 0,103
+    Oost        : 122847    : 11863         : 0,096
+    Noord       : 88434     : 7565          : 0,085
+    Zuidoost    : 83743     : 9685          : 0,115
+    Amsterdam   : 799442    : 973795        : 1,218
+    -->
+
+    <div id="legenda"></div>
+    <div id="pies"></div>
+
+    <article>
+      <p>
+        Zoals hierboven blijkt lijken de horeca gelegenheden binnen een stadsdeel de misdaad laag te houden. Zit er in een stadsdeel relatief meer horeca dan recreatie, dan is het aantal misdrijven per persoon in dit stadsdeel lager.
+      </p>
+      <p>
+        Conclusie: Gemeente Amstedam, investeer in de horeca!
+      </p>
+    </article>
+  </div>
+    <script>
+
+    var radius = 160,
+        padding = 50;
+
+    var color = d3.scale.ordinal()
+        .range(["#2ECC71", "#716659", "#6C7A89"]); 
+              // cultuur , horeca   , overig
+
+    var arc = d3.svg.arc()
+        .outerRadius(radius)
+        .innerRadius(radius - 60);
+
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.population; });
+
+    d3.csv("data.csv", function(error, data) {
+      color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Stadsdeel"; }));
+
+      data.forEach(function(d) {
+        d.ages = color.domain().map(function(name) {
+          return {name: name, population: +d[name]};
+        });
+      });
+
+      var legend = d3.select("#legenda").append("svg")
+          .attr("class", "legend")
+          .attr("width", 800)
+          .attr("height", 100)
+        .selectAll("g")
+          .data(color.domain().slice().reverse())
+        .enter().append("g")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      legend.append("rect")
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+      legend.append("text")
+          .attr("x", 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .text(function(d) { return d; });
+
+      var svg = d3.select("#pies").selectAll(".pie")
+          .data(data)
+        .enter().append("svg")
+          .attr("class", "pie")
+          .attr("width", radius * 2)
+          .attr("height", radius * 2)
+        .append("g")
+          .attr("transform", "translate(" + radius + "," + radius + ")");
+
+      svg.selectAll(".arc")
+          .data(function(d) { return pie(d.ages); })
+        .enter().append("path")
+          .attr("class", "arc")
+          .attr("d", arc)
+          .style("fill", function(d) { return color(d.data.name); });
+
+      svg.append("text")
+          .attr("dy", ".35em")
+          .style("text-anchor", "middle")
+          .text(function(d) { return d.Stadsdeel; });
+
+    });
+
+    </script>
+</body>
