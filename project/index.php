@@ -30,14 +30,15 @@ $user = getUser($_SESSION['user']);
 		<main  id="mainContent">
 		<div id="background"></div>
 		<?
-		$savingGoal 	= 400.32;
+		$savingGoal 	= 149.99;
 		$randomPercent 	= rand(5, 95);
 		$randomSaving  	= ($savingGoal * $randomPercent) / 100;
 		?>
 		<section id="indexSection">
 			<div id="donut" data-donut="<?=$randomPercent?>" data-saving="<?=$randomSaving?>">
 			<img src="http://www.vouwwagenpunt.nl/wp-content/uploads/2012/02/Wolder-hogar1-vouwwagen1.jpg" alt="vouwwagen">
-			<div id="saving"><div id="euroSaving">&euro;00.00</div><span>bespaard</span></div>
+			<!-- <div id="saving"><div id="euroSaving">&euro;00.00</div><span>bespaard</span></div> -->
+			<div id="saving">Uw doel: <br/> <span>&euro;<?=$savingGoal?></span> binnen <span>1,5</span> jaar</div>
 			</div>
 		</section>
 
@@ -50,15 +51,15 @@ $user = getUser($_SESSION['user']);
 				<ul>
 					<li>
 						Per week
-						<span>&euro;<? echo number_format(rand(100,300)/100,2) ?></span>
+						<span>&euro;<? echo number_format(rand(200,400)/100,2) ?></span>
 					</li>
 					<li>
 						Per maand
-						<span>&euro;<? echo number_format(rand(1000,1800)/100,2) ?></span>
+						<span>&euro;<? echo number_format(rand(800,1500)/100,2) ?></span>
 					</li>
 					<li>
 						Per jaar
-						<span>&euro;<? echo number_format(rand(5000,10000)/100,2) ?></span>
+						<span>&euro;<? echo number_format(rand(9500,11000)/100,2) ?></span>
 					</li>
 				</ul>
 			</article>
@@ -70,9 +71,9 @@ $user = getUser($_SESSION['user']);
 
 				<p>
 					Nieuwe afwasmachine nodig? Koop de zuinigste <br/>
-					<i class="fa fa-money"></i> &euro;4,00
+					<i class="fa fa-money"></i> <em>&euro;4,00</em>
 				</p>
-				<button onClick="location.href='/school/project/community.php'">Ik wil meer besparen</button>
+				<button onClick="location.href='/school/project/bespaartips.php'">Ik wil meer besparen</button>
 			</article>
 		</section>
 
@@ -93,7 +94,7 @@ $user = getUser($_SESSION['user']);
 								(<? echo number_format(rand(8000,10000)/100,2) ?> m³)
 							</div>
 							<div class="percent">
-								% meer <i class="fa fa-arrow-circle-o-up"></i>
+								<span>U verbruikt 5% meer dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-up"></i>
 							</div>
 						</a>
 					</li>
@@ -109,7 +110,7 @@ $user = getUser($_SESSION['user']);
 								(<? echo number_format(rand(16000,17500)/100,2) ?> kWh)
 							</div>
 							<div class="percent">
-								% minder <i class="fa fa-arrow-circle-o-down"></i>
+								<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
 							</div>
 						</a>
 
@@ -126,7 +127,7 @@ $user = getUser($_SESSION['user']);
 								(<? echo number_format(rand(370000,380000)/100,2) ?> Liter)
 							</div>
 							<div class="percent">
-								% minder <i class="fa fa-arrow-circle-o-down"></i>
+								<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
 							</div>
 						</a>
 					</li>

@@ -97,14 +97,14 @@ $donutSize: 300px;
 }
 
 @include keyframes(viewDetail) {
-    0%      { bottom: -69.4%; }
+    0%      { bottom: -69.5%; }
     90%     { bottom: 12%; }
     100%    { bottom: 10%; }
 }
 
 @include keyframes(hideDetail) {
     0%      { bottom: 10%; }
-    100%    { bottom: -69.4%; }
+    100%    { bottom: -69.5%; }
 }
 
 @include keyframes(newTip) {
@@ -137,10 +137,11 @@ body {
         position: fixed;
         z-index: 3;
         background-color: white;
+        height: 4.4em;
         #navButton {
             width: 1em;
-            padding: 0 .7em;
-            font-size: $fontSize * 2;
+            padding: .087em 0 0 .55em;
+            font-size: $fontSize * 2.5;
             i {
                 color: $supportColor;
             }
@@ -344,24 +345,30 @@ body {
                 border-radius: 50%;
                 width: 300px;
                 height: 300px;
-                top: 9em;
-                left: 7.1em;
+                top: 9.3em;
+                left: 7.3em;
                 z-index: -1;
+                -webkit-filter: blur(2px); 
+                -moz-filter: blur(2px); 
+                -o-filter: blur(2px); 
+                -ms-filter: blur(2px); 
+                filter: blur(2px);
             }
             text {
                 font-size: 4em;
-                fill: #000;
+                fill: #fff;
             }
             #saving {
                 position: absolute;
-                margin: 25em 0 0 8.5em;
+                margin: 26em 0 0 7.5em;
+                text-align: center;
+                span {
+                    font-weight: bold;
+                    font-size: $fontSize;
+                }
                 #euroSaving {
                     font-size: $fontSize * 2;;
                     font-weight: bold;    
-                }
-                span {
-                    font-size: $fontSize;
-                    margin: 0 0 0 1.8em;
                 }
             }
         }
@@ -374,6 +381,7 @@ body {
                 @extend .box-shadow;
                 background-color: $grey;
                 margin: 0 0 1em 0;
+                padding: 0 0 1em 0;
                 p {
                     font-size: $fontSize * 1.2;
                     padding: 1em;
@@ -394,7 +402,7 @@ body {
                     li {
                         font-size: $fontSize * 1.5;
                         display: inline-block;
-                        width: 32%;
+                        max-width: 30%;
                         span {
                             font-weight: bold;
                             color: $mainColorDark;
@@ -420,7 +428,7 @@ body {
             width: 100%;
             background-color: $supportColor;
             height: 76.5%;
-            bottom: -69.4%;
+            bottom: -69.5%;
             &.viewDetail {
                 @include animation("viewDetail .7s 1");
                 -webkit-animation-fill-mode: forwards;
@@ -475,15 +483,17 @@ body {
                         .percent {
                             margin: 5em 0 0 0;
                             border-top: 1px solid $grey;
-                            padding: 0.8em 0 0 0;
-                            font-size: 1.3em;
+                            padding: 1.2em 0 0 .5em;
+                            font-size: 1em;
                             font-weight: bold;
+                            span {
+                                width: 80%;
+                                float: left;
+                            }
                             i {
                                 font-size: 2.5em;
-                                margin: 0;
-                                float: right;
-                                line-height: .5em;
-                                padding: 0 .3em 0 0;
+                                margin: .2em 0 0 0;
+                                width: 20%;
                             }
                         }
                     }
@@ -572,6 +582,30 @@ body {
         }
         // Einde bespraar doel
 
+        // bespaartips
+        #bespaarTips {
+            ul {
+                width: 100%;
+                margin: auto;
+                li {
+                    @extend .box-shadow;
+                    display: inline-block;
+                    width: 22%;
+                    height: 22em;
+                    margin: 4em 1% 0 1%;
+                    background-color: $grey;
+                    &:first-of-type {
+                        margin-left: 2%;
+                    }
+                    h1 {
+                        color: $mainColorDark;
+                        text-align: center;
+                        margin: .4em 0 0 0;
+                    }
+                }
+            }
+        }
+        // end bespaartips
         // readings
         #readingsSection {
             ul {
@@ -630,7 +664,7 @@ body {
         }
         // End readings
         #headerBalk {
-            margin: 1.5em 0 0 0;
+            margin: 3.5em 0 0 0;
             height: 4em;
             width: 100%;
             background-color: $mainColor;
@@ -846,7 +880,7 @@ body {
         z-index: 1;
         #whoIs {
             width: 100%;
-            height: 2.1em;
+            height: 3em;
             background-color: $whoIs;
             color: white;
             padding: .4em 0 0 1em;
@@ -861,6 +895,7 @@ body {
                     background-color: $supportColorTint;
                 }
                 a {
+                    font-size: $fontSize * 1.1;
                     color: white;
                     text-decoration: none;
                     margin: 0 0 0 .5em;

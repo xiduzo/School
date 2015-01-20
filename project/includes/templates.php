@@ -34,8 +34,8 @@ function mainNavigation($whoIs, $activePage) {
 					</a>
 				</li>
 				<li class="'. (($activePage == "community") ? $active : $inActive ) .'">
-					<a href="/school/project/community.php">
-						<i class="fa fa-comments"></i>
+					<a href="/school/project/bespaartips.php">
+						<i class="fa fa-tags"></i>
 						Bespaartips
 					</a>
 				</li>
