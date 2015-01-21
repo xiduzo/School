@@ -38,15 +38,43 @@ $user = getUser($_SESSION['user']);
 				<ul>
 					<li>
 						<h1>Water bespaartip</h1>
+						<article>
+							<h1>De tip</h1>
+							<p></p>
+							<h2>Waarom</h2>
+							<p></p>
+							<div id="besparing"></div>
+						</article>
 					</li>
 					<li>
 						<h1>Water bespaartip</h1>
+						<article>
+							<h1>De tip</h1>
+							<p></p>
+							<h2>Waarom</h2>
+							<p></p>
+							<div id="besparing"></div>
+						</article>
 					</li>
 					<li>
 						<h1>Water bespaartip</h1>
+						<article>
+							<h1>De tip</h1>
+							<p></p>
+							<h2>Waarom</h2>
+							<p></p>
+							<div id="besparing"></div>
+						</article>
 					</li>
 					<li>
 						<h1>Water bespaartip</h1>
+						<article>
+							<h1>De tip</h1>
+							<p></p>
+							<h2>Waarom</h2>
+							<p></p>
+							<div id="besparing"></div>
+						</article>
 					</li>
 				</ul>
 			</section>

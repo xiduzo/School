@@ -1,27 +1,27 @@
-$fontSize:                      1em;
-$lineHeigt:                     1.625em;
-$letterSpacing:                 0.0625em;
+$fontSize: 1em;
+$lineHeigt: 1.625em;
+$letterSpacing: 0.0625em;
 
-$backgroundColor:               rgb(237, 237, 237);
-$menuBackgroundColor:           rgb(0, 0, 0);
+$backgroundColor: rgb(237, 237, 237);
+$menuBackgroundColor: rgb(0, 0, 0);
 
-$mainColor:                     rgb(163, 199, 0);
-$mainColorTint:                 lighten($mainColor, 40%);
-$mainColorDark:                 darken($mainColor, 12%);
-$supportColor:                  rgb(0, 154, 223);
-$supportColorTint:              lighten($supportColor, 10%);
+$mainColor: rgb(163, 199, 0);
+$mainColorTint: lighten($mainColor, 40%);
+$mainColorDark: darken($mainColor, 12%);
+$supportColor: rgb(0, 154, 223);
+$supportColorTint: lighten($supportColor, 10%);
 
-$grey:                          rgb(243, 243, 243);
-$lightGrey:                     lighten($grey, 2%);
-$darkGrey:                      darken($grey, 30%);
-$whoIs:                         rgb(72, 72, 72);
+$grey: rgb(243, 243, 243);
+$lightGrey: lighten($grey, 2%);
+$darkGrey: darken($grey, 30%);
+$whoIs: rgb(72, 72, 72);
 
-$energyMainColor:               rgb(245, 215, 110);
-$waterMainColor:                rgb(75, 119, 190);
-$gasMainColor:                  rgb(38, 166, 91);
+$energyMainColor: rgb(245, 215, 110);
+$waterMainColor: rgb(75, 119, 190);
+$gasMainColor: rgb(38, 166, 91);
 
-$piggyBankColor:                rgb(252, 184, 40);
-$usagePercentageCompareColor:   grey;
+$piggyBankColor: rgb(252, 184, 40);
+$usagePercentageCompareColor: grey;
 
 $donutSize: 300px;
 
@@ -75,48 +75,84 @@ $donutSize: 300px;
 }
 
 @mixin circle($donutSize) {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  left: calc(50% - #{$donutSize/2});
-  top: calc(50% - #{$donutSize/2});
-  width: $donutSize;
-  height: $donutSize;
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: calc(50% - #{$donutSize / 2});
+    top: calc(50% - #{$donutSize / 2});
+    width: $donutSize;
+    height: $donutSize;
 }
 
 //Animations
 @include keyframes(showNav) {
-    0%      { left: 0%; }
-    90%     { left: 26%; }
-    100%    { left: 25%; }
+    0% {
+        left: 0%;
+    }
+    90% {
+        left: 26%;
+    }
+    100% {
+        left: 25%;
+    }
 }
+
 
 @include keyframes(hideNav) {
-    0%      { left: 25%; }
-    100%    { left: 0%; }
+    0% {
+        left: 25%;
+    }
+    100% {
+        left: 0%;
+    }
 }
+
 
 @include keyframes(viewDetail) {
-    0%      { bottom: -69.5%; }
-    90%     { bottom: 12%; }
-    100%    { bottom: 10%; }
+    0% {
+        bottom: -69.5%;
+    }
+    90% {
+        bottom: 12%;
+    }
+    100% {
+        bottom: 10%;
+    }
 }
+
 
 @include keyframes(hideDetail) {
-    0%      { bottom: 10%; }
-    100%    { bottom: -69.5%; }
+    0% {
+        bottom: 10%;
+    }
+    100% {
+        bottom: -69.5%;
+    }
 }
+
 
 @include keyframes(newTip) {
-    0%      { top: -50%; }
-    90%     { top: 10%; }
-    100%    { top: 9%; }
+    0% {
+        top: -50%;
+    }
+    90% {
+        top: 10%;
+    }
+    100% {
+        top: 9%;
+    }
 }
 
+
 @include keyframes(darkBackGround) {
-    0% { background-color: rgba(0, 0, 0, .1); }
-    100% { background-color: rgba(0, 0, 0, .75); }
+    0% {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.75);
+    }
 }
+
 
 * {
     padding: 0;
@@ -161,7 +197,8 @@ body {
             left: 46%;
             top: 1em;
         }
-    } // End of header
+    }
+    // End of header
     // Buttons etc.
     #newTip {
         border-radius: 50%;
@@ -181,17 +218,17 @@ body {
         }
     }
     #popUpScreen {
-            display: none;
+        display: none;
         &.active {
             display: block;
             position: fixed;
             width: 100%;
-            height: 100%;            
+            height: 100%;
             z-index: 3;
             @include animation("darkBackGround .7s 1");
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
-            #popUpVisableScreen{
+            #popUpVisableScreen {
                 background-color: white;
                 width: 70%;
                 position: fixed;
@@ -216,10 +253,9 @@ body {
                 h1 {
                     font-size: $fontSize * 2;
                 }
-
-                form{
+                form {
                     margin: 1em 0 0 0;
-                    input[type="text"], input[type="number"], textarea{
+                    input[type="text"], input[type="number"], textarea {
                         width: 100%;
                         display: inherit;
                         height: 3em;
@@ -261,7 +297,7 @@ body {
         min-height: 93.4%;
         #background {
             background-image: url("../images/background.png");
-            background-size: cover;
+            backgrond-repeat: no-repeat;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -281,7 +317,7 @@ body {
             animation-fill-mode: forwards;
         }
         // Login page
-        #loginForm, #forgotForm{
+        #loginForm, #forgotForm {
             legend {
                 font-size: $fontSize * 2;
                 font-weight: bold;
@@ -290,10 +326,10 @@ body {
                 margin: 2em 0 1em 0;
                 span {
                     padding: 1em 0 0 0;
-                    font-size: $fontSize * .4;
+                    font-size: $fontSize * 0.4;
                     display: inline-block;
                     font-weight: 100;
-                    width: 59%
+                    width: 59%;
                 }
             }
             input[type="text"], input[type="password"] {
@@ -302,7 +338,7 @@ body {
                 height: 3em;
                 margin: auto;
                 padding: 0 0 0 1em;
-                border: .1em solid $grey;
+                border: 0.1em solid $grey;
             }
             #loginButton, #forgotButton {
                 @extend .box-shadow;
@@ -323,14 +359,14 @@ body {
                 float: right;
                 font-weight: bold;
             }
-        } // End login page
-
+        }
+        // End login page
         //Index
         #indexSection {
             #donut {
-              width: 29em;
-              height: 29em;
-              margin: 6em 0 0 4em;
+                width: 29em;
+                height: 29em;
+                margin: 6em 0 0 4em;
             }
             path {
                 &.color0 {
@@ -348,10 +384,10 @@ body {
                 top: 9.3em;
                 left: 7.3em;
                 z-index: -1;
-                -webkit-filter: blur(2px); 
-                -moz-filter: blur(2px); 
-                -o-filter: blur(2px); 
-                -ms-filter: blur(2px); 
+                -webkit-filter: blur(2px);
+                -moz-filter: blur(2px);
+                -o-filter: blur(2px);
+                -ms-filter: blur(2px);
                 filter: blur(2px);
             }
             text {
@@ -367,8 +403,8 @@ body {
                     font-size: $fontSize;
                 }
                 #euroSaving {
-                    font-size: $fontSize * 2;;
-                    font-weight: bold;    
+                    font-size: $fontSize * 2;
+                    font-weight: bold;
                 }
             }
         }
@@ -376,7 +412,7 @@ body {
             width: 46%;
             right: 2em;
             top: 4em;
-            position: absolute; 
+            position: absolute;
             article {
                 @extend .box-shadow;
                 background-color: $grey;
@@ -419,8 +455,8 @@ body {
                     padding: 0 1em 0 1em;
                     margin: 0em 0 1em 1em;
                     border-radius: .7em .7em .7em 0;
-                }  
-            } 
+                }
+            }
         }
         #detailUseSection {
             @extend .box-shadow;
@@ -447,7 +483,7 @@ body {
                     color: white;
                 }
             }
-            #detailDisplays{
+            #detailDisplays {
                 height: 41em;
                 background-color: $backgroundColor;
                 ul {
@@ -498,10 +534,9 @@ body {
                         }
                     }
                 }
-            }    
+            }
         }
         //End of index
-
         // Bespaardoel
         #goalSection {
             position: absolute;
@@ -512,7 +547,7 @@ body {
                     width: 300px;
                     height: 300px;
                     border-radius: 50%;
-                    border: .5em dashed $supportColor;
+                    border: 0.5em dashed $supportColor;
                     background-color: white;
                     position: absolute;
                     i {
@@ -530,7 +565,7 @@ body {
                     top: 0;
                     left: 0;
                     opacity: 0;
-                    filter: alpha(opacity=0);
+                    filter: alpha(opacity = 0);
                 }
             }
             img {
@@ -539,7 +574,6 @@ body {
                 border-radius: 50%;
             }
         }
-
         #goalPriceSection {
             width: 46%;
             right: 2em;
@@ -568,20 +602,19 @@ body {
                         margin: 0 0 2em 0;
                     }
                     button {
-                    background-color: $supportColor;
-                    color: white;
-                    border: none;
-                    font-weight: bold;
-                    height: 3em;
-                    padding: 0 1em 0 1em;
-                    margin: 0 0 1em 0;
-                    border-radius: .7em .7em .7em 0;
-                } 
+                        background-color: $supportColor;
+                        color: white;
+                        border: none;
+                        font-weight: bold;
+                        height: 3em;
+                        padding: 0 1em 0 1em;
+                        margin: 0 0 1em 0;
+                        border-radius: .7em .7em .7em 0;
+                    }
                 }
-            } 
+            }
         }
         // Einde bespraar doel
-
         // bespaartips
         #bespaarTips {
             ul {
@@ -692,7 +725,7 @@ body {
                                 padding: .5em 1em .5em 1em;
                                 font-size: $fontSize * 2;
                                 color: white;
-                            } 
+                            }
                         }
                     }
                 }
@@ -721,7 +754,7 @@ body {
                                 width: 2em;
                                 height: 2em;
                                 line-height: 2.1em;
-                                font-size: $fontSize * .7;
+                                font-size: $fontSize * 0.7;
                             }
                         }
                     }
@@ -753,7 +786,7 @@ body {
                     li {
                         display: inline-block;
                         vertical-align: top;
-                        #usage, #usageCompare, .usageSaving{
+                        #usage, #usageCompare, .usageSaving {
                             position: relative;
                             font-size: $fontSize * 0.7;
                             margin: 2.5em 0 0 1.5em;
@@ -778,14 +811,13 @@ body {
                                     color: $piggyBankColor;
                                     margin: 0 0 0 .3em;
                                 }
-                                
                             }
                         }
                     }
                 }
             }
-        } // End detail data display
-
+        }
+        // End detail data display
         // Community posts
         #postsSection {
             #posts {
@@ -812,7 +844,6 @@ body {
                         -webkit-column-break-inside: avoid;
                         -moz-column-break-inside: avoid;
                         column-break-inside: avoid;
-                        
                         -webkit-transition: all 2s ease;
                         -moz-transition: all 2s ease;
                         -o-transition: all 2s ease;
@@ -835,7 +866,7 @@ body {
                             position: inherit;
                             h1 {
                                 padding: 3% 5% 0 5%;
-                                font-size: $fontSize *1.5;
+                                font-size: $fontSize * 1.5;
                             }
                             p {
                                 padding: 3% 5% 0 5%;
@@ -853,7 +884,7 @@ body {
                                     border-radius: 50%;
                                     float: left;
                                     margin: 0 1em 0 1em;
-                                    border: .2em solid $mainColor; 
+                                    border: 0.2em solid $mainColor;
                                 }
                                 time {
                                     font-size: $fontSize * 0.8;
@@ -869,8 +900,8 @@ body {
                 margin: auto;
             }
         }
-    } // End of main
-
+    }
+    // End of main
     // Navigation
     nav {
         background-color: $menuBackgroundColor;
@@ -884,14 +915,14 @@ body {
             background-color: $whoIs;
             color: white;
             padding: .4em 0 0 1em;
-            font-size: $fontSize *1.3;
+            font-size: $fontSize * 1.3;
         }
         ul {
             padding: 0 0 3em 0;
             li {
                 height: 3em;
                 padding: 1em 0 0 0;
-                &.activeNavItem {  
+                &.activeNavItem {
                     background-color: $supportColorTint;
                 }
                 a {
@@ -908,5 +939,8 @@ body {
                 }
             }
         }
-    } // End navigation
-} // End of body
+    }
+    // End navigation
+}
+
+// End of body

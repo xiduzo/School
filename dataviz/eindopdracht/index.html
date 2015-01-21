@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eindopdracht 500676671</title>
+  <meta charset="utf-8">
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+
+  <script src="http://phuonghuynh.github.io/js/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/d3/d3.min.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/d3-transform/src/d3-transform.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/extarray.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/misc.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/cafej/src/micro-observer.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/microplugin/src/microplugin.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/bubble-chart.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
+  <script src="http://phuonghuynh.github.io/js/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
+  <script src="index.js"></script>
+  <style>
+    body {
+      background: white;
+    }
+    .bubbleChart {
+      list-style: none;
+      width: 80%;
+      height: 500px;
+      margin: 0 auto;
+    }
+    .bubbleChart svg{
+      width: 45%;
+      margin: 0 2% 0 2%;
+      background: #000000;
+    }
+
+    article {
+      width: 80%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <article>
+  <h1>Wat beinvloed mijn dota plays?</h1>
+  <p>
+    In de twee blokken hieronder zie je een paar aspecten die ik heb opgemeten tijdens het spelen van spelletjes dota, hierin wil ik een patroon gaan herkennen. 
+  </p>
+  <p>
+    Wat is van invloed op een potje dat ik win en wat is van invloed op een potje dat ik verlies?
+  </p>
+  <p>
+    In het linker blok zie je de data die ik heb opgenomen bij gewonnen potjes dota, in het rechtervlak is dit te zien voor potjes die ik heb verloren.
+  </p>
+  </article>
+  <ul>
+    <li class="bubbleChart"></li>
+  </ul>
+  <article>
+    <p>
+      Zoals te zien in in de visualisatie zijn de punten waarop ik heb gemeten niet van zoverre invloed om te bepalen waarom een potje gewonnen of verloren wordt.
+    </p>
+    <p>
+      Ik had wel verwacht dat er ergens een groot verschil op te merken zou zijn maar dit is niet het geval.
+    </p>
+    <p>
+      Wel zijn er kleine verschillen, zo win ik een potje gemiddeld meer als ik deze vroeger op de dag speel (17:55 vs 19:14). Ook zie je dat als ik 4 keer per minuut minder klik met de rechtermuisknop dat ik het potje gemiddeld meer win (Dit zijn dan wel meer dan 150 clicks per potje!)
+    </p>
+  </article>
+ 
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+  // make a chart with some parameters
+  // totalGames / leftCPM / rightCPM / members / time / date / dateTime
+
+  // wins
+  chart(37,13.18,118.00,3.2,42.19,13,17.55);
+
+  // losses
+  chart(25,14.75,121.88,3.5,45.48,14,19.14);
+
+  //function to build the chart
+  function chart(totalGames, leftCPM, rightCPM, members, time, date, datetime) {
+    var bubbleChart = new d3.svg.BubbleChart({
+      supportResponsive: true,
+      size: 600,
+      innerRadius: 800 / 3.5,
+      radiusMin: 50,
+      data: {
+        items: [
+          {text: "Total games", count: totalGames},
+          {text: "Left cpm", count: leftCPM},
+          {text: "Right cpm", count: rightCPM},
+          {text: "Team members", count: members},
+          {text: "Game time", count: time},
+          {text: "datum", count: date},
+          {text: "Tijd", count: datetime},
+        ],
+        eval: function (item) {return item.count;},
+        classed: function (item) {return item.text.split(" ").join("");}
+      },
+      plugins: [
+        {
+          name: "central-click",
+          options: {
+            //text: "(See more detail)",
+            style: {
+              "font-size": "12px",
+              "font-style": "italic",
+              "font-family": "Source Sans Pro, sans-serif",
+              //"font-weight": "700",
+              "text-anchor": "middle",
+              "fill": "white"
+            },
+            attr: {dy: "65px"},
+            centralClick: function() {
+            }
+          }
+        },
+        {
+          name: "lines",
+          options: {
+            format: [
+              {// Line #0
+                textField: "count",
+                classed: {count: true},
+                style: {
+                  "font-size": "28px",
+                  "font-family": "Source Sans Pro, sans-serif",
+                  "text-anchor": "middle",
+                  fill: "white"
+                },
+                attr: {
+                  dy: "0px",
+                  x: function (d) {return d.cx;},
+                  y: function (d) {return d.cy;}
+                }
+              },
+              {// Line #1
+                textField: "text",
+                classed: {text: true},
+                style: {
+                  "font-size": "14px",
+                  "font-family": "Source Sans Pro, sans-serif",
+                  "text-anchor": "middle",
+                  fill: "white"
+                },
+                attr: {
+                  dy: "20px",
+                  x: function (d) {return d.cx;},
+                  y: function (d) {return d.cy;}
+                }
+              }
+            ],
+            centralFormat: [
+              {// Line #0
+                style: {"font-size": "50px"},
+                attr: {}
+              },
+              {// Line #1
+                style: {"font-size": "30px"},
+                attr: {dy: "40px"}
+              }
+            ]
+          }
+        }]
+    });
+  }
+  
+}); // einde document ready
+</script>
+</body>
+</html>

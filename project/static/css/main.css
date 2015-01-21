@@ -283,7 +283,7 @@ body #mainContent {
   min-height: 93.4%; }
   body #mainContent #background {
     background-image: url("../images/background.png");
-    background-size: cover;
+    backgrond-repeat: no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
