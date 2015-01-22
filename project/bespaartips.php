@@ -59,7 +59,6 @@ $user = getUser($_SESSION['user']);
 						';
 					}
 				?>
-				</ul>
 			</section>
 
 			

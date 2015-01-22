@@ -1,4 +1,4 @@
-.box-shadow, body #mainHeader, body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton, body #mainContent #callToActionSection article, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #bespaarTips ul li, body #mainContent #readingsSection ul li, body #mainContent #betalingen, body #mainContent #betalingenDetail section {
+.box-shadow, body #mainHeader, body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton, body #mainContent #callToActionSection article, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #bespaarTips ul li, body #mainContent #readingsSection ul li, body #mainContent #betalingen, body #mainContent #betalingenDetail section, body #mainContent #postsSection #posts a .post {
   -webkit-box-shadow: 0 0 0.5em 0 #a6a6a6;
   -moz-box-shadow: 0 0 0.5em 0 #a6a6a6;
   box-shadow: 0 0 0.5em 0 #a6a6a6; }
@@ -701,7 +701,89 @@ body #mainContent {
           width: 44%; }
           body #mainContent #betalingenDetail section ul li span {
             font-weight: bold;
-            display: block; }
+            display: block;
+            vertical-align: top; }
+          body #mainContent #betalingenDetail section ul li #usage, body #mainContent #betalingenDetail section ul li #usageCompare, body #mainContent #betalingenDetail section ul li .usageSaving {
+            position: relative;
+            font-size: 0.7em;
+            margin: 2.5em 0 0 1.5em;
+            width: 10em;
+            float: left;
+            min-height: 6em; }
+            body #mainContent #betalingenDetail section ul li #usage span, body #mainContent #betalingenDetail section ul li #usageCompare span, body #mainContent #betalingenDetail section ul li .usageSaving span {
+              position: absolute;
+              bottom: 0;
+              font-size: 1.3em; }
+          body #mainContent #betalingenDetail section ul li #moneySaved, body #mainContent #betalingenDetail section ul li #usagePercentageCompare {
+            margin: 1.5em 0 0 0;
+            float: left; }
+            body #mainContent #betalingenDetail section ul li #moneySaved i, body #mainContent #betalingenDetail section ul li #usagePercentageCompare i {
+              font-size: 5.5em; }
+              body #mainContent #betalingenDetail section ul li #moneySaved i.fa-pie-chart, body #mainContent #betalingenDetail section ul li #usagePercentageCompare i.fa-pie-chart {
+                color: grey; }
+              body #mainContent #betalingenDetail section ul li #moneySaved i.fa-money, body #mainContent #betalingenDetail section ul li #usagePercentageCompare i.fa-money {
+                color: #fcb828;
+                margin: 0 0 0 .3em; }
+  body #mainContent #postsSection #posts {
+    -webkit-column-count: 3;
+    -webkit-column-gap: 1em;
+    -webkit-column-fill: auto;
+    -moz-column-count: 3;
+    -moz-column-gap: 1em;
+    -moz-column-fill: auto;
+    column-count: 2;
+    column-gap: 1em;
+    column-fill: auto;
+    width: 98%;
+    margin: auto;
+    margin-top: 1.5em;
+    padding-bottom: 3em; }
+    body #mainContent #postsSection #posts a {
+      text-decoration: none; }
+      body #mainContent #postsSection #posts a .post {
+        background-color: white;
+        margin: 0 2px 1em;
+        padding: 0 0 1em 0;
+        -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
+        column-break-inside: avoid;
+        -webkit-transition: all 2s ease;
+        -moz-transition: all 2s ease;
+        -o-transition: all 2s ease;
+        transition: all 2s ease; }
+        body #mainContent #postsSection #posts a .post header {
+          height: 1.75em;
+          position: inherit;
+          width: 100%; }
+          body #mainContent #postsSection #posts a .post header.energy {
+            background-color: #f5d76e; }
+          body #mainContent #postsSection #posts a .post header.water {
+            background-color: #4b77be; }
+          body #mainContent #postsSection #posts a .post header.gas {
+            background-color: #26a65b; }
+        body #mainContent #postsSection #posts a .post article {
+          position: inherit; }
+          body #mainContent #postsSection #posts a .post article h1 {
+            padding: 3% 5% 0 5%;
+            font-size: 1.5em; }
+          body #mainContent #postsSection #posts a .post article p {
+            padding: 3% 5% 0 5%;
+            margin: 1em 0 1em 0; }
+            body #mainContent #postsSection #posts a .post article p span {
+              color: #009adf; }
+          body #mainContent #postsSection #posts a .post article .postedBy {
+            padding: .7em 0 .7em 0;
+            border-top: 1px solid #f3f3f3; }
+            body #mainContent #postsSection #posts a .post article .postedBy img {
+              width: 4em;
+              height: 4em;
+              border-radius: 50%;
+              float: left;
+              margin: 0 1em 0 1em;
+              border: 0.2em solid #a3c700; }
+            body #mainContent #postsSection #posts a .post article .postedBy time {
+              font-size: 0.8em;
+              color: #f8f8f8; }
 body nav {
   background-color: black;
   height: 100%;
