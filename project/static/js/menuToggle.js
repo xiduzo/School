@@ -30,7 +30,9 @@
 
 			// swipe "content" back to the left
 			contentPress.on("panleft", function() {
-				hideNav();
+				if(content.classList.contains('activeNav')) {
+					hideNav();
+				}
 			});
 
 			// menu options

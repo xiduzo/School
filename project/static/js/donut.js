@@ -65,7 +65,7 @@ function drawDonutChart(element, percent, saving, width, height, text_y) {
         var i2 = d3.interpolate(progress, saving)
         this._current = i(0);
         return function(t) {
-          text.text( "\u20ac" + round(i2(t),2) );
+          text.text( "\u20ac" + round(i2(t),2) + " Bespaard" );
           //outputSaving.innerHTML = "\u20ac" + round(i2(t),2);
           return arc(i(t));
         };

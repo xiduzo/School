@@ -15,7 +15,7 @@ $user = getUser($_SESSION['user']);
 <html>
     <head>
     	<?
-    		head('community');
+    		head('Betalingen');
 
 	        addCSS('static/css/main.css');
 	        //font awesome
@@ -30,30 +30,77 @@ $user = getUser($_SESSION['user']);
 		<main id="mainContent">
 		<div id="background"></div>
 
-		<section id="notBuildYetSection">
-			<?
-				function generateRandomString($length) {
-				    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-				    $charactersLength = strlen($characters);
-				    $randomString = '';
-				    for ($i = 0; $i < $length; $i++) {
-				        $randomString .= $characters[rand(0, $charactersLength - 1)]." ";
-				    }
-				    return $randomString;
-				}
-			?>
-			<h1>500 Internal Server Error</h1>
-			<h2>Sorry, something went wrong.</h2>
-			<article>
-				<p>A team of highly trained monkeys has been dispatched to deal with this situation.</p>
-				<p>
-					Also, please include the following information in your error report:
-					<span><? echo generateRandomString(400); ?></span>
-				</p>
-			</article>
+		<section id="betalingen">
+			<ul>
+				<li class="active">
+					<h1>Januari 2015</h1>
+					<span>&euro;10.13</span> bespaard
+				</li>
+				<li>
+					<h1>December 2014</h1>
+					<span>&euro;9.65</span> bespaard
+				</li>
+				<li>
+					<h1>November 2014</h1>
+					<span>&euro;10.35</span> bespaard
+				</li>
+				<li>
+					<h1>Oktober 2014</h1>
+					<span>&euro;12.58</span> bespaard
+				</li>
+				<li>
+					<h1>Augustus 2014</h1>
+					<span>&euro;13.15</span> bespaard
+				</li>
+				<li>
+					<h1>Juli 2014</h1>
+					<span>&euro;9.80</span> bespaard
+				</li>
+				<li>
+					<h1>Juni 2014</h1>
+					<span>&euro;13.83</span> bespaard
+				</li>
+				<li>
+					<h1>Mei 2014</h1>
+					<span>&euro;10.36</span> bespaard
+				</li>
+				<li>
+					<h1>April 2014</h1>
+					<span>&euro;9.43</span> bespaard
+				</li>
+				<li>
+					<h1>Maart 2014</h1>
+					<span>&euro;8.79</span> bespaard
+				</li>
+				<li>
+					<h1>Februari 2014</h1>
+					<span>&euro;8.15</span> bespaard
+				</li>
+				<li>
+					<h1>Januari 2014</h1>
+					<span>&euro;7.36</span> bespaard
+				</li>
+			</ul>
 		</section>
 
-			
+		<section id="betalingenDetail">
+			<section>
+				<h1>Januari 2015</h1>
+				Uw verbruik en besparing
+
+				<ul>
+					<li>
+						<span>&euro;148.00</span> verbruikt
+					</li>
+					<li>
+						<span>&euro;10.13</span> bespaard
+					</li>
+				</ul>
+			</section>
+				
+			<section>
+			</section>
+		</section>
 		</main>
 
 		<?
@@ -70,5 +117,13 @@ $user = getUser($_SESSION['user']);
 			// Self
 			addJS('static/js/menuToggle.js');
 		?>
+		<script>
+			// Last minute jQuery because hammerJS is new (for me) and can't fix it as fast as with jQuery (FORGIVE ME!)
+			$('#betalingen ul li').click(function() {
+				$(this).siblings('.active').removeClass('active');
+				$(this).addClass('active');
+			});
+		</script>
+
     </body>
 </html>

@@ -15,7 +15,7 @@ $user = getUser($_SESSION['user']);
 <html>
     <head>
     	<?
-    		head('home');
+    		head('Home');
 
 	        addCSS('static/css/main.css');
 	        //font awesome
@@ -23,6 +23,11 @@ $user = getUser($_SESSION['user']);
         ?>
     </head>
     <body>
+    	<script type="text/javascript">
+    		$(function() {
+			    document.documentElement.requestFullscreen();
+			});
+    	</script>
     	<?
     		pageHeader();
     	?>
@@ -31,14 +36,20 @@ $user = getUser($_SESSION['user']);
 		<div id="background"></div>
 		<?
 		$savingGoal 	= 149.99;
-		$randomPercent 	= rand(5, 95);
+		$days 			= 365 * 1.5;
+		$randomPercent 	= rand(49, 83);
 		$randomSaving  	= ($savingGoal * $randomPercent) / 100;
 		?>
 		<section id="indexSection">
 			<div id="donut" data-donut="<?=$randomPercent?>" data-saving="<?=$randomSaving?>">
-			<img src="http://www.vouwwagenpunt.nl/wp-content/uploads/2012/02/Wolder-hogar1-vouwwagen1.jpg" alt="vouwwagen">
-			<!-- <div id="saving"><div id="euroSaving">&euro;00.00</div><span>bespaard</span></div> -->
-			<div id="saving">Uw doel: <br/> <span>&euro;<?=$savingGoal?></span> binnen <span>1,5</span> jaar</div>
+				<img src="http://www.jamet.nl/file646.jpg" alt="vouwwagen">
+				<!-- <div id="saving"><div id="euroSaving">&euro;00.00</div><span>bespaard</span></div> -->
+				<div id="saving">
+					Uw doel: <br/> 
+					<span>&euro;<?=round($savingGoal);?></span> binnen <span><?=round($days);?></span> dagen <br/>
+					Huidige besparing: <br/>
+					<span>&euro;<?=number_format($randomSaving,2);?></span> in <span><?=round($days*$randomPercent/100)?></span> dagen
+				</div>
 			</div>
 		</section>
 
@@ -83,53 +94,46 @@ $user = getUser($_SESSION['user']);
 				<ul>
 					<!-- http://www.nibud.nl/uitgaven/huishouden/gas-elektriciteit-en-water.html -->					
 					<li>
-						<a href="/school/project/detailDisplay.php?viewToggle=gas">
-							<i class="fa fa-fire"></i>
-							<h1>Gas</h1>
-							Totaal verbruik deze maand:
-							<div class="expense">
-								&euro;<? echo number_format(rand(7000,8000)/100,2) ?>
-							</div>
-							<div class="use">
-								(<? echo number_format(rand(8000,10000)/100,2) ?> m³)
-							</div>
-							<div class="percent">
-								<span>U verbruikt 5% meer dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-up"></i>
-							</div>
-						</a>
+						<i class="fa fa-fire"></i>
+						<h1>Gas</h1>
+						Totaal verbruik deze maand:
+						<div class="expense">
+							&euro;<? echo number_format(rand(7000,8000)/100,2) ?>
+						</div>
+						<div class="use">
+							(<? echo number_format(rand(8000,10000)/100,2) ?> m³)
+						</div>
+						<div class="percent">
+							<span>U verbruikt 5% meer dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-up"></i>
+						</div>
 					</li>
 					<li>
-						<a href="/school/project/detailDisplay.php?viewToggle=energy">
-							<i class="fa fa-plug"></i>
-							<h1>Electriciteit</h1>
-							Totaal verbruik deze maand:
-							<div class="expense">
-								&euro;<? echo number_format(rand(2500,3500)/100,2) ?>
-							</div>
-							<div class="use">
-								(<? echo number_format(rand(16000,17500)/100,2) ?> kWh)
-							</div>
-							<div class="percent">
-								<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
-							</div>
-						</a>
-
+						<i class="fa fa-plug"></i>
+						<h1>Electriciteit</h1>
+						Totaal verbruik deze maand:
+						<div class="expense">
+							&euro;<? echo number_format(rand(2500,3500)/100,2) ?>
+						</div>
+						<div class="use">
+							(<? echo number_format(rand(16000,17500)/100,2) ?> kWh)
+						</div>
+						<div class="percent">
+							<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
+						</div>
 					</li>						
 					<li>
-						<a href="/school/project/detailDisplay.php?viewToggle=water">
-							<i class="fa fa-tint"></i>
-							<h1>Water</h1>
-							Totaal verbruik deze maand:
-							<div class="expense">
-								&euro;<? echo number_format(rand(800,1300)/100,2) ?>
-							</div>
-							<div class="use">
-								(<? echo number_format(rand(370000,380000)/100,2) ?> Liter)
-							</div>
-							<div class="percent">
-								<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
-							</div>
-						</a>
+						<i class="fa fa-tint"></i>
+						<h1>Water</h1>
+						Totaal verbruik deze maand:
+						<div class="expense">
+							&euro;<? echo number_format(rand(800,1300)/100,2) ?>
+						</div>
+						<div class="use">
+							(<? echo number_format(rand(370000,380000)/100,2) ?> Liter)
+						</div>
+						<div class="percent">
+							<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
+						</div>
 					</li>
 				</ul>
 			</div>

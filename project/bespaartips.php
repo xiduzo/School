@@ -15,7 +15,7 @@ $user = getUser($_SESSION['user']);
 <html>
     <head>
     	<?
-    		head('community');
+    		head('Bespaartips');
 
 	        addCSS('static/css/main.css');
 	        //font awesome
@@ -36,18 +36,29 @@ $user = getUser($_SESSION['user']);
 
 			<section id="bespaarTips">
 				<ul>
-					<li>
-						<h1>Water bespaartip</h1>
-					</li>
-					<li>
-						<h1>Water bespaartip</h1>
-					</li>
-					<li>
-						<h1>Water bespaartip</h1>
-					</li>
-					<li>
-						<h1>Water bespaartip</h1>
-					</li>
+				<?
+					$allPosts = getPosts(1);
+
+					while($post = mysqli_fetch_array($allPosts)){
+						echo '
+						<li>
+							<article>
+								<h1>'.$post['titel'].'</h1>
+								<p>
+									'.$post['tip'].'
+								</p>
+								<p>
+									<span>Waarom?</span>
+									'.$post['omdat'].'
+								</p>
+								<div id="saving">
+									<i class="fa fa-money"></i>&euro;'.$post['besparing'].'
+								</div>
+							</article>
+						</li>
+						';
+					}
+				?>
 				</ul>
 			</section>
 
@@ -56,7 +67,7 @@ $user = getUser($_SESSION['user']);
 
 		<?
 			$userName = $user['voorNaam']." ".$user['achterNaam'];
-			mainNavigation($userName, 'community');
+			mainNavigation($userName, 'tips');
 		?>
 
 		<!-- JS scripts -->

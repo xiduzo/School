@@ -24,6 +24,11 @@ checkUser();
 		<main id="mainContent">
 		<div id="background"></div>
 
+		<?
+			header("Location: http://sanderboer.nl/school/project/starting.php");
+			die();
+		?>
+
 		<? if($_POST['loginUser']): ?>
 			<?
 				$klantNummer = $_POST['klantNummer'];
@@ -43,7 +48,7 @@ checkUser();
 				<a href="#aanvragen">Mijn WoonEnergie aanvragen?</a>
 			</form>
 		<? endif; ?>
-			
+
 		</main>
 
 

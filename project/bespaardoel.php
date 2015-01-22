@@ -15,7 +15,7 @@ $user = getUser($_SESSION['user']);
 <html>
     <head>
     	<?
-    		head('home');
+    		head('Bespaardoel');
 
 	        addCSS('static/css/main.css');
 	        //font awesome
@@ -30,9 +30,50 @@ $user = getUser($_SESSION['user']);
 		<main  id="mainContent">
 		<div id="background"></div>
 		
+		<?
+			$goalSet  = false;
+
+			if (isset($_POST['setGoal'])) {
+				$goalSet = true;
+				$price 	= $_GET['savingsGoal'];
+				$name 	= $_GET['savingsName'];
+			}
+		?>
+
 		<div id="headerBalk">
-			<div id="plainText">Stel je eingen bespaardoel in</div>
+			<? if($goalSet): ?>
+				<div id="plainText">Pas uw bespaardoel aan</div>
+			<? else: ?>
+				<div id="plainText">Stel uw eigen bespaardoel in</div>
+			<? endif; ?>
 		</div>
+
+		
+
+		<? if($goalSet): ?>
+
+		<section id="goalSection">
+			<img src="http://www.jamet.nl/file646.jpg" alt="vouwwagen">
+		</section>
+
+		<section id="goalPriceSection">
+			<article>
+				<p>
+					<span>Bespaardoel aanpassen</span> <br/>
+					verander hier uw persoonlijke bespaardoel. <br/>
+				</p>
+
+				<form id="savingsGoal" method="post" action="<?=$_SERVER['PHP_SELF']?>">
+
+					<input type="text" name="savingsName" value="Vouwwagen">
+					<input type="number" name="savingsGoal" value="149.99">
+
+					<button type="submit" name="setGoal">Verander bespaardoel</button>
+				</form>
+			</article>
+		</section>
+
+		<? else :?>
 
 		<section id="goalSection">
 			<!-- <img src="http://www.vouwwagenpunt.nl/wp-content/uploads/2012/02/Wolder-hogar1-vouwwagen1.jpg" alt="vouwwagen"> -->
@@ -46,18 +87,21 @@ $user = getUser($_SESSION['user']);
 			<article>
 				<p>
 					<span>Bespaardoel instellen</span> <br/>
-					stel hier je persoonlijke bespaardoel in. <br/>
+					stel hier uw persoonlijke bespaardoel in. <br/>
 				</p>
 
 				<form id="savingsGoal" method="post" action="<?=$_SERVER['PHP_SELF']?>">
 
 					<input type="text" name="savingsName" placeholder="Naam bespaardoel">
-					<input type="number" name="savingsGoal" placeholder="Vul hier de prijs van je doel in">
+					<input type="number" name="savingsGoal" placeholder="Vul hier de prijs van uw doel in">
 
-					<button>Stel bespraardoel in</button>
+					<button type="submit" name="setGoal">Stel bespraardoel in</button>
 				</form>
 			</article>
 		</section>
+
+		<? endif; ?>
+		
 
 
 		</main>

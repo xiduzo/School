@@ -24,20 +24,17 @@ function getUser($user, $checkConnection){
 
 function getPosts($type) {
 
-	$q = "SELECT * FROM school_project_posts";
-
+	$q = "SELECT * FROM";
 	switch($type) {
-		case 'corp':
-			$q .= " WHERE typeBericht = 1";
-		break;
-		case 'tips':
-			// Join for type post
-			$q .= " JOIN school_project_vastePrijzen ON school_project_posts.gaatOver = school_project_vastePrijzen.id";
-			$q .= " WHERE typeBericht = 2";
-		break;
+		case 1:
+			$q .= " school_project_posts";
+			break;
+		case 2:
+			$q .= " school_project_berichten";
+			break;
 	}
 
-	$q .= " ORDER BY datum DESC";
+	$q .= " ORDER BY RAND() LIMIT 0 , 4";
 
 	$host	=	"sql8.pcextreme.nl";
 	$user	= 	"63744sanderboer";
@@ -84,6 +81,23 @@ function getUserName($userID) {
 
 	$userArray = mysqli_fetch_assoc($result);
 	return $userArray['voorNaam']." ".$userArray['achterNaam'];
+}
+
+function getGoal($userID) {
+
+	$q = "SELECT * FROM school_project_goal WHERE fromUser = ".$userID."";
+
+	$host	=	"sql8.pcextreme.nl";
+	$user	= 	"63744sanderboer";
+	$pass	=	"Feyenoord1994!";
+	$db 	= 	"63744sanderboer";
+
+	$checkConnection = mysqli_connect($host,$user,$pass,$db) or die('Geen connectie mogenlijk met de database');
+
+	$result = mysqli_query($checkConnection, $q) or die("Error: ".mysqli_error($checkConnection));
+
+	return $result;
+
 }
 
 function getLastReading($user, $type) {

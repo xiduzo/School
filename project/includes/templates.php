@@ -5,8 +5,11 @@ function head($title){
         <meta charset="utf-8">
         <meta name="description" content="Project 6, team l\'epibré">
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         <title>De huishoud app | '.$title.'</title>
         <link rel="author" href="L\'epibré">
+        <link rel="icon" type="image/ico" href="/favicon.ico"/>
     ';
 }
 
@@ -14,7 +17,7 @@ function pageHeader() {
 	echo '
 		<header id="mainHeader">
 			<div id="navButton"> <i class="fa fa-bars"></i> </div>
-			<div id="appName"></div>
+			<div id="logo"></div>
     	</header>
 	';
 }
@@ -33,16 +36,25 @@ function mainNavigation($whoIs, $activePage) {
 						Home
 					</a>
 				</li>
-				<li class="'. (($activePage == "community") ? $active : $inActive ) .'">
+				<li class="'. (($activePage == "tips") ? $active : $inActive ) .'">
 					<a href="/school/project/bespaartips.php">
 						<i class="fa fa-tags"></i>
 						Bespaartips
 					</a>
 				</li>
+			</ul>
+
+			<ul>
 				<li class="'. (($activePage == "betalingen") ? $active : $inActive ) .'">
 					<a href="/school/project/betalingen.php">
 						<i class="fa fa-folder-open"></i>
 						Mijn betalingen
+					</a>
+				</li>
+				<li class="'. (($activePage == "corporatie") ? $active : $inActive ) .'">
+					<a href="/school/project/corporatie.php">
+						<i class="fa fa-newspaper-o"></i>
+						Mijn wooncorporatie <span>4</span>
 					</a>
 				</li>
 				<li class="'. (($activePage == "bespaardoel") ? $active : $inActive ) .'">
@@ -54,12 +66,6 @@ function mainNavigation($whoIs, $activePage) {
 			</ul>
 
 			<ul>
-				<li class="'. (($activePage == "meterstand") ? $active : $inActive ) .'">
-					<a href="/school/project/meterstand.php">
-						<i class="fa fa-tasks"></i>
-						Meterstand doorgeven
-					</a>
-				</li>
 				<li class="'. (($activePage == "loguit") ? $active : $inActive ) .'">
 					<a href="/school/project/logout.php">
 						<i class="fa fa-power-off"></i>
