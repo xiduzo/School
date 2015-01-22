@@ -1,4 +1,4 @@
-.box-shadow, body #mainHeader, body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton, body #mainContent #callToActionSection article, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #bespaarTips ul li, body #mainContent #readingsSection ul li, body #mainContent #betalingen, body #mainContent #betalingenDetail section, body #mainContent #postsSection #posts a .post {
+.box-shadow, body #mainHeader, body #mainContent #starting button, body #mainContent #loginForm #loginButton, body #mainContent #callToActionSection article, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #bespaarTips ul li, body #mainContent #readingsSection ul li, body #mainContent #betalingen, body #mainContent #betalingenDetail section, body #mainContent #postsSection #posts a .post {
   -webkit-box-shadow: 0 0 0.5em 0 #a6a6a6;
   -moz-box-shadow: 0 0 0.5em 0 #a6a6a6;
   box-shadow: 0 0 0.5em 0 #a6a6a6; }
@@ -307,38 +307,98 @@ body #mainContent {
     animation: hideNav .7s 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
-  body #mainContent #loginForm legend, body #mainContent #forgotForm legend {
+  body #mainContent #starting {
+    margin: 3em 0 0 5em; }
+    body #mainContent #starting span {
+      color: #718a00;
+      font-weight: bold; }
+    body #mainContent #starting article {
+      max-width: 60%;
+      margin: 0 0 5em 0; }
+      body #mainContent #starting article h1 {
+        color: #718a00;
+        font-weight: bold;
+        font-size: 1.2em; }
+      body #mainContent #starting article ul li {
+        display: inline-block;
+        height: 3em;
+        background-color: #009adf;
+        line-height: 3em;
+        padding: 0 1em 0 1em;
+        margin: 0 1em 0 0;
+        color: white;
+        font-weight: bold;
+        text-align: center; }
+        body #mainContent #starting article ul li.active {
+          background-color: #a3c700; }
+    body #mainContent #starting button {
+      display: inherit;
+      background-color: #009adf;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      height: 3em;
+      padding: 0 .5em 0 .5em;
+      margin: 0 1em 0 0;
+      width: 17em;
+      margin: 1em 0 1em 0;
+      border-radius: .7em .7em .7em 0; }
+      body #mainContent #starting button.steps {
+        float: right;
+        bottom: 2em;
+        right: 3em;
+        position: absolute; }
+    body #mainContent #starting.stap1 {
+      margin-top: 25em; }
+    body #mainContent #starting.stap3 article:not(:first-of-type) {
+      display: inline-block;
+      width: 45%; }
+    body #mainContent #starting.stap3 ul li {
+      display: block;
+      width: 8em;
+      margin: .5em 0 .5em; }
+    body #mainContent #starting.stap4 article em {
+      font-weight: bold;
+      font-style: normal;
+      display: inline-block; }
+    body #mainContent #starting.stap4 article input {
+      display: block;
+      height: 2em;
+      width: 16em; }
+  body #mainContent #loginForm legend {
     font-size: 2em;
     font-weight: bold;
     width: 100%;
     text-align: center;
+    color: #0070a2;
     margin: 2em 0 1em 0; }
-    body #mainContent #loginForm legend span, body #mainContent #forgotForm legend span {
+    body #mainContent #loginForm legend span {
       padding: 1em 0 0 0;
       font-size: 0.4em;
       display: inline-block;
       font-weight: 100;
       width: 59%; }
-  body #mainContent #loginForm input[type="text"], body #mainContent #loginForm input[type="password"], body #mainContent #forgotForm input[type="text"], body #mainContent #forgotForm input[type="password"] {
+  body #mainContent #loginForm input {
     display: inherit;
     width: 45%;
     height: 3em;
     margin: auto;
     padding: 0 0 0 1em;
+    margin-bottom: 1.5em;
     border: 0.1em solid #f3f3f3; }
-  body #mainContent #loginForm #loginButton, body #mainContent #loginForm #forgotButton, body #mainContent #forgotForm #loginButton, body #mainContent #forgotForm #forgotButton {
+  body #mainContent #loginForm #loginButton {
     width: 46.5%;
     margin: auto;
     display: inherit;
-    background-color: white;
+    background-color: #009adf;
     border: none;
-    color: #009adf;
+    color: white;
     font-size: 1.2em;
     height: 3em;
     margin-top: 3em;
     margin-bottom: 3em;
     border-radius: .7em .7em .7em 0; }
-  body #mainContent #loginForm a, body #mainContent #forgotForm a {
+  body #mainContent #loginForm a {
     padding: 0 27% 2em 27%;
     float: right;
     font-weight: bold; }

@@ -322,13 +322,97 @@ body {
             -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
         }
+        // Getting started
+        #starting {
+            margin: 3em 0 0 5em;
+            span {
+                color: $mainColorDark;
+                font-weight: bold;
+            }
+            article {
+                max-width: 60%; 
+                margin: 0 0 5em 0;  
+                h1 {
+                    color: $mainColorDark;
+                    font-weight: bold;
+                    font-size: $fontSize * 1.2;
+                }
+                ul {
+                    li {
+                        display: inline-block;
+                        height: 3em;
+                        background-color: $supportColor;
+                        line-height: 3em;
+                        padding: 0 1em 0 1em;
+                        margin: 0 1em 0 0;
+                        color: white;
+                        font-weight: bold;
+                        text-align: center;
+                        &.active {
+                            background-color: $mainColor;
+                        }
+                    }
+                } 
+            }
+            button {
+                @extend .box-shadow;
+                display: inherit;
+                background-color: $supportColor;
+                border: none;
+                color: white;
+                font-size: $fontSize * 1.2;
+                height: 3em;
+                padding: 0 .5em 0 .5em;
+                margin: 0 1em 0 0;
+                width: 17em;
+                margin: 1em 0 1em 0;
+                border-radius: .7em .7em .7em 0;
+                &.steps {
+                    float: right;
+                    bottom: 2em;
+                    right: 3em;
+                    position: absolute;
+                }
+            }
+            &.stap1 {
+                margin-top: 25em;
+            }
+            &.stap3 {
+                article:not(:first-of-type) {
+                    display: inline-block;
+                    width: 45%;
+                }
+                ul {
+                    li {
+                        display: block;
+                        width: 8em;
+                        margin: .5em 0 .5em;
+                    }
+                }
+            }
+            &.stap4 {
+                article {
+                    em {
+                        font-weight: bold;
+                        font-style: normal;
+                        display: inline-block;
+                    }
+                    input {
+                        display: block;
+                        height: 2em;
+                        width: 16em;
+                    }
+                }
+            }
+        }
         // Login page
-        #loginForm, #forgotForm {
+        #loginForm{
             legend {
                 font-size: $fontSize * 2;
                 font-weight: bold;
                 width: 100%;
                 text-align: center;
+                color: $supportColorDark;
                 margin: 2em 0 1em 0;
                 span {
                     padding: 1em 0 0 0;
@@ -338,22 +422,23 @@ body {
                     width: 59%;
                 }
             }
-            input[type="text"], input[type="password"] {
+            input {
                 display: inherit;
                 width: 45%;
                 height: 3em;
                 margin: auto;
                 padding: 0 0 0 1em;
+                margin-bottom: 1.5em;
                 border: 0.1em solid $grey;
             }
-            #loginButton, #forgotButton {
+            #loginButton{
                 @extend .box-shadow;
                 width: 46.5%;
                 margin: auto;
                 display: inherit;
-                background-color: white;
+                background-color: $supportColor;
                 border: none;
-                color: $supportColor;
+                color: white;
                 font-size: $fontSize * 1.2;
                 height: 3em;
                 margin-top: 3em;
