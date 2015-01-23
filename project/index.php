@@ -92,49 +92,37 @@ $user = getUser($_SESSION['user']);
 			<div id="showDetailButton"><i class="fa fa-chevron-up"></i> Bekijk de details van je gebruik <i class="fa fa-chevron-up"></i></div>
 			<div id="detailDisplays">
 				<ul>
-					<!-- http://www.nibud.nl/uitgaven/huishouden/gas-elektriciteit-en-water.html -->					
-					<li>
-						<i class="fa fa-fire"></i>
-						<h1>Gas</h1>
-						Totaal verbruik deze maand:
-						<div class="expense">
-							&euro;<? echo number_format(rand(7000,8000)/100,2) ?>
-						</div>
-						<div class="use">
-							(<? echo number_format(rand(8000,10000)/100,2) ?> m³)
-						</div>
-						<div class="percent">
-							<span>U verbruikt 5% meer dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-up"></i>
-						</div>
-					</li>
-					<li>
-						<i class="fa fa-plug"></i>
-						<h1>Electriciteit</h1>
-						Totaal verbruik deze maand:
-						<div class="expense">
-							&euro;<? echo number_format(rand(2500,3500)/100,2) ?>
-						</div>
-						<div class="use">
-							(<? echo number_format(rand(16000,17500)/100,2) ?> kWh)
-						</div>
-						<div class="percent">
-							<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
-						</div>
-					</li>						
-					<li>
-						<i class="fa fa-tint"></i>
-						<h1>Water</h1>
-						Totaal verbruik deze maand:
-						<div class="expense">
-							&euro;<? echo number_format(rand(800,1300)/100,2) ?>
-						</div>
-						<div class="use">
-							(<? echo number_format(rand(370000,380000)/100,2) ?> Liter)
-						</div>
-						<div class="percent">
-							<span>U verbruikt 5% minder dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-down"></i>
-						</div>
-					</li>
+					<!-- http://www.nibud.nl/uitgaven/huishouden/gas-elektriciteit-en-water.html -->
+					<?
+						// detailUse($icon, $what, $price, $use, $useType, $percent, $moreOrLess)
+						detailUse(
+							'fire', 
+							'gas', 
+							number_format(rand(7000,8000)/100,2), 
+							number_format(rand(8000,10000)/100,2), 
+							'm³', 
+							5, 
+							'minder'
+						);
+						detailUse(
+							'plug', 
+							'Electriciteit', 
+							number_format(rand(2500,3500)/100,2), 
+							number_format(rand(16000,17500)/100,2), 
+							'kWh', 
+							8, 
+							'minder'
+						);
+						detailUse(
+							'tint', 
+							'Water', 
+							number_format(rand(800,1300)/100,2), 
+							number_format(rand(370000,380000)/100,2), 
+							'Liter', 
+							5, 
+							'meer'
+						);
+					?>
 				</ul>
 			</div>
 		</section>

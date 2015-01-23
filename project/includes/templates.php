@@ -77,57 +77,51 @@ function mainNavigation($whoIs, $activePage) {
 	';
 }
 
-// function detailDisplay($header, $icon, $what, $cost, $use, $measure, $percent, $moreOrLess) {
-// 	$iconUse = $moreOrLess == 'meer' ? 'up' : 'down';
-// 	echo '
-// 		<header class="'.$header.'"></header>
-// 		<i class="fa fa-'.$icon.'></i>
-// 		<h1>'.$what.'</h1>
-// 		<div class="expense">
-// 			&euro;'.$cost.'
-// 		</div>
-// 		<div class="use">
-// 			'.$use.' '.$measure.'
-// 		</div>
-// 		<div class="percent">
-// 			'.$percent.' '.$moreOrLess.' <i class="fa fa-arrow-circle-o-'.$iconUse.'"></i>
-// 		</div>
-// 	';
-// }
-
-function detailDisplayInfo($what, $percentage, $moreOrLess, $amoundSaved) {
+function detailUse($icon, $what, $price, $use, $useType, $percent, $moreOrLess) {
+	switch ($moreOrLess) {
+		case 'meer':
+			$icon2 = 'up';
+			break;
+		
+		default:
+			$icon2 = 'down';
+			break;
+	}
 	echo '
-		<h1>'.$what.'verbruik
-			<span> vandaag,
-					'.date('d F Y').'
-			</span>
-		</h1>
-		<div id="detailDisplayInfo">
-			<ul>
-				<li>
-					<div id="usagePercentageCompare"><i class="fa fa-pie-chart"></i></div>
-					<div id="usageCompare">
-						Verbruik t.o.v. het gemiddelde <br/>
-						<span>'.$percentage.'% '.$moreOrLess.'</span>
-					</div>
-				</li>
-				<li>
-					<div id="moneySaved"><i class="fa fa-money"></i></div>
-					<div class="usageSaving">
-						Totale besparing <br/>
-						<span>&euro; '.number_format($amoundSaved, 2).'</span>
-					</div>
-					<div class="usageSaving">
-						Totale besparing op maandbasis &sup1;<br/>
-						<span>&euro; '.number_format($amoundSaved*31 ,2).'</span>
-					</div>
-					<div class="usageSaving">
-						Totale besparing op jaarbasis &sup1;<br/>
-						<span>&euro; '.number_format($amoundSaved*365, 2).'</span>
-					</div>
-				</li>
-			</ul>
-		</div>
+		<li>
+			<i class="fa fa-'.$icon.'"></i>
+			<h1>'.$what.'</h1>
+			Totaal verbruik deze maand:
+			<div class="expense">
+				&euro;'.$price.'
+			</div>
+			<div class="use">
+				('.$use.' '.$useType.')
+			</div>
+			<div class="percent">
+				<span>U verbruikt '.$percent.'% '.$moreOrLess.' dan andere gebruikers</span> <i class="fa fa-arrow-circle-o-'.$icon2.'"></i>
+			</div>
+		</li>
+	';
+}
+
+function showTip($titel, $tip, $omdat, $besparing) {
+	echo '
+		<li>
+			<article>
+				<h1>'.$titel.'</h1>
+				<p>
+					'.$tip.'
+				</p>
+				<p>
+					<span>Waarom?</span>
+					'.$omdat.'
+				</p>
+				<div id="saving">
+					<i class="fa fa-money"></i>&euro;'.$besparing.'
+				</div>
+			</article>
+		</li>
 	';
 }
 

@@ -40,23 +40,8 @@ $user = getUser($_SESSION['user']);
 					$allPosts = getPosts(1);
 
 					while($post = mysqli_fetch_array($allPosts)){
-						echo '
-						<li>
-							<article>
-								<h1>'.$post['titel'].'</h1>
-								<p>
-									'.$post['tip'].'
-								</p>
-								<p>
-									<span>Waarom?</span>
-									'.$post['omdat'].'
-								</p>
-								<div id="saving">
-									<i class="fa fa-money"></i>&euro;'.$post['besparing'].'
-								</div>
-							</article>
-						</li>
-						';
+						//showTip($titel, $tip, $omdat, $besparing);
+						showTip($post['titel'], $post['tip'], $post['omdat'], $post['besparing']);
 					}
 				?>
 			</section>

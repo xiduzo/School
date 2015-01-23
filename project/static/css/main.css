@@ -1,4 +1,4 @@
-.box-shadow, body #mainHeader, body #mainContent #starting button, body #mainContent #loginForm #loginButton, body #mainContent #callToActionSection article, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #bespaarTips ul li, body #mainContent #readingsSection ul li, body #mainContent #betalingen, body #mainContent #betalingenDetail section, body #mainContent #postsSection #posts a .post {
+.box-shadow, body #mainHeader, body #popUpScreen.active #popUpVisableScreen, body #mainContent #starting button, body #mainContent #loginForm #loginButton, body #mainContent #callToActionSection article, body #mainContent #detailUseSection, body #mainContent #detailUseSection #detailDisplays ul li, body #mainContent #goalPriceSection article, body #mainContent #bespaarTips ul li, body #mainContent #corporatie ul li, body #mainContent #readingsSection ul li, body #mainContent #betalingen, body #mainContent #betalingenDetail section {
   -webkit-box-shadow: 0 0 0.5em 0 #a6a6a6;
   -moz-box-shadow: 0 0 0.5em 0 #a6a6a6;
   box-shadow: 0 0 0.5em 0 #a6a6a6; }
@@ -228,13 +228,14 @@ body #popUpScreen {
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards; }
     body #popUpScreen.active #popUpVisableScreen {
-      background-color: white;
+      background-color: White;
       width: 70%;
       position: fixed;
       top: -50%;
       left: 11%;
-      border: 1px solid black;
       padding: 2em;
+      max-height: 34em;
+      overflow-y: scroll;
       -webkit-animation: newTip .7s 1;
       -moz-animation: newTip .7s 1;
       -o-animation: newTip .7s 1;
@@ -251,7 +252,10 @@ body #popUpScreen {
           top: .3em;
           right: .2em; }
       body #popUpScreen.active #popUpVisableScreen h1 {
-        font-size: 2em; }
+        font-size: 2em;
+        color: #718a00; }
+      body #popUpScreen.active #popUpVisableScreen p {
+        padding: 1em 0 1em 0; }
       body #popUpScreen.active #popUpVisableScreen form {
         margin: 1em 0 0 0; }
         body #popUpScreen.active #popUpVisableScreen form input[type="text"], body #popUpScreen.active #popUpVisableScreen form input[type="number"], body #popUpScreen.active #popUpVisableScreen form textarea {
@@ -599,7 +603,7 @@ body #mainContent {
           padding: 0 1em 0 1em;
           margin: 0 0 1em 0;
           border-radius: .7em .7em .7em 0; }
-  body #mainContent #bespaarTips ul li {
+  body #mainContent #bespaarTips ul li, body #mainContent #corporatie ul li {
     display: inline-block;
     width: 20%;
     height: 22em;
@@ -608,27 +612,39 @@ body #mainContent {
     background-color: #f3f3f3;
     vertical-align: top;
     position: relative; }
-    body #mainContent #bespaarTips ul li h1 {
+    body #mainContent #bespaarTips ul li h1, body #mainContent #corporatie ul li h1 {
       color: #718a00;
       text-align: center;
       font-size: 1.3em; }
-    body #mainContent #bespaarTips ul li p {
+    body #mainContent #bespaarTips ul li p, body #mainContent #corporatie ul li p {
       padding: 1em 0 1em 0; }
-      body #mainContent #bespaarTips ul li p:nth-of-type(2) {
+      body #mainContent #bespaarTips ul li p:nth-of-type(2), body #mainContent #corporatie ul li p:nth-of-type(2) {
         position: absolute;
         top: 8em; }
-    body #mainContent #bespaarTips ul li span {
+    body #mainContent #bespaarTips ul li span, body #mainContent #corporatie ul li span {
       display: block;
       color: #718a00;
       font-weight: bold; }
-    body #mainContent #bespaarTips ul li #saving {
+    body #mainContent #bespaarTips ul li #saving, body #mainContent #corporatie ul li #saving {
       position: absolute;
       bottom: 1em;
       font-weight: bold;
       font-size: 1.2em; }
-      body #mainContent #bespaarTips ul li #saving i {
+      body #mainContent #bespaarTips ul li #saving i, body #mainContent #corporatie ul li #saving i {
         color: #009adf;
         padding: 0 .5em 0 0; }
+    body #mainContent #bespaarTips ul li #readMore, body #mainContent #corporatie ul li #readMore {
+      position: absolute;
+      bottom: 0;
+      font-weight: bold;
+      background-color: #009adf;
+      color: white;
+      font-size: 1.2em;
+      width: 101%;
+      height: 2em;
+      margin-left: -.9em;
+      text-align: center;
+      line-height: 2em; }
   body #mainContent #readingsSection ul {
     text-align: center;
     padding: 3em 0 0 0; }
@@ -741,6 +757,9 @@ body #mainContent {
         font-size: 1.7em;
         color: white;
         font-weight: bold; }
+        body #mainContent #betalingen ul li span .saved {
+          display: inline;
+          color: white; }
   body #mainContent #betalingenDetail {
     width: 60%;
     left: 10%;
@@ -763,87 +782,8 @@ body #mainContent {
             font-weight: bold;
             display: block;
             vertical-align: top; }
-          body #mainContent #betalingenDetail section ul li #usage, body #mainContent #betalingenDetail section ul li #usageCompare, body #mainContent #betalingenDetail section ul li .usageSaving {
-            position: relative;
-            font-size: 0.7em;
-            margin: 2.5em 0 0 1.5em;
-            width: 10em;
-            float: left;
-            min-height: 6em; }
-            body #mainContent #betalingenDetail section ul li #usage span, body #mainContent #betalingenDetail section ul li #usageCompare span, body #mainContent #betalingenDetail section ul li .usageSaving span {
-              position: absolute;
-              bottom: 0;
-              font-size: 1.3em; }
-          body #mainContent #betalingenDetail section ul li #moneySaved, body #mainContent #betalingenDetail section ul li #usagePercentageCompare {
-            margin: 1.5em 0 0 0;
-            float: left; }
-            body #mainContent #betalingenDetail section ul li #moneySaved i, body #mainContent #betalingenDetail section ul li #usagePercentageCompare i {
-              font-size: 5.5em; }
-              body #mainContent #betalingenDetail section ul li #moneySaved i.fa-pie-chart, body #mainContent #betalingenDetail section ul li #usagePercentageCompare i.fa-pie-chart {
-                color: grey; }
-              body #mainContent #betalingenDetail section ul li #moneySaved i.fa-money, body #mainContent #betalingenDetail section ul li #usagePercentageCompare i.fa-money {
-                color: #fcb828;
-                margin: 0 0 0 .3em; }
-  body #mainContent #postsSection #posts {
-    -webkit-column-count: 3;
-    -webkit-column-gap: 1em;
-    -webkit-column-fill: auto;
-    -moz-column-count: 3;
-    -moz-column-gap: 1em;
-    -moz-column-fill: auto;
-    column-count: 2;
-    column-gap: 1em;
-    column-fill: auto;
-    width: 98%;
-    margin: auto;
-    margin-top: 1.5em;
-    padding-bottom: 3em; }
-    body #mainContent #postsSection #posts a {
-      text-decoration: none; }
-      body #mainContent #postsSection #posts a .post {
-        background-color: white;
-        margin: 0 2px 1em;
-        padding: 0 0 1em 0;
-        -webkit-column-break-inside: avoid;
-        -moz-column-break-inside: avoid;
-        column-break-inside: avoid;
-        -webkit-transition: all 2s ease;
-        -moz-transition: all 2s ease;
-        -o-transition: all 2s ease;
-        transition: all 2s ease; }
-        body #mainContent #postsSection #posts a .post header {
-          height: 1.75em;
-          position: inherit;
-          width: 100%; }
-          body #mainContent #postsSection #posts a .post header.energy {
-            background-color: #f5d76e; }
-          body #mainContent #postsSection #posts a .post header.water {
-            background-color: #4b77be; }
-          body #mainContent #postsSection #posts a .post header.gas {
-            background-color: #26a65b; }
-        body #mainContent #postsSection #posts a .post article {
-          position: inherit; }
-          body #mainContent #postsSection #posts a .post article h1 {
-            padding: 3% 5% 0 5%;
-            font-size: 1.5em; }
-          body #mainContent #postsSection #posts a .post article p {
-            padding: 3% 5% 0 5%;
-            margin: 1em 0 1em 0; }
-            body #mainContent #postsSection #posts a .post article p span {
-              color: #009adf; }
-          body #mainContent #postsSection #posts a .post article .postedBy {
-            padding: .7em 0 .7em 0;
-            border-top: 1px solid #f3f3f3; }
-            body #mainContent #postsSection #posts a .post article .postedBy img {
-              width: 4em;
-              height: 4em;
-              border-radius: 50%;
-              float: left;
-              margin: 0 1em 0 1em;
-              border: 0.2em solid #a3c700; }
-            body #mainContent #postsSection #posts a .post article .postedBy time {
-              font-size: 0.8em;
-              color: #f8f8f8; }
+            body #mainContent #betalingenDetail section ul li span #saving, body #mainContent #betalingenDetail section ul li span #used {
+              display: inline; }
 body nav {
   background-color: black;
   height: 100%;
