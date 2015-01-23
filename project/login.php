@@ -136,6 +136,7 @@ include 'includes/checks.php';
 			<? elseif($point == 4): ?>
 					<form id="loginForm" method="post" action="<?=$_SERVER['PHP_SELF']?>">
 						<legend>Inloggen Mijn WoonEnergie</legend>
+						<span>*login prototype: 123456789 / wachtwoord</span>
 
 						<input type="text" name="klantNummer" placeholder="Klantnummer">
 						<input type="password" name="wachtwoord" placeholder="Wachtwoord">
