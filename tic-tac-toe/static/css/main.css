@@ -1,0 +1,61 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
+	padding: 1em 0 0 0;
+}
+
+table td {
+	padding: 5em;
+}
+
+table {
+	margin: auto;
+}
+
+table,
+td {
+	border: 2px solid black;
+}
+
+table td.free:hover {
+	background-color: #2ecc71;
+	cursor: pointer;
+}
+
+table td.occupied:hover {
+	background-color: #e74c3c;
+	cursor: pointer;
+}
+
+table td.X {
+	background-color: #ABB7B7;
+}
+
+table td.O {
+	background-color: #4183D7;
+}
+
+h2 {
+	display: inline-block;
+	width: 49%;
+	text-align: center;
+	margin: 3em 0 0 0;
+}
+
+h2 span {
+	display: block;
+	font-size: 4em;
+	text-align: center;
+}
+
+h2:first-of-type span {
+	color: green;
+}
+
+h2:last-of-type span {
+	color: red;
+}
